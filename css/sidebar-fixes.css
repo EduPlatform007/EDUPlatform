@@ -1,0 +1,34 @@
+/* Фикс выравнивания уроков в сайдбаре */
+.lesson-list li, .lesson-item {
+  margin-left: 0 !important;
+  width: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  box-sizing: border-box !important;
+  text-align: left !important;
+  padding-left: 15px !important;
+}
+
+/* Выравнивание всех элементов по левому краю */
+.sidebar ul.lesson-list, 
+.sidebar ul.lesson-list li,
+.lesson-list li, 
+.lesson-item {
+  margin-left: 0 !important;
+  padding-left: 15px !important;
+}
+
+/* Убираем отступы слева */
+.sidebar ul.lesson-list {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Фикс галочек для завершенных уроков */
+.lesson-completed {
+  display: inline-block !important;
+  color: #4CAF50 !important;
+  font-weight: bold !important;
+  margin-left: auto !important;
+  margin-right: 5px !important;
+}
