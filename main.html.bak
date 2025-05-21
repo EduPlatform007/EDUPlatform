@@ -1,0 +1,646 @@
+﻿<!DOCTYPE html>
+<html lang="kk" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-lang-key="title">EduPlatform</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header-line">
+        <div class="header-logo">
+            EduPlatform
+        </div>
+        <div class="header-text">
+            <a class="header-link" href="main.html" data-lang-key="main">Басты</a>
+            <a class="header-link" href="courses.html" data-lang-key="courses">Курстар</a>
+            <a class="header-link" href="#footer" data-lang-key="contacts">Байланыс</a>            
+            <div class="header-select">                
+                <div class="selector">                    
+                    <select name="language" id="select" class="select">
+                        <option value="Қазақша">Қазақша</option>
+                        <option value="Русский">Русский</option>
+                    </select>
+                </div>
+                <div class="theme-switch" id="theme-switch">
+                    <i class="fas fa-moon theme-switch-icon" id="theme-icon"></i>
+                </div>
+                <div class="header-button">
+                    <a class="btn-log" id="btn-log" href="login.html" data-lang-key="login">Кіру</a>
+                </div>
+                <div class="header-button user-profile-btn" style="display: none;">
+                    <a class="btn-profile" id="btn-profile" href="profile.html" data-lang-key="profile">Профиль</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="main-frame animated">
+        <div class="main-text">
+            <div class="big-text" data-lang-key="main_title">
+                Білім алудың <br>
+                 жаңа дәуірі!
+            </div>
+            <div class="default-text" data-lang-key="main_subtitle">
+                Онлайн курстар арқылы қол жеткізіңіз
+            </div>
+            <div class="maines-btn">
+                <a class="main-btn" href="courses.html" data-lang-key="view_courses">Курстарды қарау</a>
+            </div>
+        </div>
+        <div class="main-img">
+            <img class="image" src="img/picture.png" alt="Picture">
+        </div>
+    </section>
+
+    <section class="second-frame animated">
+            <div class="sec-text" data-lang-key="top_courses">
+                Үздік курстар
+            </div>
+            <div class="carts">
+                <div class="first-carts">
+                    <div class="carts-pic">
+                        <img class="icon" src="img/sprite1.png" alt="Sprite1">
+                    </div>
+                    <div class="bold-carts" data-lang-key="html_title">
+                        HTML ,CSS-тің негізгі түсініктері
+                    </div>
+                    <div class="med-carts" data-lang-key="html_desc">
+                        Веб-сайттың құрылымын және <br>
+                        дизайнын жасауды <br> үйреніңіз.
+                    </div>
+                    <div class="link-carts">
+                        <a class="link-cart" href="course.html" data-lang-key="learn_more">Көбірек білу</a> 
+                    </div>
+                </div>
+
+                <div class="second-carts">
+                    <div class="carts-pic">
+                        <img class="icon" src="img/sprite2.png" alt="Sprite2">
+                    </div>
+                    <div class="bold-carts" data-lang-key="python_title">
+                        Python бағдарламалау
+                    </div>
+                    <div class="med-carts" data-lang-key="python_desc">
+                        Айнымалылар, шарттар, циклдер <br>
+                        және функциялармен жұмыс <br>
+                        жасауды үйреніңіз.
+                    </div>
+                    <div class="link-carts">
+                        <a class="lin-cart" href="python_course.html" data-lang-key="learn_more">Көбірек білу</a> 
+                    </div>
+                </div>
+
+                <div class="third-carts">
+                    <div class="carts-pic">
+                        <img class="icon" src="img/sprite3.png" alt="Sprite3">
+                    </div>
+                    <div class="bold-carts" data-lang-key="db_title">
+                        Деректер базасымен жұмыс
+                    </div>
+                    <div class="med-carts" data-lang-key="db_desc">
+                        Деректерді сақтау, сұраныс жасау <br>
+                         және басқару әдістерін <br> меңгеріңіз.
+                    </div>
+                    <div class="link-carts">
+                        <a class="link-cart" href="database_course.html" data-lang-key="learn_more">Көбірек білу</a> 
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <section class="third-frame">
+        <div class="grid-carts">
+            <div class="charac-first">
+                <div class="charac-text">
+                <div class="bold-big-text" data-lang-key="online_course">Онлайн курс</div>
+                <div class="medium-text" data-lang-key="online_desc">Білімді кез келген жерден <br>
+                     және құрылғыдан алу</div>
+                </div>
+                <div class="image-icons-charac">
+                    <img class="icon-3d-1" src="img/laptop.png" alt="Laptop">
+                </div>
+            </div>
+            <div class="charac-second">
+                <div class="charac-text">
+                <div class="bold-big-text" data-lang-key="schedule">Сабақ кестесі</div>
+                <div class="medium-text" data-lang-key="schedule_desc">Апталық және күнделікті <br>
+                     оқу жоспары</div>
+                </div>
+                <div class="image-icons-charac">
+                    <img class="icon-3d-2" src="img/calendar.png" alt="Calendar">
+                </div>
+            </div>
+        </div>
+        <div class="grid-carts-sec">
+            <div class="charac-second">
+                <div class="charac-text">
+                <div class="bold-big-text" data-lang-key="achievements">Жетістіктер <br> жүйесі</div>
+                <div class="medium-text" data-lang-key="achievements_desc">Оқудағы прогресті <br> бақылап, марапаттар <br> жина</div>
+                </div>
+                <div class="image-icons-charac">
+                    <img class="icon-3d-3" src="img/trophey.png" alt="Trophey">
+                </div>
+            </div>
+            <div class="charac-first">
+                <div class="charac-text">
+                <div class="bold-big-text" data-lang-key="interactive">Интерактивті  <br>жаттығу</div>
+                <div class="medium-text" data-lang-key="interactive_desc">Тапсырмалар арқылы <br> білімді бекіту</div>
+                </div>
+                <div class="image-icons-charac">
+                    <img class="icon-3d-4" src="img/todolist.png" alt="TodoList">
+                </div>
+        </div>
+    </div>
+    </section>
+
+    <section class="four-frame animated">
+        <div class="teachers-text" data-lang-key="top_teachers">Үздік мұғалімдер</div>
+        <div class="teachers-carts">
+            <div class="teacher">
+                <img class="img-teach" src="img/first-teach.png" alt="1teacher">
+                <div class="bold-teach" data-lang-key="teacher1_course">HTML,CSS</div>
+                <div class="medium-teach">
+                <span data-lang-key="teacher1_name">Есім: Дильназ Тулегенова</span> <br>
+                <span data-lang-key="teacher1_exp">Тәжірибесі: 5 жыл</span>
+                </div>
+            </div>
+            <div class="teacher">
+                <img class="img-teach" src="img/second-teach.png" alt="2teacher">
+                <div class="bold-teach" data-lang-key="teacher2_course">Python</div>
+                <div class="medium-teach">
+                <span data-lang-key="teacher2_name">Есім: Томирис Жумабаева</span><br>
+                <span data-lang-key="teacher2_exp">Тәжірибесі: 7 жыл</span>
+                </div>
+            </div>
+            <div class="teacher">
+                <img class="img-teach" src="img/third-teach.png" alt="3teacher">
+                <div class="bold-teach" data-lang-key="teacher3_course">Деректер базасы</div>
+                <div class="medium-teach">
+                <span data-lang-key="teacher3_name">Есім: Айдын Турсунов</span><br>
+                <span data-lang-key="teacher3_exp">Тәжірибесі: 9 жыл</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="five-frame animated">
+    <div class="new-curs" data-lang-key="new_course_system">Жаңа курс системасы</div>
+    <div class="first-frame-in-five-frame">
+        <div class="five-bold-text" data-lang-key="edu_platform">EduPlatform</div>
+        <div class="five-sec-bold-text" data-lang-key="learning_system">оқыту жүйесі:</div>
+        <div class="ol-li">
+            <div class="ol-first">
+                <div data-lang-key="course_system_p1">1.Интерактивті сабақтар және видео лекциялар</div>
+                <div data-lang-key="course_system_p2">2.Практикалық тапсырмалар мен жобалар</div>
+                <div data-lang-key="course_system_p3">3.Автоматты тестілеу жүйесі</div>
+                <div data-lang-key="course_system_p4">4.Жедел кері байланыс жүйесі</div>
+                <div data-lang-key="course_system_p5">5.Топтық жобалар мен дискуссиялар</div>
+                <div data-lang-key="course_system_p6">6.Оффлайн режимде жұмыс істеу мүмкіндігі</div>
+                <div data-lang-key="course_system_p7">7.Жеке даму жоспары</div>
+                <div data-lang-key="course_system_p8">8.Оқу процесін талдау панелі</div>
+                </div>
+                <div class="ol-second">
+                <div data-lang-key="course_system_p9">9. Жеке куратордың қолдауы</div>
+                <div data-lang-key="course_system_p10">10. Карьералық консультациялар</div>
+                <div data-lang-key="course_system_p11">11. Оқу материалының қолжетімді форматы</div>
+                <div data-lang-key="course_system_p12">12. Мобильді қосымша арқылы қол жеткізу</div>
+                <div data-lang-key="course_system_p13">13. Білім деңгейін бақылау жүйесі</div>
+                <div data-lang-key="course_system_p14">14. Сертификаттау бағдарламасы</div>
+                <div data-lang-key="course_system_p15">15. Халықаралық стандарттарға сәйкестік</div>
+                <div data-lang-key="course_system_p16">16. Ұйымдастырушылық қолдау қызметі</div>
+                </div>
+        </div>
+        <div class="second-frame-in-frame">
+            <div class="bold-black-text" data-lang-key="features">Ерекшеліктері:</div>
+            <div class="numb-ol">
+                <div data-lang-key="features_p1">1.Қазіргі заманғы технологияларға негізделген оқыту әдістері</div>
+                <div data-lang-key="features_p2">2.Тәжірибелі оқытушылар мен сарапшылар командасы</div>
+                <div data-lang-key="features_p3">3.Жеке тұлғаға бағытталған оқыту жүйесі</div>
+                <div data-lang-key="features_p4">4.Икемді оқу графигі және қарқындылығы</div>
+                <div data-lang-key="features_p5">5.Нарықтық сұранысқа сәйкес келетін бағдарламалар</div>
+                <div data-lang-key="features_p6">6.Шынайы жобалар арқылы тәжірибе жинау мүмкіндігі</div>
+                <div data-lang-key="features_p7">7.Білім алушылардың қауіпсіздігі мен құпиялылығы</div>
+                <div data-lang-key="features_p8">8.Үздіксіз жаңартылатын оқу материалы</div>
+            </div>
+        </div>
+    </div>
+    </section>
+
+    <section class="six-frame animated">
+        <div class="bold-student-text" data-lang-key="reviews">Пікірлер</div>
+        <div class="student-carts">
+            <div class="student">
+                <img class="img-student" src="img/1studet.png" alt="1student">
+                <div class="name-student" data-lang-key="student1_name">Аружан Кенжебаева</div>
+                <div class="text-student" data-lang-key="student1_review">Бұл курс арқылы мен веб-дизайнның <br> негіздерін үйрендім. Практикалық  <br> тапсырмалар өте пайдалы болды, әрі оларды <br> өзімше өзгертіп жасауға  мүмкіндік берді. <br> Оқытушылар әрқашан кері байланыс береді <br> және күрделі  сұрақтарға түсінікті түрде жауап <br> береді. Қазір мен өз бетімше қарапайым <br>  сайттар жасай аламын. Курсты аяқтағаннан <br> кейін портфолиомға бірнеше  жобаны қостым!</div>
+            </div>
+            <div class="student">
+                <img class="img-student" src="img/2studet.png" alt="2student">
+                <div class="name-student" data-lang-key="student2_name">Мадина Ермекова</div>
+                <div class="text-student" data-lang-key="student2_review">Python бағдарламалауды нөлден бастап<br> үйренгім келді, және бұл курс маған керекті<br> нәрсені берді. Сабақтар анық және қадамдық<br> түрде ұсынылған,  сондықтан түсіну оңай <br> болды. Практикалық тапсырмалар мен мини-<br>жобалар  арқылы білімімді бекітуге мүмкіндік <br> туды. Қазір мен өзімнің қарапайым  <br> бағдарламалар мен скриптерлер жаза <br> аламын. Курс маған IT-салаға қадам  басуға <br> көмеkтесті!</div>
+            </div>
+            <div class="student">
+                <img class="img-student" src="img/3student.png" alt="3student">
+                <div class="name-student" data-lang-key="student3_name">Арман Касымов</div>
+                <div class="text-student" data-lang-key="student3_review">Дерекқорлар мен SQL туралы білім алғым<br> келді, және бұл курс маған осы  саланы<br> тереңірек түсінуге көмеkтесті. Сабақтарда<br> нақты мысалдар мен  жұмыс кестелері<br> қолданылды, сондықтан материалды түсіну<br> оңай болды. Курс аясында мен өз бетімше<br> сұраулар жазып, дерекқорларды басқара<br> алдым. Бұл білім маған жұмыс іздеу кезінде<br> айтарлықтай артықшылық берді!</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="seven-frame animated">
+            <div class="bold-question-text" data-lang-key="faq">Жиі қойылатын сұрақтар</div>
+            <div class="questions-list">
+                <div class="question">
+                    <div class="quest-only-up">
+                        <div class="quest-text" data-lang-key="faq1_q">
+                            EduPlatform деген не?
+                        </div>
+                        <button class="quest-link" type="button">
+                            <img class="img-down" src="img/group-down.png" alt="down-link">
+                        </button>
+                    </div>
+                    <div class="answer" data-lang-key="faq1_a">
+                        EduPlatform - бұл заманауи онлайн-білім беру платформасы, онда IT,  бағдарламалау және цифрлық<br> дағдылар бойынша арналған курстар ұсынылады.  Біздің мақсатымыз - әркімге қолжетімді және сапалы<br> білім беру арқылы  кәсіби дамуға көмеkтесу. Платформада интерактивті сабақтар, практикалық <br> тапсырмалар және нақты жобалар арқылы білім алу мүмкіндігі бар.
+                    </div>
+                </div>
+                <div class="question">
+                    <div class="quest-only-up">
+                        <div class="quest-text" data-lang-key="faq2_q">
+                            Сабақтар қалай өтеді?
+                        </div>
+                        <button class="quest-link" type="button">
+                            <img class="img-down" src="img/group-down.png" alt="down-link">
+                        </button>
+                    </div>
+                    <div class="answer" data-lang-key="faq2_a">
+                        Сабақтар онлайн форматында өтеді, оларға кез келген уақытта қосылуға болады. Әр сабақ:<br>
+                        1.теориялық бөлімнен (видео лекциялар, презентациялар),<br>
+                        2.практикалық тапсырмалардан (автоматты тестілеу, жеке және топтық жобалар),<br>
+                        3.қосымша материалдардан (статьялар, пайдалы сілтемелер) тұрады. <br>
+                        Сабақтарға компьютерден, планшеттен немесе смартфоннан қол жеткізуге болады.
+                    </div>
+                </div>
+                <div class="question">
+                    <div class="quest-only-up">
+                        <div class="quest-text" data-lang-key="faq3_q">
+                            EduPlatform платформасы дегеніміз не?
+                        </div>
+                        <button class="quest-link" type="button">
+                            <img class="img-down" src="img/group-down.png" alt="down-link">
+                        </button>
+                    </div>
+                    <div class="answer" data-lang-key="faq3_a">
+                        Біздің платформаның негізгі ерекшеліктері:<br>
+                        1.Икемді график - өзіңізге ыңғайлы уақытта оқу мүмкіндігі.<br>
+                        2.Тәжірибелі оқытушылар - саланың маманынан тікелей кері байланыс алу.<br>
+                        3.Практикаға бағытталған - нақты жобалар арқылы білімді бекіту.<br>
+                        4.Қолдау қызметі - кез келген қиындықта тегін консультация алу. <br>
+                        5.Сертификат - курсты аяқтағаннан кейін растайтын құжат алу.
+                    </div>
+                </div>
+                <div class="question">
+                    <div class="quest-only-up">
+                        <div class="quest-text" data-lang-key="faq4_q">
+                            Курстың бағасы қанша?
+                        </div>
+                        <button class="quest-link" type="button">
+                            <img class="img-down" src="img/group-down.png" alt="down-link">
+                        </button>
+                    </div>
+                    <div class="answer" data-lang-key="faq4_a">
+                        Біз барлық жаңа студенттерге арнайы ұсыныс жасаймыз: <br>
+                        1.Бірінші апта тегін - курс бағдарламасымен танысу және оқыту стилін бағалау мүмкіндігі<br>
+                        2.Одан кейін төлемдік бағдарлама: <br>
+                        •    HTML/CSS - 25 000 теңге/ай <br>
+                        •    Python - 35 000 теңге/ай <br>
+                        •    Дерекқорлар (SQL) - 30 000 теңге/ай
+                    </div>
+                </div>
+            </div>
+        </section>
+    <footer class="footer" id="footer">
+        <div class="text-footer" data-lang-key="copyright">
+            © 2025 EduPlatform
+        </div>
+        <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
+        </div>
+    </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    
+
+    <script src="JavaScript/firebase.js"></script>
+    
+
+    <script src="JavaScript/translations.js"></script>
+    
+
+    <script src="JavaScript/main.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+
+            const themeSwitch = document.getElementById('theme-switch');
+            const themeIcon = document.getElementById('theme-icon');
+
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', currentTheme);
+
+            if (currentTheme === 'dark') {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            }
+
+            themeSwitch.addEventListener('click', function() {
+                let theme = 'light';
+
+                if (document.documentElement.getAttribute('data-theme') === 'light') {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                    theme = 'dark';
+                    themeIcon.classList.remove('fa-moon');
+                    themeIcon.classList.add('fa-sun');
+                } else {
+                    document.documentElement.setAttribute('data-theme', 'light');
+                    themeIcon.classList.remove('fa-sun');
+                    themeIcon.classList.add('fa-moon');
+                }
+ 
+                localStorage.setItem('theme', theme);
+            });
+
+            function updateLanguage(lang) {
+
+                document.documentElement.setAttribute('lang', lang);
+
+                const elements = document.querySelectorAll('[data-lang-key]');
+                elements.forEach(element => {
+                    const key = element.getAttribute('data-lang-key');
+                    if (translations[lang] && translations[lang][key]) {
+                        element.innerHTML = translations[lang][key];
+                    }
+                });
+
+                const userData = JSON.parse(localStorage.getItem('currentUser') || '{}');
+                userData.language = lang;
+                localStorage.setItem('currentUser', JSON.stringify(userData));
+            }
+
+            const langSelect = document.getElementById('select');
+            langSelect.addEventListener('change', function() {
+                const lang = this.value === 'Қазақша' ? 'kk' : 'ru';
+                updateLanguage(lang);
+            });
+
+            firebase.auth().onAuthStateChanged(user => {
+                const btnLog = document.getElementById('btn-log');
+                const btnProfile = document.querySelector('.user-profile-btn');
+                
+                if (user) {
+
+                    console.log('Пользователь авторизован:', user.email);
+
+                    const userData = JSON.parse(localStorage.getItem('currentUser') || '{}');
+
+                    btnLog.style.display = 'none';
+                    btnProfile.style.display = 'inline-block';
+
+                    if (userData.language) {
+                        langSelect.value = userData.language === 'kk' ? 'Қазақша' : 'Русский';
+                        updateLanguage(userData.language);
+                    }
+                } else {
+
+                    console.log('Пользователь не авторизован');
+                    
+                    btnLog.style.display = 'inline-block';
+                    btnProfile.style.display = 'none';
+                    
+
+                    updateLanguage('kk');
+                }
+            });
+            
+   
+            const questions = document.querySelectorAll('.question');
+            
+            questions.forEach(question => {
+                const questionHeader = question.querySelector('.quest-only-up');
+                const answer = question.querySelector('.answer');
+                
+                questionHeader.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+
+                    question.classList.toggle('active');
+                    
+
+                    if (question.classList.contains('active')) {
+                        answer.style.display = 'block';
+                        answer.style.animation = 'fadeIn 0.3s ease';
+                    } else {
+                        answer.style.animation = 'fadeOut 0.3s ease';
+                        setTimeout(() => {
+                            answer.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            const sections = [
+                '.main-frame', 
+                '.second-frame', 
+                '.third-frame', 
+                '.four-frame', 
+                '.five-frame', 
+                '.six-frame', 
+                '.seven-frame'
+            ];
+            
+            sections.forEach(selector => {
+                const section = document.querySelector(selector);
+                if (section) {
+                    section.classList.add('animated');
+                }
+            });
+            
+            function ensureCardsVisible() {
+                const courseCardsContainer = document.querySelector('.carts');
+                if (courseCardsContainer) {
+                    courseCardsContainer.style.display = 'flex';
+                    courseCardsContainer.style.opacity = '1';
+                    courseCardsContainer.style.visibility = 'visible';
+                    
+                    const courseCards = courseCardsContainer.querySelectorAll('.first-carts, .second-carts, .third-carts');
+                    courseCards.forEach(card => {
+                        card.style.display = 'flex';
+                        card.style.opacity = '1';
+                        card.style.visibility = 'visible';
+
+                        if (card.style.transform) {
+                            card.style.removeProperty('transform');
+                        }
+                    });
+                }
+ 
+   
+                const teacherCardsContainer = document.querySelector('.teachers-carts');
+                if (teacherCardsContainer) {
+                    teacherCardsContainer.style.display = 'flex';
+                    teacherCardsContainer.style.opacity = '1';
+                    teacherCardsContainer.style.visibility = 'visible';
+                    
+           
+                    const teacherCards = teacherCardsContainer.querySelectorAll('.teacher');
+                    teacherCards.forEach(card => {
+                        card.style.display = 'flex';
+                        card.style.opacity = '1';
+                        card.style.visibility = 'visible';
+                        if (card.style.transform) {
+                            card.style.removeProperty('transform');
+                        }
+                    });
+                }
+            }
+            ensureCardsVisible();
+            setTimeout(ensureCardsVisible, 500);
+            document.querySelectorAll('.student').forEach(student => {
+                student.style.height = 'auto';
+                student.style.overflow = 'visible';
+            });
+            
+            document.querySelectorAll('.text-student').forEach(text => {
+                text.style.overflow = 'visible';
+                text.style.maxHeight = 'none';
+            });
+        });
+        
+        window.addEventListener('load', function() {
+            if (typeof ensureCardsVisible === 'function') {
+                ensureCardsVisible();
+            } else {
+
+                function ensureCardsVisible() {
+                    const courseCardsContainer = document.querySelector('.carts');
+                    if (courseCardsContainer) {
+                        courseCardsContainer.style.display = 'flex';
+                        courseCardsContainer.style.opacity = '1';
+                        courseCardsContainer.style.visibility = 'visible';
+                        
+                        const courseCards = courseCardsContainer.querySelectorAll('.first-carts, .second-carts, .third-carts');
+                        courseCards.forEach(card => {
+                            card.style.display = 'flex';
+                            card.style.opacity = '1';
+                            card.style.visibility = 'visible';
+                            // Удаляем инлайн-стиль transform, чтобы CSS hover мог работать
+                            if (card.style.transform) {
+                                card.style.removeProperty('transform');
+                            }
+                        });
+                    }
+                    
+                    const teacherCardsContainer = document.querySelector('.teachers-carts');
+                    if (teacherCardsContainer) {
+                        teacherCardsContainer.style.display = 'flex';
+                        teacherCardsContainer.style.opacity = '1';
+                        teacherCardsContainer.style.visibility = 'visible';
+                        
+                        const teacherCards = teacherCardsContainer.querySelectorAll('.teacher');
+                        teacherCards.forEach(card => {
+                            card.style.display = 'flex';
+                            card.style.opacity = '1';
+                            card.style.visibility = 'visible';
+                            // Удаляем инлайн-стиль transform, чтобы CSS hover мог работать
+                            if (card.style.transform) {
+                                card.style.removeProperty('transform');
+                            }
+                        });
+                    }
+                }
+                
+                ensureCardsVisible();
+            }
+        });
+    </script>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+        function forceHoverEffects() {
+
+            const styleSheet = document.createElement('style');
+            styleSheet.innerHTML = `
+                .teacher, .first-carts, .second-carts, .third-carts {
+                    transform: scale(1) !important;
+                    transition: transform 0.5s ease, box-shadow 0.5s ease !important;
+                }
+                
+                .teacher:hover, .first-carts:hover, .second-carts:hover, .third-carts:hover {
+                    transform: scale(1.05) !important;
+                    box-shadow: 0 10px 40px rgba(0,0,0,0.15) !important;
+                }
+                
+                .link-cart:hover, .lin-cart:hover {
+                    transform: scale(1.05) !important;
+                }
+            `;
+            document.head.appendChild(styleSheet);
+            
+
+            const elements = document.querySelectorAll('.teacher, .first-carts, .second-carts, .third-carts, .link-cart, .lin-cart');
+            elements.forEach(element => {
+                if (element.style.transform) {
+                    element.style.removeProperty('transform');
+                }
+            });
+            
+
+            const teachers = document.querySelectorAll('.teacher');
+            teachers.forEach(teacher => {
+                teacher.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.05)';
+                    this.style.boxShadow = '0 10px 40px rgba(0,0,0,0.15)';
+                });
+                
+                teacher.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                    this.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
+                });
+            });
+        }
+        
+        forceHoverEffects();
+   
+        setTimeout(forceHoverEffects, 1000);
+
+        window.addEventListener('load', forceHoverEffects);
+    });
+</script>
+</html>

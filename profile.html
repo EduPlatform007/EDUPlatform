@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="kk" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduPlatform - Личный кабинет</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/course.css">
+    <!-- Font Awesome для иконок -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .profile-container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            min-height: 600px; /* Минимальная высота контейнера */
+            width: 100%; /* Фиксированная ширина */
+        }
+        
+        .profile-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .profile-avatar-container {
+            position: relative;
+            margin-right: 30px;
+        }
+        
+        .profile-avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 46px;
+            font-weight: 600;
+            color: #666;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .profile-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .avatar-upload {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(90deg, #2646FA 0%, #E30BBF 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: white;
+            font-size: 20px;
+        }
+        
+        .avatar-upload input {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+        }
+        
+        .profile-info h1 {
+            margin: 0 0 10px 0;
+            color: #333;
+        }
+        
+        .profile-info p {
+            margin: 5px 0;
+            color: #666;
+        }
+        
+        .profile-tabs {
+            display: flex;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 20px;
+        }
+        
+        .profile-tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            font-weight: 600;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+        
+        .profile-tab.active {
+            color: #2646FA;
+            border-bottom: 2px solid #2646FA;
+        }
+        
+        .profile-content {
+            display: none;
+            min-height: 400px; /* Минимальная высота для контента */
+            width: 100%; /* Фиксированная ширина */
+        }
+        
+        .profile-content.active {
+            display: block;
+        }
+        
+        /* Стиль для курсов в горизонтальной раскладке */
+        #content-oqu.active {
+            display: flex !important;
+            flex-wrap: nowrap !important;
+            gap: 20px;
+            justify-content: flex-start;
+            overflow-x: auto;
+            padding-bottom: 20px;
+            min-height: 400px;
+            width: 100%;
+        }
+        
+        .course-card {
+            flex: 0 0 350px;
+            max-width: 350px;
+            margin-bottom: 20px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            height: 400px; /* Фиксированная высота для карточек */
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .course-card:hover {
+            transform: scale(1.05);
+        }
+        
+        .course-image {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            position: relative;
+        }
+        
+        .course-info {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .course-info h3 {
+            margin-top: 0;
+            margin-bottom: 20px; /* Увеличиваем отступ после заголовка */
+            color: #333;
+        }
+        
+        .progress-bar-container {
+            height: 8px;
+            background-color: #e0e0e0;
+            border-radius: 4px;
+            margin: 15px 0; /* Увеличиваем отступ вокруг полосы прогресса */
+        }
+        
+        .progress-bar {
+            height: 100%;
+            border-radius: 4px;
+            background: linear-gradient(90deg, #2646FA 0%, #E30BBF 100%);
+        }
+        
+        .course-actions {
+            margin-top: auto; /* Прижимаем кнопки к низу карточки */
+            text-align: right;
+        }
+        
+        .continue-btn {
+            display: inline-block;
+            background: linear-gradient(90deg, #2646FA 0%, #E30BBF 100%);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+        
+        .continue-btn:hover {
+            background: linear-gradient(90deg, #1f37bf 0%, #9d1c88 100%);
+            transform: scale(1.05);
+        }
+        
+        /* Горизонтальные стили для настроек */
+        .settings-form {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            width: 100%; /* Фиксированная ширина */
+        }
+        
+        .form-card {
+            flex: 1;
+            min-width: 45%;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 0 10px 20px 10px;
+        }
+        
+        .form-card h3 {
+            margin-top: 0;
+            color: #333;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            width: 100%; /* Фиксированная ширина */
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+            flex: 1;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: #555;
+        }
+        
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: border 0.3s;
+        }
+        
+        .form-group input:focus, .form-group select:focus {
+            border-color: #2646FA;
+            outline: none;
+        }
+        
+        /* Правим внешний вид Email */
+        input[type="email"] {
+            background-color: #fff;
+            cursor: text;
+        }
+        
+        .save-btn {
+            background: linear-gradient(90deg, #2646FA 0%, #E30BBF 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s;
+            margin-top: 10px;
+        }
+        
+        .save-btn:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Стили для сертификатов */
+        #content-certificates.active {
+            min-height: 400px; /* Минимальная высота для контента */
+            width: 100%; /* Фиксированная ширина */
+        }
+        
+        #content-settings.active {
+            width: 100%; /* Фиксированная ширина */
+        }
+        
+        .certificate-card {
+            flex: 1;
+            min-width: 300px;
+            border: 1px solid #eee;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .certificate-info h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        
+        .certificate-info p {
+            color: #666;
+        }
+        
+        .certificate-actions button {
+            background: linear-gradient(90deg, #2646FA 0%, #E30BBF 100%);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        
+        .certificate-actions button:hover {
+            transform: scale(1.05);
+        }
+        
+        .not-available {
+            text-align: center;
+            padding: 30px;
+            color: #666;
+        }
+        
+        .radio-label {
+            display: inline-block;
+            margin-right: 20px;
+        }
+        
+        .auth-message {
+            text-align: center;
+            margin-top: 25px;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        
+        .auth-message.error {
+            background-color: #ffebee;
+            color: #c62828;
+            border-left: 4px solid #c62828;
+        }
+        
+        .auth-message.success {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            border-left: 4px solid #2e7d32;
+        }
+        
+        /* Стили для кнопок в хедере */
+        .btn-profile, .btn-logout {
+            display: inline-block;
+            background: linear-gradient(90deg, #2646FA 0%, #E30BBF 100%);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: transform 0.2s;
+        }
+        
+        .btn-profile:hover, .btn-logout:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Увеличиваем отступы между полями ввода */
+        #settings-surname {
+            margin-right: 20px;
+        }
+        
+        /* Стили для основного контейнера */
+        main {
+            min-height: calc(100vh - 300px); /* Минимальная высота для основного контейнера */
+            width: 100%; /* Фиксированная ширина */
+        }
+        
+        /* Theme Switch */
+        .theme-switch {
+            position: relative;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            margin-left: 15px;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+        }
+        
+        .theme-switch:hover {
+            background-color: rgba(0,0,0,0.05);
+        }
+        
+        .theme-switch-icon {
+            width: 24px;
+            height: 24px;
+        }
+        
+        /* Social Links */
+        .social-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        
+        .social-link {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #f8f9fa;
+            color: #333;
+            font-size: 22px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background: linear-gradient(90deg, #2646FA 0%, #E30BBF 100%);
+            color: white;
+            transform: translateY(-5px);
+        }
+        
+        /* Исправляем расположение карточек */
+        #content-oqu.active {
+            display: flex !important;
+            flex-wrap: wrap !important;
+            gap: 20px;
+            justify-content: flex-start;
+            padding-bottom: 20px;
+            min-height: 400px;
+            width: 100%;
+        }
+        
+        /* Убираем надписи с картинок */
+        .course-image {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            position: relative;
+        }
+        
+        /* Исправляем отступы кнопки профиля */
+        .header-button.user-profile-btn {
+            margin-left: 0;
+        }
+        
+        /* Исправляем transform scale для кнопок */
+        .btn-profile:hover, .btn-logout:hover {
+            transform: scale(1.05);
+        }
+        
+        .save-btn:hover {
+            transform: scale(1.05);
+        }
+        
+        .certificate-actions button:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Убираем лишние надписи с карточек */
+        .course-image::before,
+        .course-image::after {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+    <header class="header-line">
+        <div class="header-logo">
+            EduPlatform
+        </div>
+        <div class="header-text">
+            <a class="header-link" href="main.html">Басты</a>
+            <a class="header-link" href="courses.html">Курстар</a>
+            <a class="header-link" href="#">Байланыс</a>
+            <div class="header-select" style="gap: 5px;">
+                <div class="selector">
+                    <select name="language" id="select" class="select">
+                        <option value="Қазақша" selected>Қазақша</option>
+                        <option value="Русский">Русский</option>
+                    </select>
+                </div>
+                <div class="theme-switch" id="theme-switch">
+                    <i class="fas fa-moon theme-switch-icon" id="theme-icon"></i>
+                </div>
+                <div class="header-button" style="margin-left: 5px;">
+                    <a class="btn-log" id="btn-log" href="login.html" data-lang-key="login">Кіру</a>
+                </div>
+                <div class="header-button user-profile-btn" style="display: none; margin-left: 5px;">
+                    <a class="btn-profile" id="btn-profile" href="profile.html" data-lang-key="profile">Профиль</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="profile-container">
+            <div class="profile-header">
+                <div class="profile-avatar-container">
+                    <div class="profile-avatar" id="profile-avatar">
+                        <div id="avatar-initials">П</div>
+                        <img id="avatar-image" style="display: none;" src="" alt="Аватар пользователя">
+                    </div>
+                    <label class="avatar-upload">
+                        <input type="file" id="avatar-upload" accept="image/*">
+                        +
+                    </label>
+                </div>
+                <div class="profile-info">
+                    <h1 id="profile-name">Пользователь</h1>
+                    <p id="profile-email">user@example.com</p>
+                    <p id="profile-joined">Дата регистрации: 13.05.2025</p>
+                </div>
+            </div>
+            
+            <div class="profile-tabs">
+                <div class="profile-tab active" data-tab="oqu">Оқу үлгерімі</div>
+                <div class="profile-tab" data-tab="settings">Баптаулар</div>
+                <div class="profile-tab" data-tab="certificates">Сертификаттар</div>
+            </div>
+            
+            <div class="profile-content active" id="content-oqu">
+                <!-- Успеваемость будет добавлена динамически -->
+            </div>
+            
+            <div class="profile-content" id="content-settings">
+                <div class="settings-form">
+                    <div class="form-card">
+                        <h3>Негізгі ақпарат</h3>
+                        <div class="form-row">
+                            <div class="form-group" style="margin-right: 20px;">
+                                <label for="settings-surname">Фамилия</label>
+                                <input type="text" id="settings-surname" placeholder="Фамилия">
+                            </div>
+                            <div class="form-group">
+                                <label for="settings-name">Аты</label>
+                                <input type="text" id="settings-name" placeholder="Аты">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="settings-nickname">Никнейм</label>
+                            <input type="text" id="settings-nickname" placeholder="Никнейм">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="settings-email">Email</label>
+                            <input type="email" id="settings-email" placeholder="Email">
+                        </div>
+                    </div>
+                    
+                    <div class="form-card">
+                        <h3>Қосымша ақпарат</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="settings-phone">Телефон</label>
+                                <input type="tel" id="settings-phone" placeholder="Телефон">
+                            </div>
+                            <div class="form-group">
+                                <label for="settings-city">Қала</label>
+                                <input type="text" id="settings-city" placeholder="Қала">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="settings-birthdate">Туған күні</label>
+                                <input type="date" id="settings-birthdate">
+                            </div>
+                            <div class="form-group">
+                                <label for="settings-gender">Жынысы</label>
+                                <select id="settings-gender">
+                                    <option value="">Таңдаңыз</option>
+                                    <option value="male">Ер</option>
+                                    <option value="female">Әйел</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="settings-education">Оқу орны</label>
+                            <input type="text" id="settings-education" placeholder="Оқу орны">
+                        </div>
+                    </div>
+                </div>
+                
+                <button id="save-settings" class="save-btn">Өзгерістерді сақтау</button>
+                <button id="logout-btn" class="save-btn" style="background: #dc3545; margin-left: 15px;">Шығу</button>
+                <div id="save-error" class="auth-message error" style="display: none;">
+                    Ошибка сохранения настроек
+                </div>
+            </div>
+            
+            <div class="profile-content" id="content-certificates">
+                <h2>Менің сертификаттарым</h2>
+                <div id="certificates-container">
+                    <div class="not-available">
+                        <p>Сізде әлі сертификаттары бар аяқталған курстар жоқ</p>
+                        <p>Сертификат алу үшін кез келген курсты толығымен аяқтаңыз</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer" id="footer">
+        <div class="text-footer" data-lang-key="copyright">
+            © 2025 EduPlatform
+        </div>
+        <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
+        </div>
+    </footer>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
+
+    <!-- Файл настроек Firebase -->
+    <script src="JavaScript/firebase.js"></script>
+
+    <!-- Подключаем данные курсов для расчета прогресса -->
+    <script src="JavaScript/data.js"></script>
+    <script src="JavaScript/database_data.js"></script>
+    <script src="JavaScript/python_data.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Theme switcher
+            const themeSwitch = document.getElementById('theme-switch');
+            const themeIcon = document.getElementById('theme-icon');
+            
+            // Check for saved theme preference or use default
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', currentTheme);
+            
+            // Update icon based on current theme
+            if (currentTheme === 'dark') {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            }
+            
+            // Theme switch event
+            themeSwitch.addEventListener('click', function() {
+                let theme = 'light';
+                
+                // If current theme is light, switch to dark
+                if (document.documentElement.getAttribute('data-theme') === 'light') {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                    theme = 'dark';
+                    themeIcon.classList.remove('fa-moon');
+                    themeIcon.classList.add('fa-sun');
+                } else {
+                    document.documentElement.setAttribute('data-theme', 'light');
+                    themeIcon.classList.remove('fa-sun');
+                    themeIcon.classList.add('fa-moon');
+                }
+                
+                // Save preference to localStorage
+                localStorage.setItem('theme', theme);
+            });
+            
+            // Проверяем состояние аутентификации
+            firebase.auth().onAuthStateChanged(user => {
+                const btnLog = document.getElementById('btn-log');
+                const btnProfile = document.querySelector('.user-profile-btn');
+                
+                if (user) {
+                    // Пользователь авторизован
+                    console.log('Пользователь авторизован:', user.email);
+                    
+                    // Обновляем UI
+                    btnLog.style.display = 'none';
+                    btnProfile.style.display = 'inline-block';
+                    
+                    // Загружаем данные пользователя
+                    loadUserData();
+                    
+                    // Инициализируем размеры контейнера
+                    initializeContainerSize();
+                } else {
+                    // Перенаправляем на страницу входа
+                    window.location.href = 'login.html';
+                }
+            });
+            
+            // Функция для инициализации размеров контейнера
+            function initializeContainerSize() {
+                // Устанавливаем минимальную ширину и высоту для контейнера профиля
+                const profileContainer = document.querySelector('.profile-container');
+                if (profileContainer) {
+                    profileContainer.style.minHeight = '700px';
+                    profileContainer.style.width = '100%';
+                }
+                
+                // Устанавливаем минимальную ширину и высоту для всех вкладок
+                document.querySelectorAll('.profile-content').forEach(content => {
+                    content.style.minHeight = '500px';
+                    content.style.width = '100%';
+                });
+                
+                // Активируем первую вкладку по умолчанию, если ни одна не активна
+                if (!document.querySelector('.profile-tab.active')) {
+                    const firstTab = document.querySelector('.profile-tab');
+                    if (firstTab) {
+                        firstTab.click();
+                    }
+                }
+            }
+            
+            // Загрузка данных пользователя
+            function loadUserData() {
+                const db = firebase.firestore();
+                const user = firebase.auth().currentUser;
+                
+                if (user) {
+                    db.collection('users').doc(user.uid).get()
+                        .then(doc => {
+                            if (doc.exists) {
+                                const userData = doc.data();
+                                
+                                // Заполняем основную информацию профиля
+                                document.getElementById('profile-email').textContent = userData.email || user.email;
+                                
+                                // Устанавливаем имя пользователя
+                                const displayName = userData.nickname || userData.name || 'Пользователь';
+                                document.getElementById('profile-name').textContent = displayName;
+                                
+                                // Инициалы для аватара
+                                const initials = (userData.name || 'П').charAt(0).toUpperCase();
+                                document.getElementById('avatar-initials').textContent = initials;
+                                
+                                // Дата регистрации
+                                let registrationDate = 'Не указана';
+                                if (userData.createdAt) {
+                                    const date = new Date(userData.createdAt.toDate());
+                                    registrationDate = date.toLocaleDateString();
+                                }
+                                document.getElementById('profile-joined').textContent = `Дата регистрации: ${registrationDate}`;
+                                
+                                // Заполняем форму настроек данными пользователя
+                                document.getElementById('settings-name').value = userData.name || '';
+                                document.getElementById('settings-surname').value = userData.surname || '';
+                                document.getElementById('settings-nickname').value = userData.nickname || '';
+                                document.getElementById('settings-email').value = userData.email || user.email;
+                                document.getElementById('settings-phone').value = userData.phone || '';
+                                document.getElementById('settings-city').value = userData.city || '';
+                                document.getElementById('settings-birthdate').value = userData.birthdate || '';
+                                document.getElementById('settings-gender').value = userData.gender || '';
+                                document.getElementById('settings-education').value = userData.education || '';
+                                
+                                // Если у пользователя есть аватар, отображаем его
+                                if (userData.avatarURL) {
+                                    document.getElementById('avatar-image').src = userData.avatarURL;
+                                    document.getElementById('avatar-image').style.display = 'block';
+                                    document.getElementById('avatar-initials').style.display = 'none';
+                                }
+                                
+                                // Загружаем прогресс по курсам
+                                loadCourseProgress(userData);
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Ошибка получения данных пользователя:', error);
+                        });
+                }
+            }
+            
+            // Загрузка прогресса по курсам (оригинальный дизайн с полосками)
+            function loadCourseProgress(userData) {
+                const contentOqu = document.getElementById('content-oqu');
+                contentOqu.innerHTML = '';
+                
+                // Определяем язык для текстовых элементов
+                const isKazakh = (userData.language === 'kk' || document.getElementById('select').value === 'Қазақша');
+                
+                // Тексты на обоих языках
+                const texts = {
+                    complete: isKazakh ? 'аяқталды' : 'завершено',
+                    lessons: isKazakh ? 'Өткен сабақтар' : 'Пройдено уроков',
+                    continue: isKazakh ? 'Жалғастыру' : 'Продолжить'
+                };
+                
+                // Данные о курсах
+                const courses = [
+                    {
+                        id: 'html',
+                        title: 'HTML/CSS',
+                        image: 'img/html.png',
+                        totalLessons: 9,
+                        lessonRange: [1, 2, 3, 4, 5, 6, 7, 8, 9], // Уроки с ID 1-9
+                        continueUrl: 'course.html'
+                    },
+                    {
+                        id: 'database',
+                        title: 'Базы данных и SQL',
+                        image: 'img/sql.png',
+                        totalLessons: 9,
+                        lessonRange: [1, 2, 3, 4, 5, 6, 7, 8, 9], // Уроки с ID 1-9
+                        continueUrl: 'database_course.html'
+                    },
+                    {
+                        id: 'python',
+                        title: 'Python',
+                        image: 'img/python.png',
+                        totalLessons: 9,
+                        lessonRange: [1, 2, 3, 4, 5, 6, 7, 8, 9], // Уроки с ID 1-9
+                        continueUrl: 'python_course.html'
+                    }
+                ];
+                
+                // Проверяем наличие массива completedLessons
+                if (!userData.completedLessons) {
+                    userData.completedLessons = [];
+                }
+                
+                console.log('Завершенные уроки:', userData.completedLessons);
+                
+                courses.forEach(course => {
+                    // Подсчитываем завершенные уроки для текущего курса
+                    const completedLessons = userData.completedLessons.filter(
+                        lessonId => course.lessonRange.includes(parseInt(lessonId))
+                    ).length;
+                    
+                    // Рассчитываем процент прогресса
+                    const progress = Math.round((completedLessons / course.totalLessons) * 100);
+                    
+                    // Создаем карточку курса с оригинальным дизайном
+                    const courseCard = document.createElement('div');
+                    courseCard.className = 'course-card';
+                    
+                    courseCard.innerHTML = `
+                        <img src="${course.image}" alt="${course.title}" class="course-image">
+                        <div class="course-info">
+                            <h3>${course.title}</h3>
+                            <div class="progress-bar-container">
+                                <div class="progress-bar" style="width: ${progress}%"></div>
+                            </div>
+                            <p>${progress}% ${texts.complete}</p>
+                            <p>${texts.lessons}: ${completedLessons}/${course.totalLessons}</p>
+                            <div class="course-actions">
+                                <a href="${course.continueUrl}" class="continue-btn">${texts.continue}</a>
+                            </div>
+                        </div>
+                    `;
+                    
+                    contentOqu.appendChild(courseCard);
+                });
+            }
+            
+            // Вкладки профиля
+            document.querySelectorAll('.profile-tab').forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Удаляем класс active у всех вкладок
+                    document.querySelectorAll('.profile-tab').forEach(t => {
+                        t.classList.remove('active');
+                    });
+                    
+                    // Добавляем класс active текущей вкладке
+                    this.classList.add('active');
+                    
+                    // Получаем высоту текущего активного контента перед переключением
+                    let currentHeight = 0;
+                    let currentWidth = 0;
+                    document.querySelectorAll('.profile-content.active').forEach(content => {
+                        currentHeight = Math.max(currentHeight, content.offsetHeight);
+                        currentWidth = Math.max(currentWidth, content.offsetWidth);
+                    });
+                    
+                    // Если нет активного контента, используем размеры контейнера
+                    if (currentHeight === 0) {
+                        const container = document.querySelector('.profile-container');
+                        if (container) {
+                            currentHeight = container.offsetHeight - 200; // Вычитаем высоту заголовка и отступы
+                            currentWidth = container.offsetWidth - 60; // Вычитаем отступы
+                        }
+                    }
+                    
+                    // Фиксируем минимальные значения
+                    currentHeight = Math.max(currentHeight, 500);
+                    currentWidth = Math.max(currentWidth, 1000);
+                    
+                    // Скрываем все содержимое вкладок
+                    document.querySelectorAll('.profile-content').forEach(content => {
+                        content.classList.remove('active');
+                    });
+                    
+                    // Показываем содержимое текущей вкладки
+                    const tabId = this.getAttribute('data-tab');
+                    const newContent = document.getElementById(`content-${tabId}`);
+                    newContent.classList.add('active');
+                    
+                    // Устанавливаем минимальную высоту и ширину для нового контента
+                    newContent.style.minHeight = `${currentHeight}px`;
+                    newContent.style.minWidth = `${currentWidth}px`;
+                    
+                    // Устанавливаем минимальную высоту для контейнера профиля
+                    const profileContainer = document.querySelector('.profile-container');
+                    if (profileContainer) {
+                        profileContainer.style.minHeight = `${currentHeight + 200}px`; // Добавляем высоту заголовка и отступы
+                    }
+                });
+            });
+            
+            // Загрузка аватара с сохранением
+            document.getElementById('avatar-upload').addEventListener('change', function(e) {
+                const file = e.target.files[0];
+                if (file) {
+                    const user = firebase.auth().currentUser;
+                    if (!user) return;
+                    
+                    // Создаем превью
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        document.getElementById('avatar-image').src = e.target.result;
+                        document.getElementById('avatar-image').style.display = 'block';
+                        document.getElementById('avatar-initials').style.display = 'none';
+                        
+                        // Сохраняем аватар в Firebase
+                        saveAvatarToFirebase(file)
+                            .then(url => {
+                                console.log('Аватар успешно загружен:', url);
+                                // Сохраняем URL аватара в профиле пользователя
+                                const db = firebase.firestore();
+                                const userRef = db.collection('users').doc(user.uid);
+                                
+                                // Проверяем существование документа
+                                return userRef.get().then(doc => {
+                                    if (doc.exists) {
+                                        // Документ существует, обновляем его
+                                        return userRef.update({ avatarURL: url });
+                                    } else {
+                                        // Документ не существует, создаем новый
+                                        console.log('Документ пользователя не существует, создаем новый с аватаром');
+                                        return userRef.set({
+                                            avatarURL: url,
+                                            email: user.email,
+                                            createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+                                            completedLessons: [],
+                                            completedHomeworks: [],
+                                            pendingHomeworks: []
+                                        });
+                                    }
+                                });
+                            })
+                            .then(() => {
+                                console.log('URL аватара сохранен в профиле');
+                                
+                                // Обновляем данные в localStorage
+                                const userData = JSON.parse(localStorage.getItem('currentUser') || '{}');
+                                userData.avatarURL = document.getElementById('avatar-image').src;
+                                localStorage.setItem('currentUser', JSON.stringify(userData));
+                            })
+                            .catch(error => {
+                                console.error('Ошибка сохранения URL аватара:', error);
+                                alert('Ошибка сохранения аватара. Пожалуйста, попробуйте еще раз.');
+                            });
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+            
+            // Сохранение настроек с обработкой ошибок
+            document.getElementById('save-settings').addEventListener('click', function() {
+                const user = firebase.auth().currentUser;
+                if (!user) return;
+                
+                // Собираем данные формы
+                const updatedData = {
+                    name: document.getElementById('settings-name').value,
+                    surname: document.getElementById('settings-surname').value,
+                    nickname: document.getElementById('settings-nickname').value,
+                    email: document.getElementById('settings-email').value,
+                    phone: document.getElementById('settings-phone').value,
+                    city: document.getElementById('settings-city').value,
+                    birthdate: document.getElementById('settings-birthdate').value,
+                    gender: document.getElementById('settings-gender').value,
+                    education: document.getElementById('settings-education').value
+                };
+                
+                // Отображаем сообщение о процессе сохранения
+                const saveError = document.getElementById('save-error');
+                saveError.textContent = 'Сохранение данных...';
+                saveError.classList.remove('error');
+                saveError.classList.add('success');
+                saveError.style.display = 'block';
+                
+                const db = firebase.firestore();
+                const userRef = db.collection('users').doc(user.uid);
+                
+                // Проверяем существование документа
+                userRef.get().then(doc => {
+                    if (doc.exists) {
+                        // Документ существует, обновляем его
+                        return userRef.update(updatedData);
+                    } else {
+                        // Документ не существует, создаем новый
+                        console.log('Документ пользователя не существует, создаем новый');
+                        return userRef.set({
+                            ...updatedData,
+                            createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+                            completedLessons: [],
+                            completedHomeworks: [],
+                            pendingHomeworks: []
+                        });
+                    }
+                }).then(() => {
+                    // Успешное сохранение
+                    saveError.textContent = 'Настройки успешно сохранены';
+                    saveError.classList.remove('error');
+                    saveError.classList.add('success');
+                    
+                    // Скрываем сообщение через 3 секунды
+                    setTimeout(() => {
+                        saveError.style.display = 'none';
+                    }, 3000);
+                    
+                    // Обновляем отображаемую информацию
+                    loadUserData();
+                }).catch(error => {
+                    console.error('Ошибка сохранения настроек:', error);
+                    // Показываем сообщение об ошибке
+                    saveError.textContent = 'Ошибка сохранения настроек: ' + error.message;
+                    saveError.classList.remove('success');
+                    saveError.classList.add('error');
+                });
+            });
+            
+            // Обработка выхода из аккаунта
+            document.getElementById('logout-btn').addEventListener('click', function() {
+                window.firebaseAuth.logout()
+                    .then(() => {
+                        console.log('Выход выполнен успешно');
+                        window.location.href = 'main.html';
+                    })
+                    .catch(error => {
+                        console.error('Ошибка при выходе:', error);
+                    });
+            });
+            
+            // Функция для сохранения аватара
+            function saveAvatarToFirebase(file) {
+                const user = firebase.auth().currentUser;
+                if (!user || !file) return Promise.reject(new Error('Нет пользователя или файла'));
+                
+                // Загружаем в Firebase Storage
+                const storageRef = firebase.storage().ref();
+                const avatarRef = storageRef.child(`avatars/${user.uid}/${Date.now()}_${file.name}`);
+                
+                return avatarRef.put(file).then(snapshot => {
+                    return snapshot.ref.getDownloadURL();
+                });
+            }
+        });
+    </script>
+</body>
+</html> 
