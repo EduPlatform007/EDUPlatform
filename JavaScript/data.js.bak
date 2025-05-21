@@ -1,0 +1,2405 @@
+const lessons = {
+  1: {
+    title: "Сабақ 1: HTML негіздері",
+    content: `
+      <section class="theory">
+        <h2>HTML негізгі ұғымдары</h2>
+        <p>HTML (HyperText Markup Language) - веб-парақтардың құрылымын анықтайтын негізгі тіл. Барлық заманауи веб-сайттар HTML көмегімен жасалады.</p>
+        
+        
+        <p>HTML тегтерден тұрады, олар мазмұнның құрылымын анықтайды. Әрбір теg <code>&lt;тег&gt;</code> жұптан басталып, <code>&lt;/тег&gt;</code> жұбымен аяқталады.</p>
+        
+        <div class="theory-grid">
+          <div class="theory-card">
+            <h4><code>&lt;!DOCTYPE html&gt;</code></h4>
+            <p>Құжаттың HTML5 нұсқасын көрсетеді. <strong>Әрқашан бірінші жолда болуы керек!</strong></p>
+            <div class="example">
+              <p>Мысал:</p>
+              <code>&lt;!DOCTYPE html&gt;</code>
+            </div>
+          </div>
+          
+          <div class="theory-card">
+            <h4><code>&lt;html&gt;</code></h4>
+            <p>Бүкіл құжатты қамтиды. <code>lang</code> атрибуты тілді көрсетеді.</p>
+            <div class="example">
+              <p>Мысал:</p>
+              <code>&lt;html lang="kk"&gt;</code>
+            </div>
+          </div>
+          
+          <div class="theory-card">
+            <h4><code>&lt;head&gt;</code></h4>
+            <p>Метаақпарат (тақырып, стильдер, скриптер). Браузерге арналған.</p>
+            <div class="example">
+              <p>Мысал:</p>
+              <code>&lt;head&gt;\n  &lt;title&gt;Сайт тақырыбы&lt;/title&gt;\n&lt;/head&gt;</code>
+            </div>
+          </div>
+          
+          <div class="theory-card">
+            <h4><code>&lt;body&gt;</code></h4>
+            <p>Парақтың негізгі көрінетін мазмұнын қамтиды.</p>
+            <div class="example">
+              <p>Мысал:</p>
+              <code>&lt;body&gt;\n  &lt;h1&gt;Менің алғашқы сайтым&lt;/h1&gt;\n&lt;/body&gt;</code>
+            </div>
+          </div>
+          
+          <div class="theory-card">
+            <h4><code>&lt;title&gt;</code></h4>
+            <p>Браузер қойындысында көрсетілетін парақ тақырыбы.</p>
+            <div class="example">
+              <p>Мысал:</p>
+              <code>&lt;title&gt;Менің сайтым&lt;/title&gt;</code>
+            </div>
+          </div>
+          
+          <div class="theory-card">
+            <h4>Мета теги</h4>
+            <p>Парақ туралы қосымша ақпарат (кодировка, кілт сөздер, т.б.).</p>
+            <div class="example">
+              <p>Мысал:</p>
+              <code>&lt;meta charset="UTF-8"&gt;</code>
+            </div>
+          </div>
+        </div>
+        
+        <h3>HTML файлының негізгі құрылымы</h3>
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="kk"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Парақ тақырыбы&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- Сайттың негізгі мазмұны осында --&gt;
+    &lt;h1&gt;Менің алғашқы веб-парағым&lt;/h1&gt;
+    &lt;p&gt;Бұл менің алғашқы HTML кодым.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+      </section>
+
+      <div class="video-container">
+        <div class="video-kk video-wrapper">
+          <iframe src="https://www.youtube.com/embed/-jRzkDSMwH4" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="video-ru video-wrapper" style="display:none;">
+          <iframe src="https://www.youtube.com/embed/gNclCoxyIf8" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <section class="practice">
+        <h3>Практикалық тапсырма</h3>
+        <div class="task">
+          <p>Жоғарыдағы теорияны пайдаланып, негізгі HTML құрылымды жасаңыз:</p>
+          <ol>
+            <li>DOCTYPE декларациясын қосыңыз</li>
+            <li>Қазақ тілін көрсетіңіз (lang="kk")</li>
+            <li>head бөлімін қосыңыз (ішіндегі мазмұн қазірдің өзінде берілген)</li>
+            <li>body тегін қосыңыз және оған h1 тақырыбын енгізіңіз</li>
+          </ol>
+          
+          <div class="code-editor">
+            <textarea id="html-code-1">&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Менің сайтым&lt;/title&gt;
+&lt;/head&gt;</textarea>
+            <button onclick="checkCode(1)">Тексеру</button>
+            <div id="result-1"></div>
+          </div>
+        </div>
+      </section>
+    `,
+    practiceTask: `
+      <h3>Үй тапсырмасы</h3>
+      <p>HTML негіздері бойынша конспект жасаңыз. Конспектте келесі тақырыптар қамтылуы керек:</p>
+      <ol>
+        <li>HTML дегеніміз не және оның тарихы</li>
+        <li>HTML құжатының негізгі құрылымы</li>
+        <li>Теgтер және олардың атрибуттары</li>
+        <li>Басты метатегтер және олардың маңызы</li>
+      </ol>
+      <p>Конспект тұжырымды және анық болуы керек. Мысалдар мен иллюстрацияларды қосыңыз.</p>
+    `,
+    correctCode: "<!DOCTYPE html>\n<html lang=\"kk\">\n<body>\n<h1>",
+    quizAnswers: {}
+  },
+  
+  2: {
+    title: "Сабақ 2: HTML элементтері",
+    content: `
+      <section class="theory">
+        <h2>HTML элементтерінің түрлері</h2>
+        <p>HTML элементтері бірнеше түрге бөлінеді:</p>
+        <ul>
+          <li><strong>Мәтін элементтері</strong> - мәтінді форматтауға қолданылатын элементтер</li>
+          <li><strong>Сілтемелер мен суреттер</strong> - сайттағы навигация мен көрнекілік құралдары</li>
+          <li><strong>Тізімдер мен кестелер</strong> - ақпаратты ұйымдастыруға арналған элементтер</li>
+          <li><strong>Формалар</strong> - пайдаланушымен өзара әрекеттесу элементтері</li>
+        </ul>
+        
+        <div class="theory-grid">
+          <div class="theory-card">
+            <h4>Мәтін элементтері</h4>
+            <p>Мәтінді форматтауға арналған теgтер</p>
+            <div class="example">
+              <p>Мысалдар:</p>
+              <code>&lt;p&gt;</code> - абзац<br>
+              <code>&lt;h1&gt;-&lt;h6&gt;</code> - тақырыптар<br>
+              <code>&lt;strong&gt;</code> - қалың мәтін<br>
+              <code>&lt;em&gt;</code> - курсив мәтін
+            </div>
+          </div>
+          
+          <div class="theory-card">
+            <h4>Сілтемелер</h4>
+            <p>Басқа беттерге немесе сайттарға сілтеме жасау</p>
+            <div class="example">
+              <p>Синтаксис:</p>
+              <code>&lt;a href="url"&gt;сілтеме мәтіні&lt;/a&gt;</code><br><br>
+              <p>Мысал:</p>
+              <code>&lt;a href="https://google.com"&gt;Google&lt;/a&gt;</code>
+            </div>
+          </div>
+          
+          <div class="theory-card">
+            <h4>Суреттер</h4>
+            <p>Суреттерді көрсетуге арналған теg</p>
+            <div class="example">
+              <p>Синтаксис:</p>
+              <code>&lt;img src="image.jpg" alt="сипаттама"&gt;</code><br><br>
+              <p>Мысал:</p>
+              <code>&lt;img src="logo.png" alt="Сайт логотипі"&gt;</code>
+            </div>
+          </div>
+          
+      
+        </div>
+        
+        <h3>HTML элементтерінің атрибуттары</h3>
+        <p>Атрибуттар HTML элементтеріне қосымша қасиеттер береді:</p>
+        <ul>
+          <li><code>id</code> - элементтің бірегей идентификаторы</li>
+          <li><code>class</code> - элементтің класы (стильдеу үшін)</li>
+          <li><code>style</code> - элементке тікелей стиль қолдану</li>
+          <li><code>title</code> - қосымша ақпарат (үстінен өткенде көрсетіледі)</li>
+        </ul>
+        
+        <pre><code>&lt;p id="paragraph1" class="important" style="color: blue;" title="Маңызды ақпарат"&gt;
+  Бұл - атрибуттары бар абзац.
+&lt;/p&gt;</code></pre>
+      </section>
+      
+      <div class="video-container">
+        <div class="video-kk video-wrapper">
+          <iframe src="https://www.youtube.com/embed/7D3SrPTc43A" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="video-ru video-wrapper" style="display:none;">
+          <iframe src="https://www.youtube.com/embed/bBnqtbIKmZI" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <section class="test">
+        <h3>Білімді тексеру</h3>
+        <div class="quiz">
+          <p><strong>1. HTML-де абзацты белгілеу үшін қандай тег қолданылады?</strong></p>
+          <label><input type="radio" name="q1" value="a"> &lt;paragraph&gt;</label>
+          <label><input type="radio" name="q1" value="b"> &lt;p&gt;</label>
+          <label><input type="radio" name="q1" value="c"> &lt;text&gt;</label>
+          <label><input type="radio" name="q1" value="d"> &lt;par&gt;</label>
+          
+          <p><strong>2. Сілтеме жасау үшін қандай тег қолданылады?</strong></p>
+          <label><input type="radio" name="q2" value="a"> &lt;link&gt;</label>
+          <label><input type="radio" name="q2" value="b"> &lt;url&gt;</label>
+          <label><input type="radio" name="q2" value="c"> &lt;a&gt;</label>
+          <label><input type="radio" name="q2" value="d"> &lt;href&gt;</label>
+          
+          <p><strong>3. Суретті енгізу үшін қандай тег қолданылады?</strong></p>
+          <label><input type="radio" name="q3" value="a"> &lt;img&gt;</label>
+          <label><input type="radio" name="q3" value="b"> &lt;picture&gt;</label>
+          <label><input type="radio" name="q3" value="c"> &lt;image&gt;</label>
+          <label><input type="radio" name="q3" value="d"> &lt;src&gt;</label>
+          
+          <p><strong>4. Атрибуттың дұрыс жазылуы қандай?</strong></p>
+          <label><input type="radio" name="q4" value="a"> &lt;p attribute="value"&gt;</label>
+          <label><input type="radio" name="q4" value="b"> &lt;p (attribute)="value"&gt;</label>
+          <label><input type="radio" name="q4" value="c"> &lt;p "attribute"="value"&gt;</label>
+          <label><input type="radio" name="q4" value="d"> &lt;p attribute:value&gt;</label>
+        </div>
+        
+        <div class="lesson-actions">
+          <button class="complete-btn" onclick="checkQuiz(2)">Тестті тексеру</button>
+          <div id="result-2"></div>
+        </div>
+      </section>
+    `,
+    correctCode: "<h2>\n<p>\n<a href=",
+    quizAnswers: { q1: "b", q2: "c", q3: "a", q4: "a" }
+  },
+
+  3: {
+    title: "Сабақ 3: Кестелер мен формалар",
+    content: `
+      <h2>Кестелерді құру</h2>
+      <p>Кестелер &lt;table&gt;, &lt;tr&gt;, &lt;th&gt; және &lt;td&gt; теgтері арқылы жасалады.</p>
+      
+      
+      <h3>Кестелердің негізгі элементтері:</h3>
+      <ul>
+        <li><code>&lt;table&gt;</code> - кестені анықтайды</li>
+        <li><code>&lt;tr&gt;</code> (table row) - кесте жолын жасайды</li>
+        <li><code>&lt;th&gt;</code> (table header) - кесте тақырыбын анықтайды</li>
+        <li><code>&lt;td&gt;</code> (table data) - кесте ұяшығын құрайды</li>
+        <li><code>&lt;caption&gt;</code> - кесте тақырыбы</li>
+        <li><code>&lt;thead&gt;</code>, <code>&lt;tbody&gt;</code>, <code>&lt;tfoot&gt;</code> - кесте бөлімдері</li>
+      </ul>
+      
+      <h3>Мысал:</h3>
+      <pre><code>&lt;table border="1"&gt;
+    &lt;caption&gt;Студенттер тізімі&lt;/caption&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Аты-жөні&lt;/th&gt;
+            &lt;th&gt;Тобы&lt;/th&gt;
+            &lt;th&gt;Бағасы&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Асқар Әлиев&lt;/td&gt;
+            &lt;td&gt;CS-101&lt;/td&gt;
+            &lt;td&gt;95&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Айгүл Серікова&lt;/td&gt;
+            &lt;td&gt;CS-102&lt;/td&gt;
+            &lt;td&gt;88&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+
+      <h2>HTML формалары</h2>
+      <p>Формалар - пайдаланушылардан деректерді жинауға арналған элементтер.</p>
+      
+      <h3>Негізгі форма элементтері:</h3>
+      <ul>
+        <li><code>&lt;form&gt;</code> - форманы анықтайды</li>
+        <li><code>&lt;input&gt;</code> - енгізу өрісі (мәтін, құсбелгі, радио және т.б.)</li>
+        <li><code>&lt;textarea&gt;</code> - көп жолды мәтін өрісі</li>
+        <li><code>&lt;select&gt;</code> және <code>&lt;option&gt;</code> - тізімнен таңдау</li>
+        <li><code>&lt;button&gt;</code> - батырма</li>
+        <li><code>&lt;label&gt;</code> - өріс белгісі</li>
+      </ul>
+      
+      <h3>Форма мысалы:</h3>
+      <pre><code>&lt;form action="/submit" method="post"&gt;
+    &lt;label for="name"&gt;Аты-жөні:&lt;/label&gt;
+    &lt;input type="text" id="name" name="name" required&gt;
+    
+    &lt;label for="email"&gt;Email:&lt;/label&gt;
+    &lt;input type="email" id="email" name="email" required&gt;
+    
+    &lt;label for="message"&gt;Хабарлама:&lt;/label&gt;
+    &lt;textarea id="message" name="message" rows="4"&gt;&lt;/textarea&gt;
+    
+    &lt;button type="submit"&gt;Жіберу&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+
+<div class="video-container">
+  <div class="video-kk video-wrapper">
+    <iframe src="https://www.youtube.com/embed/rZig2BSw09w" frameborder="0" allowfullscreen></iframe>
+  </div>
+  <div class="video-ru video-wrapper" style="display:none;">
+    <iframe src="https://www.youtube.com/embed/jWXGLAD2BUU" frameborder="0" allowfullscreen></iframe>
+  </div>
+</div>
+
+      <h3>Практика:</h3>
+      <div class="task">
+        <p><strong>Тапсырма:</strong> Келесі кестені толықтырыңыз:</p>
+        <ol>
+          <li>Кестенің басын "Оқу жоспары" деп жазыңыз</li>
+          <li>Бірінші жолға "Пән" және "Уақыт" бағандарын қосыңыз</li>
+          <li>Екінші жолға кез келген пән мен уақытты жазыңыз</li>
+          <li>Үшінші жолды да қосыңыз</li>
+        </ol>
+        
+        <div class="code-editor">
+          <textarea id="html-code-3">&lt;table border="1"&gt;
+    &lt;caption&gt;&lt;/caption&gt;
+    &lt;tr&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</textarea>
+          <button onclick="checkCode(3)">Тексеру</button>
+          <div id="result-3"></div>
+        </div>
+      </div>
+    `,
+    practiceTask: `
+      <h3>Үй тапсырмасы</h3>
+      <p>HTML кестелері мен формалары туралы конспект жасаңыз. Конспектте келесі тақырыптар қамтылуы керек:</p>
+      <ol>
+        <li>Кестенің барлық элементтері және олардың қолданылуы</li>
+        <li>Кестелердің стильдеу мүмкіндіктері</li>
+        <li>Формалардың түрлері мен олардың элементтері</li>
+        <li>Форма валидациясының әдістері</li>
+      </ol>
+      <p>Конспектте кестелер мен формалардың кемінде 3 практикалық мысалын көрсетіңіз.</p>
+    `,
+    correctCode: "Оқу жоспары\n<th>Пән</th>\n<th>Уақыт</th>\n<td>",
+    quizAnswers: {}
+  },
+
+  4: {
+    title: "Сабақ 4: CSS негіздері",
+    content: `
+      <section class="theory">
+        <h2>CSS негізгі ұғымдары</h2>
+        <p>CSS (Cascading Style Sheets) - веб-беттердің көрінісін анықтайтын стильдеу тілі. HTML құрылымына көрініс беру үшін қолданылады.</p>
+        
+        <h3>CSS қолдану әдістері:</h3>
+        <ol>
+          <li><strong>Ішкі CSS</strong> - HTML файлында <code>&lt;style&gt;</code> тегі арқылы</li>
+          <li><strong>Сыртқы CSS</strong> - жеке .css файлында, <code>&lt;link&gt;</code> тегі арқылы қосылады</li>
+          <li><strong>Инлайн CSS</strong> - тікелей HTML элементінде <code>style</code> атрибуты арқылы</li>
+        </ol>
+        
+        <pre><code>/* Сыртқы CSS файлының мысалы */
+p {
+  color: blue;
+  font-size: 16px;
+}
+
+h1 {
+  color: darkblue;
+  font-size: 24px;
+  text-align: center;
+}</code></pre>
+        
+        <div class="theory-grid">
+          <div class="theory-card">
+            <h4>Селекторлар</h4>
+            <p>Қандай элементтерге стиль қолданылатындығын анықтайды:</p>
+            <div class="example">
+              <code>p {color: red;}</code> - барлық абзацтар<br>
+              <code>.class {color: blue;}</code> - барлық class="class" элементтер<br>
+              <code>#id {color: green;}</code> - id="id" элементі
+            </div>
+          </div>
+          
+          <div class="theory-card">
+            <h4>Қасиеттер</h4>
+            <p>Элементтердің көрінісін өзгертеді:</p>
+            <div class="example">
+              <code>color</code> - мәтін түсі<br>
+              <code>font-size</code> - қаріп өлшемі<br>
+              <code>margin</code> - сыртқы жиек<br>
+              <code>padding</code> - ішкі жиек<br>
+              <code>background-color</code> - фон түсі
+            </div>
+          </div>
+          
+          <div class="theory-card">
+            <h4>Мәндер</h4>
+            <p>Қасиеттердің нақты параметрлері:</p>
+            <div class="example">
+              <code>red, #FF0000, rgb(255,0,0)</code> - түс мәндері<br>
+              <code>16px, 1.5em, 2rem</code> - өлшем бірліктері<br>
+              <code>20%, 200px, auto</code> - орналасу өлшемдері
+            </div>
+          </div>
+        </div>
+        
+        <h3>CSS синтаксисі</h3>
+        <p>CSS стилі селектор, қасиет және мән жұбынан тұрады:</p>
+        <pre><code>селектор {
+  қасиет1: мән1;
+  қасиет2: мән2;
+}</code></pre>
+      </section>
+
+      <div class="video-container">
+        <div class="video-kk video-wrapper">
+          <iframe src="https://www.youtube.com/embed/innvl7XNF7o" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="video-ru video-wrapper" style="display:none;">
+          <iframe src="https://www.youtube.com/embed/mA6EaGs6rak" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <section class="test">
+        <h3>Білімді тексеру</h3>
+        <div class="quiz">
+          <p><strong>1. CSS қысқартуының толық ашылуы?</strong></p>
+          <label><input type="radio" name="q1" value="a"> Computer Style Sheets</label>
+          <label><input type="radio" name="q1" value="b"> Cascading Style Sheets</label>
+          <label><input type="radio" name="q1" value="c"> Creative Style Sheets</label>
+          <label><input type="radio" name="q1" value="d"> Colorful Style Sheets</label>
+          
+          <p><strong>2. CSS-те мәтіннің түсін өзгерту үшін қандай қасиет қолданылады?</strong></p>
+          <label><input type="radio" name="q2" value="a"> text-color</label>
+          <label><input type="radio" name="q2" value="b"> font-color</label>
+          <label><input type="radio" name="q2" value="c"> color</label>
+          <label><input type="radio" name="q2" value="d"> text-style</label>
+          
+          <p><strong>3. CSS-ті HTML-ге қосудың ДҰРЫС ЕМЕС әдісі?</strong></p>
+          <label><input type="radio" name="q3" value="a"> Сыртқы CSS файлын &lt;link&gt; тегі арқылы қосу</label>
+          <label><input type="radio" name="q3" value="b"> &lt;style&gt; тегін &lt;head&gt; ішінде қолдану</label>
+          <label><input type="radio" name="q3" value="c"> HTML элементінде style атрибутын қолдану</label>
+          <label><input type="radio" name="q3" value="d"> CSS кодын &lt;css&gt; тегтерінің ішіне жазу</label>
+          
+          <p><strong>4. Келесі код қандай элементтерге стиль қолданады: .highlight { color: yellow; }?</strong></p>
+          <label><input type="radio" name="q4" value="a"> highlight ID-і бар элементке</label>
+          <label><input type="radio" name="q4" value="b"> highlight класы бар барлық элементтерге</label>
+          <label><input type="radio" name="q4" value="c"> highlight тегі бар элементтерге</label>
+          <label><input type="radio" name="q4" value="d"> highlight атрибуты бар элементтерге</label>
+        </div>
+        
+        <div class="lesson-actions">
+          <button class="complete-btn" onclick="checkQuiz(4)">Тестті тексеру</button>
+          <div id="result-4"></div>
+        </div>
+      </section>
+    `,
+    correctCode: "p{color:red;}\nh1{font-size:24px;}",
+    quizAnswers: { q1: "b", q2: "c", q3: "d", q4: "b" }
+  },
+
+  5: {
+    title: "Сабақ 5: CSS селекторлары",
+    content: `
+      <section class="theory">
+        <h2>CSS селекторларының түрлері</h2>
+        <p>Селекторлар - HTML элементтерін анықтап, оларға стиль қолдануға мүмкіндік береді. Дұрыс селекторларды қолдану арқылы нақты элементтерді таңдауға болады.</p>
+        
+        <div class="theory-grid">
+          <div class="theory-card">
+            <h4>Негізгі селекторлар</h4>
+            <div class="example">
+              <p><code>p { ... }</code> - барлық абзацтар</p>
+              <p><code>.className { ... }</code> - барлық class="className" элементтер</p>
+              <p><code>#elementId { ... }</code> - id="elementId" элементі</p>
+              <p><code>* { ... }</code> - барлық элементтер</p>
+            </div>
+          </div>
+          
+          <div class="theory-card">
+            <h4>Комбинациялық селекторлар</h4>
+            <div class="example">
+              <p><code>div p { ... }</code> - div ішіндегі барлық абзацтар</p>
+              <p><code>div > p { ... }</code> - div-тің тікелей ұрпақтары болып табылатын абзацтар</p>
+              <p><code>h1 + p { ... }</code> - h1-ден кейінгі бірінші абзац</p>
+              <p><code>h1 ~ p { ... }</code> - h1-ден кейінгі барлық абзацтар</p>
+            </div>
+          </div>
+          
+          <div class="theory-card">
+            <h4>Атрибут селекторлары</h4>
+            <div class="example">
+              <p><code>[type] { ... }</code> - type атрибуты бар барлық элементтер</p>
+              <p><code>[type="text"] { ... }</code> - type="text" атрибуты бар барлық элементтер</p>
+              <p><code>[href^="https"] { ... }</code> - href-і "https" басталатын сілтемелер</p>
+              <p><code>[href$=".pdf"] { ... }</code> - href-і ".pdf" аяқталатын сілтемелер</p>
+            </div>
+          </div>
+          
+          <div class="theory-card">
+            <h4>Псевдо-класстар</h4>
+            <div class="example">
+              <p><code>a:hover { ... }</code> - тышқан үстінде тұрған сілтеме</p>
+              <p><code>input:focus { ... }</code> - фокуста болған енгізу өрісі</p>
+              <p><code>p:first-child { ... }</code> - бірінші ұрпақ ретінде болған абзац</p>
+              <p><code>p:nth-child(2) { ... }</code> - екінші ұрпақ ретінде болған абзац</p>
+            </div>
+          </div>
+        </div>
+        
+        <h3>Селекторлардың маңыздылығы (Specificity)</h3>
+        <p>Егер бір элементке бірнеше селектор қолданылса, маңыздылығы ең жоғары селектор басымдылыққа ие болады.</p>
+        <ul>
+          <li>Инлайн стиль (&lt;div style="..."&gt;) - ең жоғары маңыздылық</li>
+          <li>ID селекторлары (#id) - жоғары маңыздылық</li>
+          <li>Класс селекторлары (.class), атрибут селекторлары, псевдо-класстар - орташа маңыздылық</li>
+          <li>Элемент селекторлары (p, div) - төмен маңыздылық</li>
+        </ul>
+      </section>
+      
+      <div class="video-container">
+        <div class="video-kk video-wrapper">
+          <iframe src="https://www.youtube.com/embed/c7dHapyo-Xw" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="video-ru video-wrapper" style="display:none;">
+          <iframe src="https://www.youtube.com/embed/GctszxSvbeQ" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <section class="practice">
+        <h3>Практикалық тапсырма</h3>
+        <div class="task">
+          <p><strong>Тапсырма:</strong> Келесі HTML құрылымына стиль қолданыңыз:</p>
+          <pre><code>&lt;div class="container"&gt;
+  &lt;p&gt;Қарапайым абзац&lt;/p&gt;
+  &lt;p class="special"&gt;Арнайы абзац&lt;/p&gt;
+  &lt;p id="pick"&gt;Бірегей абзац&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+          <ol>
+            <li>Барлық абзацтардың мәтінін жасыл етіңіз</li>
+            <li>"special" класы бар элементтердің фондық түсін сары етіңіз</li>
+            <li>"pick" идентификаторы бар элементтің қаріп өлшемін 12px етіңіз</li>
+          </ol>
+          
+          <div class="code-editor">
+            <textarea id="css-code-5">/* Стильдерді осы жерге жазыңыз */</textarea>
+            <button onclick="checkCode(5)">Тексеру</button>
+            <div id="result-5"></div>
+          </div>
+        </div>
+      </section>
+    `,
+    correctCode: "p{color:green;}\n.special{background-color:yellow;}\n#pick{font-size:12px;}",
+    quizAnswers: {}
+  },
+
+  6: {
+    title: "Сабақ 6: Flexbox жүйесі",
+    content: `
+      <section class="theory">
+        <h2>Flexbox - заманауи орналастыру жүйесі</h2>
+        <p>Flexbox (Flexible Box Layout) - элементтерді икемді орналастыруға арналған CSS модулі. Бұл жүйе сайттарды адаптивті жасауға мүмкіндік береді.</p>
+        
+        <h3>Flexbox негізгі ұғымдары:</h3>
+        <ul>
+          <li><strong>Flex-контейнер</strong> - display: flex немесе display: inline-flex қасиеті бар элемент</li>
+          <li><strong>Flex-элементтер</strong> - flex-контейнер ішіндегі тікелей ұрпақ элементтер</li>
+          <li><strong>Негізгі ось (Main Axis)</strong> - flex-direction бойынша анықталады</li>
+          <li><strong>Қосалқы ось (Cross Axis)</strong> - негізгі оське перпендикуляр ось</li>
+        </ul>
+        
+        <div class="theory-grid">
+          <div class="theory-card">
+            <h4>Flex-контейнер қасиеттері</h4>
+            <div class="example">
+              <p><code>display: flex</code> - flex-контейнерін анықтайды</p>
+              <p><code>flex-direction</code> - негізгі ось бағытын анықтайды (row, column, row-reverse, column-reverse)</p>
+              <p><code>flex-wrap</code> - элементтерді бірнеше жолға/бағанға бөлу (wrap, nowrap)</p>
+              <p><code>justify-content</code> - негізгі ось бойынша тегістеу (flex-start, center, flex-end, space-between, space-around)</p>
+              <p><code>align-items</code> - қосалқы ось бойынша тегістеу (flex-start, center, flex-end, stretch)</p>
+            </div>
+          </div>
+          
+          <div class="theory-card">
+            <h4>Flex-элемент қасиеттері</h4>
+            <div class="example">
+              <p><code>flex-grow</code> - бос орынды қалай бөлу керектігін анықтайды</p>
+              <p><code>flex-shrink</code> - орын жетіспегенде қалай кішірею керектігін анықтайды</p>
+              <p><code>flex-basis</code> - элементтің бастапқы өлшемі</p>
+              <p><code>flex</code> - grow, shrink, basis үшін қысқаша жазба</p>
+              <p><code>align-self</code> - нақты элементтің тегістелуін анықтайды</p>
+            </div>
+          </div>
+        </div>
+        
+        <h3>Flexbox мысалы:</h3>
+        <pre><code>.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.item {
+  flex: 1 0 200px; /* grow shrink basis */
+  margin: 10px;
+}</code></pre>
+      </section>
+      
+      <div class="video-container">
+        <div class="video-kk video-wrapper">
+          <iframe src="https://www.youtube.com/embed/uEaNNgvdU6E" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="video-ru video-wrapper" style="display:none;">
+          <iframe src="https://www.youtube.com/embed/YG8Vhz1pAsU" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <section class="practice">
+        <h3>Практикалық тапсырма</h3>
+        <div class="task">
+          <p><strong>Тапсырма:</strong> Келесі мәселені шешіңіз:</p>
+          <p>CSS кодын жазыңыз, ол <code>.container</code> класы бар элементке:</p>
+          <ol>
+            <li>Flex-контейнер ретінде анықтаңыз</li>
+            <li>Элементтерді ортаға туралаңыз (негізгі ось бойынша)</li>
+            <li>Элементтерді бағана түрінде орналастырыңыз (жоғарыдан төменге)</li>
+            <li>Қосалқы ось бойынша элементтерді ортаға орналастырыңыз</li>
+          </ol>
+          
+          <div class="code-editor">
+            <textarea id="css-code-6">.container {
+    /* Стильдерді осы жерге жазыңыз */
+}</textarea>
+            <button onclick="checkCode(6)">Тексеру</button>
+            <div id="result-6"></div>
+          </div>
+        </div>
+      </section>
+    `,
+    correctCode: "display:flex;\njustify-content:center;\nflex-direction:column;\nalign-items:center;",
+    quizAnswers: {}
+  },
+
+  7: {
+    title: "Сабақ 7: Grid жүйесі",
+    content: `
+      <section class="theory">
+        <h2>CSS Grid жүйесі</h2>
+        <p>CSS Grid - екі өлшемді торлы орналастыру жүйесі. Flexbox-қа қарағанда, Grid жолдар мен бағандардың екі өлшемді құрылымын жасауға мүмкіндік береді.</p>
+        
+        <h3>Grid негізгі ұғымдары:</h3>
+        <ul>
+          <li><strong>Grid-контейнер</strong> - display: grid немесе display: inline-grid қасиеті бар элемент</li>
+          <li><strong>Grid-элементтер</strong> - grid-контейнер ішіндегі тікелей ұрпақ элементтер</li>
+          <li><strong>Grid жолдары мен бағандары</strong> - grid құрылымындағы көлденең және тік сызықтар</li>
+          <li><strong>Grid ұяшықтары</strong> - grid жолдары мен бағандарының қиылысуы</li>
+          <li><strong>Grid аумақтары</strong> - бірнеше ұяшықтан тұратын тор бөліктері</li>
+        </ul>
+        
+        <div class="theory-grid">
+          <div class="theory-card">
+            <h4>Grid контейнер</h4>
+            <p>Grid жүйесін бастау үшін қажет:</p>
+            <div class="example">
+              <code>.container {<br>  display: grid;<br>}</code>
+            </div>
+          </div>
+          
+          <div class="theory-card">
+            <h4>Жолдар мен бағандар</h4>
+            <p>Тор құрылымын анықтау:</p>
+            <div class="example">
+              <code>grid-template-columns: 1fr 2fr 1fr;</code> - 3 баған<br>
+              <code>grid-template-rows: 100px auto;</code> - 2 жол<br>
+              <code>grid-template: 100px 200px / 1fr 1fr;</code> - 2 жол, 2 баған
+            </div>
+          </div>
+          
+          <div class="theory-card">
+            <h4>Аралықтар</h4>
+            <p>Ұяшықтар арасындағы қашықтық:</p>
+            <div class="example">
+              <code>column-gap: 20px;</code> - бағандар арасындағы аралық<br>
+              <code>row-gap: 10px;</code> - жолдар арасындағы аралық<br>
+              <code>gap: 10px 20px;</code> - жолдар мен бағандар арасындағы аралық
+            </div>
+          </div>
+          
+          <div class="theory-card">
+            <h4>Элементтерді орналастыру</h4>
+            <p>Grid-элементтерді арнайы орналастыру:</p>
+            <div class="example">
+              <code>grid-column: 1 / 3;</code> - 1-ден 3-ші баған желісіне дейін<br>
+              <code>grid-row: 2 / 4;</code> - 2-ден 4-ші жол желісіне дейін<br>
+              <code>grid-area: 2 / 1 / 4 / 3;</code> - жол-бастау/баған-бастау/жол-аяқтау/баған-аяқтау
+            </div>
+          </div>
+        </div>
+        
+        <h3>Grid мысалы:</h3>
+        <pre><code>.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 100px 200px;
+  gap: 20px;
+}
+
+.item1 {
+  grid-column: 1 / 3; /* 1-ден 3-ші баған желісіне дейін */
+  grid-row: 1 / 2;    /* 1-ден 2-ші жол желісіне дейін */
+}</code></pre>
+      </section>
+      
+      <div class="video-container">
+        <div class="video-kk video-wrapper">
+          <iframe src="https://www.youtube.com/embed/__26O9rCo4k" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="video-ru video-wrapper" style="display:none;">
+          <iframe src="https://www.youtube.com/embed/JrKOHNRnRMg" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <section class="test">
+        <h3>Білімді тексеру</h3>
+        <div class="quiz">
+          <p><strong>1. Grid құрылымын қалай іске қосамыз?</strong></p>
+          <label><input type="radio" name="q1" value="a"> display: flex;</label>
+          <label><input type="radio" name="q1" value="b"> display: grid;</label>
+          
+          <p><strong>2. Ұяшықтар арасындағы қашықтықты қалай орнатамыз?</strong></p>
+          <label><input type="radio" name="q2" value="a"> margin: 20px;</label>
+          <label><input type="radio" name="q2" value="b"> gap: 20px;</label>
+
+          <p><strong>3. Үш бірдей өлшемді баған жасау үшін қандай код қолданылады?</strong></p>
+          <label><input type="radio" name="q3" value="a"> grid-template-columns: repeat(3, 1fr);</label>
+          <label><input type="radio" name="q3" value="b"> grid-template-columns: 3fr;</label>
+        </div>
+        
+        <div class="lesson-actions">
+          <button class="complete-btn" onclick="checkQuiz(7)">Тестті тексеру</button>
+          <div id="result-7"></div>
+        </div>
+      </section>
+    `,
+    correctCode: "",
+    quizAnswers: { q1: "b", q2: "b", q3: "a" }
+  },
+
+  8: {
+    title: "Сабақ 8: CSS позициялау (Position)",
+    content: `
+      <section class="theory">
+        <h2>CSS позициялау (Position)</h2>
+        <p>CSS-те "position" қасиеті элементтердің орналасу тәсілін анықтайды. Бұл қасиет веб-парақтағы элементтерді дәл орналастыруға мүмкіндік береді.</p>
+        
+        <h3>Position қасиетінің мәндері:</h3>
+        <div class="theory-grid">
+          <div class="theory-card">
+            <h4>static</h4>
+            <p>Әдепкі мән. Элемент құжаттың қалыпты ағынында орналасады.</p>
+            <div class="example">
+              <code>.element {
+  position: static;
+}</code>
+              <p>Бұл жағдайда top, right, bottom, left қасиеттері әсер етпейді.</p>
+            </div>
+          </div>
+          
+          <div class="theory-card">
+            <h4>relative</h4>
+            <p>Элемент өзінің қалыпты орнына қатысты орналасады.</p>
+            <div class="example">
+              <code>.element {
+  position: relative;
+  top: 20px;
+  left: 30px;
+}</code>
+              <p>Элемент өзінің бастапқы орнынан төмен 20px және оңға 30px жылжиды.</p>
+            </div>
+          </div>
+          
+          <div class="theory-card">
+            <h4>absolute</h4>
+            <p>Элемент ең жақын орналасқан (static емес) ата-элементке қатысты орналасады.</p>
+            <div class="example">
+              <code>.container {
+  position: relative;
+}
+.element {
+  position: absolute;
+  top: 50px;
+  right: 10px;
+}</code>
+              <p>Элемент контейнердің жоғарғы шетінен 50px және оң жақ шетінен 10px қашықтықта орналасады.</p>
+            </div>
+          </div>
+          
+          <div class="theory-card">
+            <h4>fixed</h4>
+            <p>Элемент браузер терезесіне қатысты орналасады және парақ айналдырылса да орнында қалады.</p>
+            <div class="example">
+              <code>.element {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}</code>
+              <p>Элемент браузер терезесінің төменгі оң жақ бұрышында орналасады.</p>
+            </div>
+          </div>
+          
+          <div class="theory-card">
+            <h4>sticky</h4>
+            <p>Элемент пайдаланушы айналдырған кезде белгілі бір нүктеге жеткенше қалыпты ағында болады, содан кейін "жабысып" қалады.</p>
+            <div class="example">
+              <code>.element {
+  position: sticky;
+  top: 0;
+}</code>
+              <p>Элемент айналдыру кезінде экранның жоғарғы жағына жеткенде жабысып қалады.</p>
+            </div>
+          </div>
+        </div>
+        
+        <h3>z-index қасиеті</h3>
+        <p>z-index қасиеті элементтердің үшінші өлшемдегі (z-осі) орналасу ретін анықтайды. Жоғары z-index мәні бар элементтер төмен мәні бар элементтердің үстінде көрсетіледі.</p>
+        
+        <div class="theory-grid">
+          <div class="theory-card">
+            <h4>z-index қолдану</h4>
+            <div class="example">
+              <code>.background {
+  position: relative;
+  z-index: 1;
+}
+.foreground {
+  position: absolute;
+  z-index: 2; /* Бұл элемент жоғарыда болады */
+}</code>
+              <p>z-index тек позицияланған элементтерге ғана әсер етеді (static емес).</p>
+            </div>
+          </div>
+          
+          <div class="theory-card">
+            <h4>Қабаттасу контексі</h4>
+            <div class="example">
+              <p>Элементтер әртүрлі қабаттасу контекстерінде болса, z-index салыстырулары тек сол контекст ішінде ғана жұмыс істейді.</p>
+              <p>Жаңа қабаттасу контексі position: relative/absolute/fixed, z-index мәні auto емес, opacity 1-ден кіші немесе transform қолданылған элементтерде жасалады.</p>
+            </div>
+          </div>
+        </div>
+        
+        <h3>Практикалық мысалдар:</h3>
+        <div class="theory-grid">
+          <div class="theory-card">
+            <h4>Модальды терезе</h4>
+            <div class="example">
+              <code>.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 100;
+}
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 101;
+}</code>
+            </div>
+          </div>
+          
+          <div class="theory-card">
+            <h4>Жабысқақ навигация</h4>
+            <div class="example">
+              <code>.navbar {
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 10;
+}</code>
+            </div>
+          </div>
+          
+          <div class="theory-card">
+            <h4>Туыстық позициялау</h4>
+            <div class="example">
+              <code>.parent {
+  position: relative;
+}
+.child {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}</code>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="video-container">
+        <div class="video-kk video-wrapper">
+          <iframe src="https://www.youtube.com/embed/Jg-8An1CcPU" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="video-ru video-wrapper" style="display:none;">
+          <iframe src="https://www.youtube.com/embed/jQCzxM2dPWU" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+      
+      <section class="test">
+        <h3>Білімді тексеру</h3>
+        <div class="quiz">
+          <p><strong>1. position: static қасиеті не істейді?</strong></p>
+          <label><input type="radio" name="q1" value="a"> Элементті құжат ағынынан шығарады</label>
+          <label><input type="radio" name="q1" value="b"> Элементті құжаттың қалыпты ағынына қалдырады</label>
+          <label><input type="radio" name="q1" value="c"> Элементті браузер терезесіне бекітеді</label>
+          <label><input type="radio" name="q1" value="d"> Элементті айналдыру кезінде жабыстырады</label>
+          
+          <p><strong>2. position: absolute қасиетін қолданған кезде элемент неге қатысты орналасады?</strong></p>
+          <label><input type="radio" name="q2" value="a"> Құжат ағынындағы өз орнына</label>
+          <label><input type="radio" name="q2" value="b"> Браузер терезесіне</label>
+          <label><input type="radio" name="q2" value="c"> Ең жақын орналасқан (static емес) ата-элементке</label>
+          <label><input type="radio" name="q2" value="d"> Парақтың жоғарғы жағына</label>
+          
+          <p><strong>3. Келесі элементтердің қайсысы скролл кезінде өз орнында қалады?</strong></p>
+          <label><input type="radio" name="q3" value="a"> position: relative</label>
+          <label><input type="radio" name="q3" value="b"> position: static</label>
+          <label><input type="radio" name="q3" value="c"> position: absolute</label>
+          <label><input type="radio" name="q3" value="d"> position: fixed</label>
+          
+          <p><strong>4. z-index қасиеті не үшін қолданылады?</strong></p>
+          <label><input type="radio" name="q4" value="a"> Элементтің енін орнату</label>
+          <label><input type="radio" name="q4" value="b"> Элементтің орнын x және y осьтерінде анықтау</label>
+          <label><input type="radio" name="q4" value="c"> Элементтердің қабаттасу ретін анықтау</label>
+          <label><input type="radio" name="q4" value="d"> Элементті зум деңгейін орнату</label>
+          
+          <p><strong>5. position: sticky қасиеті қашан "жабысады"?</strong></p>
+          <label><input type="radio" name="q5" value="a"> Әрқашан</label>
+          <label><input type="radio" name="q5" value="b"> Тышқанды үстіне әкелгенде</label>
+          <label><input type="radio" name="q5" value="c"> Скролл кезінде белгіленген шекке жеткенде</label>
+          <label><input type="radio" name="q5" value="d"> Парақты жүктеген кезде</label>
+        </div>
+        
+        <div class="lesson-actions">
+          <button class="complete-btn" onclick="checkQuiz(8)">Тестті тексеру</button>
+          <div id="result-8-quiz"></div>
+        </div>
+      </section>
+    `,
+    quizAnswers: { q1: "b", q2: "c", q3: "d", q4: "c", q5: "c" }
+  },
+
+  9: {
+    title: "Сабақ 9: Финалдық жоба",
+    content: `
+      <section class="theory">
+        <h2>Толыққанды веб-бет жасау</h2>
+        <p>Осы курста үйренгеніміздің барлығын біріктіріп, толыққанды веб-бетті жасаймыз. Финалдық жоба - бұл HTML мен CSS бойынша біліміңізді көрсететін жеке портфолио немесе блог.</p>
+        
+        <h3>Жобаға қойылатын талаптар:</h3>
+        <ul>
+          <li><strong>Тиімді HTML құрылым</strong> - семантикалық теgтерді дұрыс қолдану</li>
+          <li><strong>Стильдеу</strong> - CSS қасиеттерін тиімді қолдану</li>
+          <li><strong>Адаптивті дизайн</strong> - әртүрлі құрылғыларға бейімделу</li>
+          <li><strong>Икемді орналастыру</strong> - Flexbox және Grid жүйелерін қолдану</li>
+          <li><strong>Сапалы мазмұн</strong> - суреттер, мәтіндер және басқа медиа</li>
+        </ul>
+        
+        <h3>Веб-беттің негізгі бөліктері:</h3>
+        <div class="theory-grid">
+          <div class="theory-card">
+            <h4>Header (Үстіңгі деректер)</h4>
+            <p>Веб-беттің жоғарғы бөлігі:</p>
+            <div class="example">
+              <p>- Логотип немесе атауы</p>
+              <p>- Навигация мәзірі</p>
+              <p>- Іздеу, кіру немесе басқа әрекеттер</p>
+              <code>&lt;header&gt;<br>  &lt;nav&gt;...&lt;/nav&gt;<br>&lt;/header&gt;</code>
+            </div>
+          </div>
+          
+          <div class="theory-card">
+            <h4>Main (Негізгі мазмұн)</h4>
+            <p>Веб-беттің негізгі бөлігі:</p>
+            <div class="example">
+              <p>- Мақалалар/жазбалар</p>
+              <p>- Секциялар мен бөлімдер</p>
+              <p>- Өнімдер, қызметтер т.б.</p>
+              <code>&lt;main&gt;<br>  &lt;section&gt;...&lt;/section&gt;<br>  &lt;article&gt;...&lt;/article&gt;<br>&lt;/main&gt;</code>
+            </div>
+          </div>
+          
+          <div class="theory-card">
+            <h4>Sidebar (Бүйірлік панель)</h4>
+            <p>Қосымша ақпарат орналасатын бөлім:</p>
+            <div class="example">
+              <p>- Категориялар немесе тақырыптар</p>
+              <p>- Танымал мазмұн</p>
+              <p>- Байланыс ақпараты</p>
+              <code>&lt;aside&gt;<br>  &lt;div&gt;...&lt;/div&gt;<br>&lt;/aside&gt;</code>
+            </div>
+          </div>
+          
+          <div class="theory-card">
+            <h4>Footer (Аяқтау бөлігі)</h4>
+            <p>Веб-беттің төменгі бөлігі:</p>
+            <div class="example">
+              <p>- Авторлық құқықтар туралы ақпарат</p>
+              <p>- Байланыс мәліметтері</p>
+              <p>- Әлеуметтік желілер сілтемелері</p>
+              <code>&lt;footer&gt;<br>  &lt;div&gt;...&lt;/div&gt;<br>&lt;/footer&gt;</code>
+            </div>
+          </div>
+        </div>
+        
+        <h3>Жобаны жүзеге асыру кезеңдері:</h3>
+        <ol>
+          <li><strong>Жоспарлау және дизайн</strong> - макет жасау, түстер мен қаріптерді таңдау</li>
+          <li><strong>HTML құрылымы</strong> - семантикалық теgтерді қолданып, құрылымды құру</li>
+          <li><strong>CSS стильдеу</strong> - негізгі стильдерді қолдану, орналастыру жүйесін жасау</li>
+          <li><strong>Адаптивтілік</strong> - медиа-сұрауларды қосу, әртүрлі құрылғыларда тестілеу</li>
+          <li><strong>Мазмұнды толтыру</strong> - мәтіндерді, суреттерді және басқа медианы қосу</li>
+          <li><strong>Тестілеу және түзету</strong> - әртүрлі браузерлер мен құрылғыларда тексеру</li>
+        </ol>
+      </section>
+      
+      <section class="test">
+        <h3>Білімді тексеру</h3>
+        
+        <h4>Жеңіл деңгей</h4>
+        <div class="quiz">
+          <p><strong>1. HTML5-те "үстіңгі деректер" үшін қандай семантикалық тег қолданылады?</strong></p>
+          <label><input type="radio" name="q1" value="a"> &lt;top&gt;</label>
+          <label><input type="radio" name="q1" value="b"> &lt;head&gt;</label>
+          <label><input type="radio" name="q1" value="c"> &lt;header&gt;</label>
+          <label><input type="radio" name="q1" value="d"> &lt;heading&gt;</label>
+          
+          <p><strong>2. Адаптивті дизайнда қандай CSS механизм қолданылады?</strong></p>
+          <label><input type="radio" name="q2" value="a"> CSS Transitions</label>
+          <label><input type="radio" name="q2" value="b"> CSS Variables</label>
+          <label><input type="radio" name="q2" value="c"> CSS Media Queries</label>
+          <label><input type="radio" name="q2" value="d"> CSS Animations</label>
+          
+          <p><strong>3. Икемді сурет жасау үшін қандай CSS қасиет қолданылады?</strong></p>
+          <label><input type="radio" name="q3" value="a"> width: 100%;</label>
+          <label><input type="radio" name="q3" value="b"> max-width: 100%;</label>
+          <label><input type="radio" name="q3" value="c"> height: auto;</label>
+          <label><input type="radio" name="q3" value="d"> B және C жауаптары</label>
+          
+          <p><strong>4. Веб-беттің негізгі мазмұнын орналастыру үшін қандай тег дұрыс?</strong></p>
+          <label><input type="radio" name="q4" value="a"> &lt;content&gt;</label>
+          <label><input type="radio" name="q4" value="b"> &lt;section&gt;</label>
+          <label><input type="radio" name="q4" value="c"> &lt;main&gt;</label>
+          <label><input type="radio" name="q4" value="d"> &lt;body&gt;</label>
+
+          <p><strong>5. Flexbox-тегі контейнердің элементтерін ортаға туралау үшін қандай қасиет қолданылады?</strong></p>
+          <label><input type="radio" name="q5" value="a"> align-items: center;</label>
+          <label><input type="radio" name="q5" value="b"> justify-content: center;</label>
+          <label><input type="radio" name="q5" value="c"> text-align: center;</label>
+          <label><input type="radio" name="q5" value="d"> margin: 0 auto;</label>
+        </div>
+        
+        <h4>Орташа деңгей</h4>
+        <div class="quiz">
+          <p><strong>6. HTML5-те мақаланы анықтау үшін қандай семантикалық тег қолданылады?</strong></p>
+          <label><input type="radio" name="q6" value="a"> &lt;post&gt;</label>
+          <label><input type="radio" name="q6" value="b"> &lt;article&gt;</label>
+          <label><input type="radio" name="q6" value="c"> &lt;blog&gt;</label>
+          <label><input type="radio" name="q6" value="d"> &lt;content&gt;</label>
+          
+          <p><strong>7. Grid жүйесінде бірнеше баған орнату үшін қандай қасиет қолданылады?</strong></p>
+          <label><input type="radio" name="q7" value="a"> grid-template-columns</label>
+          <label><input type="radio" name="q7" value="b"> grid-columns</label>
+          <label><input type="radio" name="q7" value="c"> grid-auto-columns</label>
+          <label><input type="radio" name="q7" value="d"> columns-template</label>
+          
+          <p><strong>8. Flexbox-те бірнеше қатарға элементтерді орналастыру үшін қандай қасиет қолданылады?</strong></p>
+          <label><input type="radio" name="q8" value="a"> flex-wrap: wrap;</label>
+          <label><input type="radio" name="q8" value="b"> flex-flow: wrap;</label>
+          <label><input type="radio" name="q8" value="c"> flex-direction: row;</label>
+          <label><input type="radio" name="q8" value="d"> flex-line: multiple;</label>
+          
+          <p><strong>9. Веб-беттің төменгі бөлігін анықтайтын тег?</strong></p>
+          <label><input type="radio" name="q9" value="a"> &lt;bottom&gt;</label>
+          <label><input type="radio" name="q9" value="b"> &lt;footer&gt;</label>
+          <label><input type="radio" name="q9" value="c"> &lt;end&gt;</label>
+          <label><input type="radio" name="q9" value="d"> &lt;footerend&gt;</label>
+
+          <p><strong>10. CSS-те рendіз модельіне (box model) нелер кіреді?</strong></p>
+          <label><input type="radio" name="q10" value="a"> Margin, border және padding</label>
+          <label><input type="radio" name="q10" value="b"> Content, padding, border және margin</label>
+          <label><input type="radio" name="q10" value="c"> Width, height және margin</label>
+          <label><input type="radio" name="q10" value="d"> Display, position және float</label>
+        </div>
+        
+        <h4>Күрделі деңгей</h4>
+        <div class="quiz">
+          <p><strong>11. Төмендегі мысалда grid элементінің орналасуы қандай болады?<br>grid-area: 2 / 1 / 4 / 3;</strong></p>
+          <label><input type="radio" name="q11" value="a"> 2-жолдан 1-бағанда, 4x3 өлшемді</label>
+          <label><input type="radio" name="q11" value="b"> 2-жолдан 4-жолға және 1-бағаннан 3-бағанға дейін</label>
+          <label><input type="radio" name="q11" value="c"> 1-жолдан 2-жолға және 3-бағаннан 4-бағанға дейін</label>
+          <label><input type="radio" name="q11" value="d"> 2-бағаннан 1-бағанға және 4-жолдан 3-жолға дейін</label>
+          
+          <p><strong>12. CSS-те z-index қасиеті ненi анықтайды?</strong></p>
+          <label><input type="radio" name="q12" value="a"> Элементтiң позициялау әдiсiн</label>
+          <label><input type="radio" name="q12" value="b"> Элементтiң көрiну ретiн (кезектiлiгiн)</label>
+          <label><input type="radio" name="q12" value="c"> Элементтiң масштаб деңгейiн</label>
+          <label><input type="radio" name="q12" value="d"> Элементтiң скролл ретiн</label>
+          
+          <p><strong>13. SCSS пен CSS айырмашылығы неде?</strong></p>
+          <label><input type="radio" name="q13" value="a"> SCSS - браузер түрлерiнiң арнайы CSS нұсқасы</label>
+          <label><input type="radio" name="q13" value="b"> SCSS - CSS препроцессоры, ішкі ендіру, айнымалылар және миксиндер сияқты қосымша мүмкіндіктері бар</label>
+          <label><input type="radio" name="q13" value="c"> SCSS - CSS пост-процессор</label>
+          <label><input type="radio" name="q13" value="d"> SCSS - CSS Framework-тің бір түрі</label>
+          
+          <p><strong>14. Келесі CSS селекторы ненi таңдайды: header > nav > ul > li:nth-child(odd)</strong></p>
+          <label><input type="radio" name="q14" value="a"> header тегіндегі барлық li элементтерін</label>
+          <label><input type="radio" name="q14" value="b"> header ішіндегі nav ішіндегі ul ішіндегі тақ нөірлі li элементтерін</label>
+          <label><input type="radio" name="q14" value="c"> бірінші және үшінші деңгейдегі барлық элементтерді</label>
+          <label><input type="radio" name="q14" value="d"> header тегінен кейінгі барлық nav элементтерін</label>
+
+          <p><strong>15. БЭМ методологиясы ненi білдіреді?</strong></p>
+          <label><input type="radio" name="q15" value="a"> Браузердің элемент модификациясын</label>
+          <label><input type="radio" name="q15" value="b"> Блок, элемент, модификатор (CSS класс атаулары үшін конвенция)</label>
+          <label><input type="radio" name="q15" value="c"> Базалық элементтерді модельдеу</label>
+          <label><input type="radio" name="q15" value="d"> Блоктық элементтерді модульдеу</label>
+        </div>
+        
+        <div class="lesson-actions">
+          <button class="complete-btn" onclick="checkQuiz(9)">Тестті тексеру</button>
+          <div id="result-9"></div>
+        </div>
+      </section>
+
+      <section class="practice">
+        <h3>Практикалық тапсырма</h3>
+        <div class="task">
+          <p><strong>Тапсырма:</strong> Адаптивті портфолио сайтының негізгі HTML және CSS құрылымын жасаңыз.</p>
+          
+          <p>Талаптар:</p>
+          <ol>
+            <li>HTML5 семантикалық теgтерін дұрыс қолданыңыз</li>
+            <li>Flexbox немесе Grid жүйесін қолданыңыз</li>
+            <li>Кем дегенде 2 медиа-сұрауды (media queries) қосыңыз - мобильді және десктоп нұсқалары үшін</li>
+            <li>БЭМ конвенциясын ұстанып CSS класс атауларын жазыңыз</li>
+            <li>Жобаның барлық бөлімдерін қосыңыз - хедер, негізгі мазмұн, қосымша навигация, футер</li>
+          </ol>
+          
+          <p>Төменде негізгі HTML5 құрылымы бар. Оны толықтырып, CSS стильдерін css style теgі ішіне жазыңыз.</p>
+          
+          <div class="code-editor">
+            <textarea id="html-code-9">&lt;!DOCTYPE html&gt;
+&lt;html lang="kk"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Менің портфолиом&lt;/title&gt;
+    &lt;style&gt;
+        /* Негізгі стильдер */
+        
+        /* Media Queries */
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- HTML кодты осы жерге жазыңыз --&gt;
+&lt;/body&gt;
+&lt;/html&gt;</textarea>
+            <button onclick="checkCode(9)">Тексеру</button>
+            <div id="result-9"></div>
+          </div>
+        </div>
+      </section>
+    `,
+    correctCode: "<header>\n<main>\n<aside>\n<footer>\n@media (max-width:768px)\n@media (min-width:769px)",
+    quizAnswers: { 
+      q1: "c", q2: "c", q3: "d", q4: "c", q5: "b", 
+      q6: "b", q7: "a", q8: "a", q9: "b", q10: "b",
+      q11: "b", q12: "b", q13: "b", q14: "b", q15: "b"
+    }
+  }
+};
+
+// Создаем объект с русскими версиями содержимого уроков
+const lessonsRu = {
+  1: {
+    title: "Урок 1: Основы HTML",
+    content: `
+      <section class="theory">
+        <h2>Основные понятия HTML</h2>
+        <p>HTML (HyperText Markup Language) - основной язык, определяющий структуру веб-страниц. Все современные веб-сайты создаются с помощью HTML.</p>
+        
+        <p>HTML состоит из тегов, которые определяют структуру содержимого. Каждый тег начинается с пары <code>&lt;тег&gt;</code> и заканчивается парой <code>&lt;/тег&gt;</code>.</p>
+        
+        <div class="theory-grid">
+          <div class="theory-card">
+            <h4><code>&lt;!DOCTYPE html&gt;</code></h4>
+            <p>Указывает версию HTML5 документа. <strong>Должен всегда быть в первой строке!</strong></p>
+            <div class="example">
+              <p>Пример:</p>
+              <code>&lt;!DOCTYPE html&gt;</code>
+            </div>
+          </div>
+          
+          <div class="theory-card">
+            <h4><code>&lt;html&gt;</code></h4>
+            <p>Содержит весь документ. Атрибут <code>lang</code> указывает язык.</p>
+            <div class="example">
+              <p>Пример:</p>
+              <code>&lt;html lang="ru"&gt;</code>
+            </div>
+          </div>
+          
+          <div class="theory-card">
+            <h4><code>&lt;head&gt;</code></h4>
+            <p>Метаинформация (заголовок, стили, скрипты). Предназначена для браузера.</p>
+            <div class="example">
+              <p>Пример:</p>
+              <code>&lt;head&gt;\n  &lt;title&gt;Заголовок сайта&lt;/title&gt;\n&lt;/head&gt;</code>
+            </div>
+          </div>
+          
+          <div class="theory-card">
+            <h4><code>&lt;body&gt;</code></h4>
+            <p>Содержит основное видимое содержимое страницы.</p>
+            <div class="example">
+              <p>Пример:</p>
+              <code>&lt;body&gt;\n  &lt;h1&gt;Мой первый сайт&lt;/h1&gt;\n&lt;/body&gt;</code>
+            </div>
+          </div>
+          
+          <div class="theory-card">
+            <h4><code>&lt;title&gt;</code></h4>
+            <p>Заголовок страницы, отображаемый во вкладке браузера.</p>
+            <div class="example">
+              <p>Пример:</p>
+              <code>&lt;title&gt;Мой сайт&lt;/title&gt;</code>
+            </div>
+          </div>
+          
+          <div class="theory-card">
+            <h4>Мета теги</h4>
+            <p>Дополнительная информация о странице (кодировка, ключевые слова и т.д.).</p>
+            <div class="example">
+              <p>Пример:</p>
+              <code>&lt;meta charset="UTF-8"&gt;</code>
+            </div>
+          </div>
+        </div>
+        
+        <h3>Основная структура HTML файла</h3>
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="ru"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Заголовок страницы&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- Основное содержимое сайта здесь --&gt;
+    &lt;h1&gt;Моя первая веб-страница&lt;/h1&gt;
+    &lt;p&gt;Это мой первый HTML код.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+      </section>
+
+      <div class="video-container">
+        <div class="video-kk video-wrapper" style="display:none;">
+          <iframe src="https://www.youtube.com/embed/-jRzkDSMwH4" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="video-ru video-wrapper">
+          <iframe src="https://www.youtube.com/embed/gNclCoxyIf8" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <section class="practice">
+        <h3>Практическое задание</h3>
+        <div class="task">
+          <p>Используя приведенную выше теорию, создайте базовую структуру HTML:</p>
+          <ol>
+            <li>Добавьте DOCTYPE декларацию</li>
+            <li>Укажите русский язык (lang="ru")</li>
+            <li>Добавьте раздел head (содержимое уже предоставлено)</li>
+            <li>Добавьте тег body и поместите в него заголовок h1</li>
+          </ol>
+          
+          <div class="code-editor">
+            <textarea id="html-code-1">&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Мой сайт&lt;/title&gt;
+&lt;/head&gt;</textarea>
+            <button onclick="checkCode(1)">Проверить</button>
+            <div id="result-1"></div>
+          </div>
+        </div>
+      </section>
+    `,
+    practiceTask: `
+      <h3>Домашнее задание</h3>
+      <p>Составьте конспект по основам HTML. Конспект должен охватывать следующие темы:</p>
+      <ol>
+        <li>Что такое HTML и его история</li>
+        <li>Основная структура HTML документа</li>
+        <li>Теги и их атрибуты</li>
+        <li>Основные метатеги и их значение</li>
+      </ol>
+      <p>Конспект должен быть лаконичным и понятным. Добавьте примеры и иллюстрации.</p>
+    `,
+    correctCode: "<!DOCTYPE html>\n<html lang=\"ru\">\n<body>\n<h1>",
+    quizAnswers: {}
+  },
+  
+  2: {
+    title: "Урок 2: HTML теги и атрибуты",
+    content: `
+      <section class="theory">
+        <h2>Типы элементов HTML</h2>
+        <p>Элементы HTML делятся на несколько типов:</p>
+        <ul>
+          <li><strong>Текстовые элементы</strong> - элементы, используемые для форматирования текста</li>
+          <li><strong>Ссылки и изображения</strong> - инструменты навигации и визуализации на сайте</li>
+          <li><strong>Списки и таблицы</strong> - элементы для организации информации</li>
+          <li><strong>Формы</strong> - элементы взаимодействия с пользователем</li>
+        </ul>
+        
+        <div class="theory-grid">
+          <div class="theory-card">
+            <h4>Текстовые элементы</h4>
+            <p>Теги для форматирования текста</p>
+            <div class="example">
+              <p>Примеры:</p>
+              <code>&lt;p&gt;</code> - абзац<br>
+              <code>&lt;h1&gt;-&lt;h6&gt;</code> - заголовки<br>
+              <code>&lt;strong&gt;</code> - жирный текст<br>
+              <code>&lt;em&gt;</code> - курсивный текст
+            </div>
+          </div>
+          
+          <div class="theory-card">
+            <h4>Ссылки</h4>
+            <p>Создание ссылок на другие страницы или сайты</p>
+            <div class="example">
+              <p>Синтаксис:</p>
+              <code>&lt;a href="url"&gt;текст ссылки&lt;/a&gt;</code><br><br>
+              <p>Пример:</p>
+              <code>&lt;a href="https://google.com"&gt;Google&lt;/a&gt;</code>
+            </div>
+          </div>
+          
+          <div class="theory-card">
+            <h4>Изображения</h4>
+            <p>Тег для отображения изображений</p>
+            <div class="example">
+              <p>Синтаксис:</p>
+              <code>&lt;img src="image.jpg" alt="описание"&gt;</code><br><br>
+              <p>Пример:</p>
+              <code>&lt;img src="logo.png" alt="Логотип сайта"&gt;</code>
+            </div>
+          </div>
+        </div>
+        
+        <h3>Атрибуты HTML элементов</h3>
+        <p>Атрибуты придают HTML элементам дополнительные свойства:</p>
+        <ul>
+          <li><code>id</code> - уникальный идентификатор элемента</li>
+          <li><code>class</code> - класс элемента (для стилизации)</li>
+          <li><code>style</code> - применение стиля непосредственно к элементу</li>
+          <li><code>title</code> - дополнительная информация (отображается при наведении)</li>
+        </ul>
+        
+        <pre><code>&lt;p id="paragraph1" class="important" style="color: blue;" title="Важная информация"&gt;
+  Это абзац с атрибутами.
+&lt;/p&gt;</code></pre>
+      </section>
+      
+      <div class="video-container">
+        <div class="video-kk video-wrapper" style="display:none;">
+          <iframe src="https://www.youtube.com/embed/7D3SrPTc43A" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="video-ru video-wrapper">
+          <iframe src="https://www.youtube.com/embed/bBnqtbIKmZI" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <section class="practice">
+        <h3>Практическое задание</h3>
+        <div class="task">
+          <p>Создайте HTML-страницу, которая включает:</p>
+          <ol>
+            <li>Два уровня заголовков (h1, h2)</li>
+            <li>Абзацы с текстом (p)</li>
+            <li>Выделение текста жирным и курсивом</li>
+            <li>Ссылку на любой внешний сайт</li>
+            <li>Изображение (используйте URL-адрес любого изображения)</li>
+          </ol>
+          
+          <div class="quiz">
+            <p><strong>Какой тег используется для обозначения абзаца в HTML?</strong></p>
+            <label><input type="radio" name="quiz2" value="a"> <paragraph></label>
+            <label><input type="radio" name="quiz2" value="b"> <p></label>
+            <label><input type="radio" name="quiz2" value="c"> <text></label>
+            <label><input type="radio" name="quiz2" value="d"> <par></label>
+            <button onclick="checkQuiz(2, 'b')">Проверить тест</button>
+            <div id="quiz-result-2"></div>
+          </div>
+          
+          <div class="quiz">
+            <p><strong>Какой тег используется для создания ссылки?</strong></p>
+            <label><input type="radio" name="quiz3" value="a"> <link></label>
+            <label><input type="radio" name="quiz3" value="b"> <url></label>
+            <label><input type="radio" name="quiz3" value="c"> <a></label>
+            <label><input type="radio" name="quiz3" value="d"> <href></label>
+            <button onclick="checkQuiz(3, 'c')">Проверить тест</button>
+            <div id="quiz-result-3"></div>
+          </div>
+          
+          <div class="quiz">
+            <p><strong>Какой тег используется для вставки изображения?</strong></p>
+            <label><input type="radio" name="quiz4" value="a"> <img></label>
+            <label><input type="radio" name="quiz4" value="b"> <picture></label>
+            <label><input type="radio" name="quiz4" value="c"> <image></label>
+            <label><input type="radio" name="quiz4" value="d"> <src></label>
+            <button onclick="checkQuiz(4, 'a')">Проверить тест</button>
+            <div id="quiz-result-4"></div>
+          </div>
+          
+          <div class="quiz">
+            <p><strong>Какая запись атрибута правильная?</strong></p>
+            <label><input type="radio" name="quiz5" value="a"> <p attribute="value"></label>
+            <label><input type="radio" name="quiz5" value="b"> <p (attribute)="value"></label>
+            <label><input type="radio" name="quiz5" value="c"> <p "attribute"="value"></label>
+            <label><input type="radio" name="quiz5" value="d"> <p attribute:value></label>
+            <button onclick="checkQuiz(5, 'a')">Проверить тест</button>
+            <div id="quiz-result-5"></div>
+          </div>
+        </div>
+      </section>
+    `,
+    practiceTask: `
+      <h3>Домашнее задание</h3>
+      <p>Создайте HTML-страницу "О себе", которая должна содержать:</p>
+      <ol>
+        <li>Заголовок с вашим именем</li>
+        <li>Подзаголовок с вашей профессией или интересами</li>
+        <li>Краткую биографию (2-3 абзаца)</li>
+        <li>Список ваших навыков или хобби</li>
+        <li>Изображение (аватар или фото)</li>
+        <li>Ссылки на социальные сети или контакты</li>
+      </ol>
+      <p>Используйте различные HTML-элементы (h1, h2, p, ul/ol, img, a) и атрибуты (id, class, style, title).</p>
+    `,
+    correctCode: "",
+    quizAnswers: {
+      "quiz2": "b",
+      "quiz3": "c",
+      "quiz4": "a",
+      "quiz5": "a"
+    }
+  }
+};
+
+// Теперь нужно добавить JavaScript код для переключения видео по языку
+document.addEventListener("DOMContentLoaded", function() {
+  // ... existing code ...
+  
+  // Функция для обновления видимости видео на основе выбранного языка
+  function updateVideos() {
+    const lang = currentUser.language; // kk или ru
+    
+    // Находим все контейнеры с видео
+    const videoContainers = document.querySelectorAll('.video-container');
+    
+    videoContainers.forEach(container => {
+      // Скрываем все видео
+      container.querySelectorAll('.video-wrapper').forEach(video => {
+        video.style.display = 'none';
+      });
+      
+      // Показываем только нужное видео в зависимости от языка
+      const videoToShow = container.querySelector(`.video-${lang}`);
+      if (videoToShow) {
+        videoToShow.style.display = 'block';
+      }
+    });
+  }
+  
+  // Добавляем вызов updateVideos в функцию loadLesson
+  const originalLoadLesson = window.loadLesson;
+  window.loadLesson = function(num) {
+    originalLoadLesson(num);
+    // После загрузки урока обновляем видимость видео
+    setTimeout(updateVideos, 100);
+  };
+  
+  // Обновляем видео при изменении языка
+  const languageSelect = document.getElementById('select');
+  if (languageSelect) {
+    languageSelect.addEventListener('change', function() {
+      const newLanguage = this.value === 'Қазақша' ? 'kk' : 'ru';
+      currentUser.language = newLanguage;
+      localStorage.setItem("currentUser", JSON.stringify(currentUser));
+      updateVideos();
+    });
+  }
+  
+  // Обновляем видео при начальной загрузке
+  updateVideos();
+});
+
+// Добавляем перевод заголовков уроков
+function getTranslatedLessonTitle(lessonNum, lang, courseType = 'html') {
+  if (courseType === 'html') {
+    if (lang === 'ru') {
+      const titles = {
+        1: 'Урок 1: Основы HTML',
+        2: 'Урок 2: HTML теги и атрибуты',
+        3: 'Урок 3: Таблицы и списки',
+        4: 'Урок 4: CSS основы',
+        5: 'Урок 5: CSS свойства',
+        6: 'Урок 6: CSS селекторы',
+        7: 'Урок 7: Блочная модель',
+        8: 'Урок 8: Позиционирование',
+        9: 'Урок 9: Финальный проект'
+      };
+      return titles[lessonNum] || `Урок ${lessonNum}`;
+    } else {
+      // Для казахского
+      return lessons[lessonNum]?.title || `Сабақ ${lessonNum}`;
+    }
+  } else if (courseType === 'python') {
+    if (lang === 'ru') {
+      const titles = {
+        1: 'Урок 1: Введение в Python',
+        2: 'Урок 2: Переменные и типы данных',
+        3: 'Урок 3: Условные операторы',
+        4: 'Урок 4: Циклы'
+      };
+      return titles[lessonNum] || `Урок ${lessonNum}`;
+    } else {
+      // Для казахского
+      return lessons[lessonNum]?.title || `Сабақ ${lessonNum}`;
+    }
+  } else if (courseType === 'database') {
+    if (lang === 'ru') {
+      const titles = {
+        1: 'Урок 1: Введение в базы данных',
+        2: 'Урок 2: Основы SQL',
+        3: 'Урок 3: Реляционная модель'
+      };
+      return titles[lessonNum] || `Урок ${lessonNum}`;
+    } else {
+      // Для казахского
+      return dbLessons[lessonNum]?.title || `Сабақ ${lessonNum}`;
+    }
+  }
+  // По умолчанию
+  return `Урок ${lessonNum}`;
+}
+
+// Модифицируем функцию инициализации уроков
+function initLessons(courseType = 'html') {
+  const lessonList = document.getElementById('week-1-lessons');
+  if (!lessonList) return;
+  
+  // Определяем текущий курс из URL, если не указан явно
+  if (!courseType) {
+    const currentPath = window.location.pathname;
+    if (currentPath.includes('python_course')) {
+      courseType = 'python';
+    } else if (currentPath.includes('database_course')) {
+      courseType = 'database';
+    } else {
+      courseType = 'html';
+    }
+  }
+  
+  // Очищаем список уроков
+  lessonList.innerHTML = '';
+  
+  // Получаем текущий язык пользователя
+  const userData = JSON.parse(localStorage.getItem('currentUser') || '{}');
+  const lang = userData.language || 'kk';
+  
+  // Создаем элементы для каждого урока
+  for (let i = 1; i <= 9; i++) {
+    const lessonItem = document.createElement('li');
+    lessonItem.className = 'lesson-item';
+    
+    const lessonLink = document.createElement('a');
+    lessonLink.href = '#';
+    lessonLink.className = 'lesson-link';
+    lessonLink.setAttribute('data-lesson', i);
+    
+    // Устанавливаем ключ перевода в зависимости от типа курса
+    if (courseType === 'python') {
+      lessonLink.setAttribute('data-lang-key', `python_lesson${i}`);
+    } else if (courseType === 'database') {
+      lessonLink.setAttribute('data-lang-key', `db_lesson${i}`);
+    } else {
+      lessonLink.setAttribute('data-lang-key', `html_lesson${i}`);
+    }
+    
+    lessonLink.innerText = getTranslatedLessonTitle(i, lang, courseType);
+    
+    // Добавляем обработчик события
+    lessonLink.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      // Удаляем класс active у всех уроков
+      document.querySelectorAll('.lesson-link').forEach(link => {
+        link.classList.remove('active');
+      });
+      
+      // Добавляем класс active к выбранному уроку
+      this.classList.add('active');
+      
+      // Загружаем выбранный урок
+      loadLesson(i, courseType);
+    });
+    
+    // Проверяем, завершен ли урок
+    const completedLessons = JSON.parse(localStorage.getItem('completedLessons') || '[]');
+    const courseData = JSON.parse(localStorage.getItem(`${courseType}Course`) || '{}');
+    const completedLessonsForCourse = courseData.completedLessons || [];
+    
+    if (completedLessonsForCourse.includes(i)) {
+      const checkmark = document.createElement('span');
+      checkmark.className = 'lesson-completed';
+      checkmark.innerHTML = '✓';
+      lessonItem.appendChild(checkmark);
+    }
+    
+    lessonItem.appendChild(lessonLink);
+    lessonList.appendChild(lessonItem);
+  }
+  
+  // Обновляем заголовок курса
+  const courseTitle = document.querySelector('[data-lang-key="course_title"]');
+  if (courseTitle) {
+    let titleKey = 'course_title'; // Default for HTML course
+    
+    if (courseType === 'python') {
+      titleKey = 'python_course_title';
+    } else if (courseType === 'database') {
+      titleKey = 'db_course_title';
+    }
+    
+    courseTitle.setAttribute('data-lang-key', titleKey);
+    if (translations && translations[lang] && translations[lang][titleKey]) {
+      courseTitle.innerText = translations[lang][titleKey];
+      document.title = translations[lang][titleKey]; // Обновляем title страницы
+    }
+  }
+}
+
+// Модифицируем функцию loadLesson для вызова комплексного перевода
+function loadLesson(num, courseType = 'html') {
+  console.log("loadLesson вызвана с параметрами:", num, courseType);
+  const emptyMessage = document.getElementById('empty-message');
+  const loadedLesson = document.getElementById('loaded-lesson');
+  const lessonData = document.getElementById('lesson-data');
+  const homeworkSection = document.getElementById('homework-section');
+  
+  if (emptyMessage && loadedLesson && lessonData) {
+    emptyMessage.style.display = 'none';
+    loadedLesson.style.display = 'block';
+    
+    // Получаем данные урока в зависимости от типа курса
+    let lessonContent;
+    let homeworkContent;
+    
+    // Получаем текущий язык пользователя
+    const userData = JSON.parse(localStorage.getItem('currentUser') || '{}');
+    const lang = userData.language || 'kk';
+    console.log("Текущий язык пользователя:", lang);
+    
+    // Выбираем контент в зависимости от языка
+    if (lang === 'ru' && courseType === 'html') {
+      // Русский контент для HTML курса
+      if (lessonsRu[num]) {
+        lessonContent = lessonsRu[num].content || '';
+        homeworkContent = lessonsRu[num].practiceTask || '';
+      } else {
+        // Если нет русского перевода для этого урока, используем казахский
+        lessonContent = lessons[num]?.content || '';
+        homeworkContent = lessons[num]?.practiceTask || '';
+      }
+    } else if (courseType === 'python') {
+      lessonContent = lessons[num]?.content || '';
+      homeworkContent = lessons[num]?.practiceTask || '';
+    } else if (courseType === 'database') {
+      lessonContent = dbLessons[num]?.content || '';
+      homeworkContent = dbLessons[num]?.practiceTask || '';
+    } else {
+      // Казахский контент для HTML курса
+      lessonContent = lessons[num]?.content || '';
+      homeworkContent = lessons[num]?.practiceTask || '';
+    }
+    
+    lessonData.innerHTML = lessonContent;
+    
+    // Активируем подсветку синтаксиса для кода
+    document.querySelectorAll('pre code').forEach((el) => {
+      if (typeof hljs !== 'undefined') {
+        hljs.highlightElement(el);
+      }
+    });
+    
+    // Проверяем, есть ли домашнее задание
+    if (homeworkContent && homeworkSection) {
+      homeworkSection.style.display = 'block';
+      const homeworkTask = document.getElementById('homework-task');
+      if (homeworkTask) {
+        homeworkTask.innerHTML = homeworkContent;
+      }
+    } else if (homeworkSection) {
+      homeworkSection.style.display = 'none';
+    }
+    
+    // Обновляем видимость видео на основе языка
+    setTimeout(updateVideos, 100);
+    
+    // Применяем комплексный перевод, если язык русский
+    if (lang === 'ru') {
+      setTimeout(function() {
+        console.log("Запуск функции перевода через setTimeout");
+        if (typeof applyFullTranslation === 'function') {
+          console.log("Функция applyFullTranslation существует, вызываем её");
+          applyFullTranslation(lang);
+        } else {
+          console.error('Функция applyFullTranslation не найдена!');
+        }
+      }, 200);
+    }
+    
+    // Вызываем пользовательское событие о загрузке урока
+    if (typeof window.triggerLessonLoaded === 'function') {
+      window.triggerLessonLoaded();
+    }
+    
+    // Сохраняем номер открытого урока
+    localStorage.setItem('lastOpenedLesson', num);
+    localStorage.setItem('lastOpenedCourse', courseType);
+  }
+}
+
+// Перезагружаем уроки при изменении языка
+document.addEventListener('DOMContentLoaded', function() {
+  const langSelect = document.getElementById('select');
+  if (langSelect) {
+    langSelect.addEventListener('change', function() {
+      // Обновляем заголовки уроков при смене языка
+      initLessons();
+    });
+  }
+});
+
+// Функция для обновления видео в зависимости от языка
+function updateVideos() {
+    try {
+        // Проверяем, существует ли объект userData
+        let userData = JSON.parse(localStorage.getItem('currentUser') || '{}');
+        
+        // Если userData пустой или нет языка, используем казахский по умолчанию
+        const language = userData && userData.language ? userData.language : 'kk';
+        
+        // Проверяем, существуют ли видео элементы на странице
+        const lessonVideos = document.querySelectorAll('[data-video-id]');
+        if (lessonVideos.length === 0) {
+            console.log('Видео элементы не найдены на странице');
+            return;
+        }
+        
+        // Обновляем видео в зависимости от языка
+        lessonVideos.forEach(video => {
+            const videoIdAttr = video.getAttribute('data-video-id');
+            // Проверяем атрибут
+            if (!videoIdAttr) return;
+            
+            const [baseId, langSuffix] = videoIdAttr.split('_');
+            const newId = `${baseId}_${language === 'kk' ? 'kk' : 'ru'}`;
+            
+            // Обновляем src для iframe
+            if (video.tagName === 'IFRAME') {
+                video.src = `https://www.youtube.com/embed/${newId}`;
+            }
+        });
+        
+        console.log('Видео обновлены для языка:', language);
+    } catch (error) {
+        console.error('Ошибка при обновлении видео:', error);
+    }
+}
+
+// Получаем переведенное название урока
+function getTranslatedLessonTitle(lessonNum, lang, courseType = 'html') {
+    try {
+        // Если не указан язык, пытаемся получить из локального хранилища
+        if (!lang) {
+            try {
+                const userData = JSON.parse(localStorage.getItem('currentUser') || '{}');
+                lang = userData && userData.language ? userData.language : 'kk';
+            } catch (error) {
+                console.error('Ошибка при получении языка:', error);
+                lang = 'kk'; // По умолчанию казахский
+            }
+        }
+        
+        // ... existing code ...
+    } catch (error) {
+        console.error('Ошибка при получении названия урока:', error);
+        return `Урок ${lessonNum}`;
+    }
+}
+
+// Функция для замены текста в тестовых вопросах
+function translateQuizQuestions(lang) {
+  if (lang !== 'ru') return; // Нет необходимости переводить казахские тексты
+  
+  // Создаем объект с переводами вопросов
+  const quizTranslations = {
+    // Урок 2
+    'HTML-де абзацты белгілеу үшін қандай тег қолданылады?': 'Какой тег используется для обозначения абзаца в HTML?',
+    'Сілтеме жасау үшін қандай тег қолданылады?': 'Какой тег используется для создания ссылки?',
+    'Суретті енгізу үшін қандай тег қолданылады?': 'Какой тег используется для вставки изображения?',
+    'Атрибуттың дұрыс жазылуы қандай?': 'Какая запись атрибута правильная?',
+    
+    // Урок 3
+    'Кестенің жолын белгілеу үшін қандай тег қолданылады?': 'Какой тег используется для обозначения строки таблицы?',
+    'Кестенің тақырыбын белгілеу үшін қандай тег қолданылады?': 'Какой тег используется для обозначения заголовка таблицы?',
+    'Нумерацияланған тізімді қандай тег құрады?': 'Какой тег создает нумерованный список?',
+    
+    // Урок 4
+    'CSS қысқартуының толық ашылуы?': 'Полная расшифровка аббревиатуры CSS?',
+    'CSS-те мәтіннің түсін өзгерту үшін қандай қасиет қолданылады?': 'Какое свойство используется для изменения цвета текста в CSS?',
+    'CSS-ті HTML-ге қосудың ДҰРЫС ЕМЕС әдісі?': 'Какой способ добавления CSS в HTML является НЕПРАВИЛЬНЫМ?',
+    'Келесі код қандай элементтерге стиль қолданады: .highlight { color: yellow; }?': 'К каким элементам применяется стиль в следующем коде: .highlight { color: yellow; }?',
+    
+    // Урок 8 - Позиционирование
+    'CSS-те қандай позициялау типтері бар?': 'Какие типы позиционирования существуют в CSS?',
+    'position: absolute қасиеті бар элемент нені орынға келтіреді?': 'Относительно чего позиционируется элемент с position: absolute?',
+    'Келесі элементтердің қайсысы скролл кезінде өз орнында қалады?': 'Какой из следующих элементов остается на месте при прокрутке?',
+    'z-index қасиеті не үшін қолданылады?': 'Для чего используется свойство z-index?',
+    'position: sticky қасиеті қашан "жабысады"?': 'Когда свойство position: sticky "прилипает"?',
+    'Элементтің енін орнату': 'Установка ширины элемента',
+    'Элементтің орнын x және y осьтерінде анықтау': 'Определение положения элемента по осям x и y',
+    'Элементтердің қабаттасу ретін анықтау': 'Определение порядка наложения элементов',
+    'Элементті зум деңгейін орнату': 'Установка уровня масштабирования элемента',
+    
+    // Общие вопросы и заголовки
+    'Білімді тексеру': 'Проверка знаний',
+    'Тапсырма:': 'Задание:',
+    'Практикалық тапсырма': 'Практическое задание',
+    'Бұл сұраққа жауап беріңіз:': 'Ответьте на следующий вопрос:',
+    'Дұрыс жауапты таңдаңыз:': 'Выберите правильный ответ:',
+    'Тексеру': 'Проверить',
+    'Тестті тексеру': 'Проверить тест',
+    'Жауаптар': 'Ответы',
+    'Дұрыс': 'Верно',
+    'Қате': 'Неверно',
+    'Дұрыс жауап:': 'Правильный ответ:'
+  };
+  
+  // Создаем объект с переводами вариантов ответов
+  const optionsTranslations = {
+    // Различные варианты ответов
+    '<paragraph>': '<paragraph>',
+    '<p>': '<p>',
+    '<text>': '<text>',
+    '<par>': '<par>',
+    '<link>': '<link>',
+    '<url>': '<url>',
+    '<a>': '<a>',
+    '<href>': '<href>',
+    '<img>': '<img>',
+    '<picture>': '<picture>',
+    '<image>': '<image>',
+    '<src>': '<src>',
+    '<table>': '<table>',
+    '<tr>': '<tr>',
+    '<td>': '<td>',
+    '<th>': '<th>',
+    '<ul>': '<ul>',
+    '<ol>': '<ol>',
+    '<li>': '<li>',
+    '<p attribute="value">': '<p attribute="value">',
+    '<p (attribute)="value">': '<p (attribute)="value">',
+    '<p "attribute"="value">': '<p "attribute"="value">',
+    '<p attribute:value>': '<p attribute:value>',
+    'Computer Style Sheets': 'Computer Style Sheets',
+    'Cascading Style Sheets': 'Cascading Style Sheets',
+    'Creative Style Sheets': 'Creative Style Sheets',
+    'Colorful Style Sheets': 'Colorful Style Sheets',
+    'text-color': 'text-color',
+    'font-color': 'font-color',
+    'color': 'color',
+    'text-style': 'text-style',
+    'Сыртқы CSS файлын <link> тегі арқылы қосу': 'Добавление внешнего CSS файла через тег <link>',
+    '<style> тегін <head> ішінде қолдану': 'Использование тега <style> внутри <head>',
+    'HTML элементінде style атрибутын қолдану': 'Использование атрибута style в HTML элементе',
+    'CSS кодын <css> тегтерінің ішіне жазу': 'Написание CSS кода внутри тегов <css>',
+    'highlight ID-і бар элементке': 'К элементу с ID highlight',
+    'highlight класы бар барлық элементтерге': 'Ко всем элементам с классом highlight',
+    'highlight тегі бар элементтерге': 'К элементам с тегом highlight',
+    'highlight атрибуты бар элементтерге': 'К элементам с атрибутом highlight',
+    'Иә': 'Да',
+    'Жоқ': 'Нет',
+    'Әрқашан': 'Всегда',
+    'Тышқанды үстіне әкелгенде': 'При наведении мыши',
+    'Скролл кезінде белгіленген шекке жеткенде': 'При достижении заданного порога во время прокрутки',
+    'Парақты жүктеген кезде': 'При загрузке страницы',
+    'Құжат ағынындағы өз орнына': 'На своем месте в потоке документа',
+    'Браузер терезесіне': 'Относительно окна браузера',
+    'Ең жақын орналасқан (static емес) ата-элементке': 'Относительно ближайшего родительского элемента (не static)',
+    'Парақтың жоғарғы жағына': 'Относительно верхней части страницы',
+    'position: relative': 'position: relative',
+    'position: static': 'position: static',
+    'position: absolute': 'position: absolute',
+    'position: fixed': 'position: fixed'
+  };
+  
+  // Ищем все заголовки
+  const headers = document.querySelectorAll('h2, h3, h4');
+  headers.forEach(header => {
+    const originalText = header.textContent;
+    if (quizTranslations[originalText]) {
+      header.textContent = quizTranslations[originalText];
+    }
+  });
+  
+  // Ищем все вопросы тестов и задания
+  const quizQuestions = document.querySelectorAll('.quiz p strong, .task p strong');
+  quizQuestions.forEach(questionElement => {
+    const originalText = questionElement.textContent;
+    if (quizTranslations[originalText]) {
+      questionElement.textContent = quizTranslations[originalText];
+    }
+  });
+  
+  // Ищем все варианты ответов
+  const quizOptions = document.querySelectorAll('.quiz label');
+  quizOptions.forEach(optionElement => {
+    const originalText = optionElement.textContent.trim();
+    // Получаем текст без input (вырезаем начало с пробелом)
+    const textWithoutInput = originalText.replace(/^\s*/, '');
+    
+    if (optionsTranslations[textWithoutInput]) {
+      // Сохраняем input элемент
+      const inputElement = optionElement.querySelector('input');
+      // Заменяем текст на перевод
+      optionElement.innerHTML = '';
+      optionElement.appendChild(inputElement);
+      optionElement.appendChild(document.createTextNode(' ' + optionsTranslations[textWithoutInput]));
+    }
+  });
+  
+  // Переводим кнопки
+  const buttons = document.querySelectorAll('button');
+  buttons.forEach(button => {
+    const originalText = button.textContent.trim();
+    if (quizTranslations[originalText]) {
+      button.textContent = quizTranslations[originalText];
+    }
+  });
+  
+  // Переводим элементы списков заданий
+  const listItems = document.querySelectorAll('.task ol li, .task ul li');
+  listItems.forEach(item => {
+    const originalText = item.textContent.trim();
+    if (quizTranslations[originalText]) {
+      item.textContent = quizTranslations[originalText];
+    }
+  });
+}
+
+// Вызываем обновление интерфейса после загрузки урока
+document.addEventListener('DOMContentLoaded', function() {
+  // При изменении языка перезагружаем текущий урок с новыми переводами
+  const langSelect = document.getElementById('select');
+  if (langSelect) {
+    langSelect.addEventListener('change', function() {
+      const currentLessonNum = localStorage.getItem('lastOpenedLesson');
+      if (currentLessonNum && typeof loadLesson === 'function') {
+        loadLesson(parseInt(currentLessonNum));
+      }
+    });
+  }
+});
+
+/* 
+ * ВНИМАНИЕ: Функции перевода перенесены в отдельный файл html_translations.js
+ * Не добавляйте дублирующиеся определения в этот файл!
+ */
+
+/* Функция translateSidebar перенесена в html_translations.js */
+
+/* Функция translateTheoryContent перенесена в html_translations.js */
+
+/* Остальные функции перевода (translatePracticalTasks, translateQuizQuestions) также перенесены в html_translations.js */
+    'Жоғарыдағы теорияны пайдаланып, негізгі HTML құрылымды жасаңыз': 'Используя приведенную выше теорию, создайте основную структуру HTML',
+    'DOCTYPE декларациясын қосыңыз': 'Добавьте декларацию DOCTYPE',
+    'Қазақ тілін көрсетіңіз (lang="kk")': 'Укажите русский язык (lang="ru")',
+    'head бөлімін қосыңыз (ішіндегі мазмұн қазірдің өзінде берілген)': 'Добавьте раздел head (содержимое уже предоставлено)',
+    'body тегін қосыңыз және оған h1 тақырыбын енгізіңіз': 'Добавьте тег body и вставьте в него заголовок h1',
+    'Тексеру': 'Проверить',
+    'Келесі кестені толықтырыңыз': 'Заполните следующую таблицу',
+    'Кестенің басын "Оқу жоспары" деп жазыңыз': 'Назовите заголовок таблицы "Учебный план"',
+    'Бірінші жолға "Пән" және "Уақыт" бағандарын қосыңыз': 'Добавьте столбцы "Предмет" и "Время" в первую строку',
+    'Екінші жолға кез келген пән мен уақытты жазыңыз': 'Напишите любой предмет и время во вторую строку',
+    'Үшінші жолды да қосыңыз': 'Добавьте также третью строку',
+    
+    // Домашние задания
+    'Үй тапсырмасы': 'Домашнее задание',
+    'HTML негіздері бойынша конспект жасаңыз. Конспектте келесі тақырыптар қамтылуы керек:': 'Составьте конспект по основам HTML. Конспект должен включать следующие темы:',
+    'HTML дегеніміз не және оның тарихы': 'Что такое HTML и его история',
+    'HTML құжатының негізгі құрылымы': 'Основная структура HTML документа',
+    'Теgтер және олардың атрибуттары': 'Теги и их атрибуты',
+    'Басты метатегтер және олардың маңызы': 'Основные метатеги и их значение',
+    'Конспект тұжырымды және анық болуы керек. Мысалдар мен иллюстрацияларды қосыңыз.': 'Конспект должен быть лаконичным и понятным. Добавьте примеры и иллюстрации.',
+    
+    'HTML кестелері мен формалары туралы конспект жасаңыз. Конспектте келесі тақырыптар қамтылуы керек:': 'Составьте конспект по HTML таблицам и формам. Конспект должен включать следующие темы:',
+    'Кестенің барлық элементтері және олардың қолданылуы': 'Все элементы таблицы и их применение',
+    'Кестелердің стильдеу мүмкіндіктері': 'Возможности стилизации таблиц',
+    'Формалардың түрлері мен олардың элементтері': 'Типы форм и их элементы',
+    'Форма валидациясының әдістері': 'Методы валидации форм',
+    'Конспектте кестелер мен формалардың кемінде 3 практикалық мысалын көрсетіңіз.': 'В конспекте покажите минимум 3 практических примера таблиц и форм.'
+  };
+  
+  // Переводим заголовки практических заданий
+  const practiceHeaders = document.querySelectorAll('.practice h3');
+  practiceHeaders.forEach(header => {
+    const originalText = header.textContent.trim();
+    if (taskTranslations[originalText]) {
+      header.textContent = taskTranslations[originalText];
+    }
+  });
+  
+  // Переводим описания задач
+  const taskDescriptions = document.querySelectorAll('.task p');
+  taskDescriptions.forEach(desc => {
+    const originalText = desc.textContent.trim();
+    if (taskTranslations[originalText]) {
+      desc.textContent = taskTranslations[originalText];
+    }
+  });
+  
+  // Переводим пункты заданий
+  const taskItems = document.querySelectorAll('.task li');
+  taskItems.forEach(item => {
+    const originalText = item.textContent.trim();
+    if (taskTranslations[originalText]) {
+      item.textContent = taskTranslations[originalText];
+    }
+  });
+  
+  // Переводим кнопки
+  const buttons = document.querySelectorAll('button[onclick^="checkCode"]');
+  buttons.forEach(button => {
+    if (button.textContent.trim() === 'Тексеру') {
+      button.textContent = 'Проверить';
+    }
+  });
+  
+  // Переводим заголовки домашних заданий
+  const homeworkTitle = document.querySelector('#homework-title');
+  if (homeworkTitle && homeworkTitle.textContent.trim() === 'Үй тапсырмасы') {
+    homeworkTitle.textContent = 'Домашнее задание';
+  }
+  
+  // Переводим содержимое домашних заданий
+  const homeworkContent = document.querySelectorAll('#homework-task p, #homework-task li');
+  homeworkContent.forEach(content => {
+    const originalText = content.textContent.trim();
+    if (taskTranslations[originalText]) {
+      content.textContent = taskTranslations[originalText];
+    }
+  });
+}
+
+// Модифицируем существующую функцию для перевода тестов
+function translateQuizQuestions(lang) {
+  if (lang !== 'ru') return; // Нет необходимости переводить казахские тексты
+  
+  // Создаем объект с переводами вопросов
+  const quizTranslations = {
+    // Урок 2
+    'HTML-де абзацты белгілеу үшін қандай тег қолданылады?': 'Какой тег используется для обозначения абзаца в HTML?',
+    'Сілтеме жасау үшін қандай тег қолданылады?': 'Какой тег используется для создания ссылки?',
+    'Суретті енгізу үшін қандай тег қолданылады?': 'Какой тег используется для вставки изображения?',
+    'Атрибуттың дұрыс жазылуы қандай?': 'Какая запись атрибута правильная?',
+    
+    // Урок 3
+    'Кестенің жолын белгілеу үшін қандай тег қолданылады?': 'Какой тег используется для обозначения строки таблицы?',
+    'Кестенің тақырыбын белгілеу үшін қандай тег қолданылады?': 'Какой тег используется для обозначения заголовка таблицы?',
+    'Нумерацияланған тізімді қандай тег құрады?': 'Какой тег создает нумерованный список?',
+    
+    // Урок 4
+    'CSS қысқартуының толық ашылуы?': 'Полная расшифровка аббревиатуры CSS?',
+    'CSS-те мәтіннің түсін өзгерту үшін қандай қасиет қолданылады?': 'Какое свойство используется для изменения цвета текста в CSS?',
+    'CSS-ті HTML-ге қосудың ДҰРЫС ЕМЕС әдісі?': 'Какой способ добавления CSS в HTML является НЕПРАВИЛЬНЫМ?',
+    'Келесі код қандай элементтерге стиль қолданады: .highlight { color: yellow; }?': 'К каким элементам применяется стиль в следующем коде: .highlight { color: yellow; }?',
+    
+    // Урок 8 - Позиционирование
+    'CSS-те қандай позициялау типтері бар?': 'Какие типы позиционирования существуют в CSS?',
+    'position: absolute қасиеті бар элемент нені орынға келтіреді?': 'Относительно чего позиционируется элемент с position: absolute?',
+    'Келесі элементтердің қайсысы скролл кезінде өз орнында қалады?': 'Какой из следующих элементов остается на месте при прокрутке?',
+    'z-index қасиеті не үшін қолданылады?': 'Для чего используется свойство z-index?',
+    'position: sticky қасиеті қашан "жабысады"?': 'Когда свойство position: sticky "прилипает"?',
+    'Элементтің енін орнату': 'Установка ширины элемента',
+    'Элементтің орнын x және y осьтерінде анықтау': 'Определение положения элемента по осям x и y',
+    'Элементтердің қабаттасу ретін анықтау': 'Определение порядка наложения элементов',
+    'Элементті зум деңгейін орнату': 'Установка уровня масштабирования элемента',
+    
+    // Общие вопросы и заголовки
+    'Білімді тексеру': 'Проверка знаний',
+    'Тапсырма:': 'Задание:',
+    'Практикалық тапсырма': 'Практическое задание',
+    'Бұл сұраққа жауап беріңіз:': 'Ответьте на следующий вопрос:',
+    'Дұрыс жауапты таңдаңыз:': 'Выберите правильный ответ:',
+    'Тексеру': 'Проверить',
+    'Тестті тексеру': 'Проверить тест',
+    'Жауаптар': 'Ответы',
+    'Дұрыс': 'Верно',
+    'Қате': 'Неверно',
+    'Дұрыс жауап:': 'Правильный ответ:'
+  };
+  
+  // Создаем объект с переводами вариантов ответов
+  const optionsTranslations = {
+    // Различные варианты ответов
+    '<paragraph>': '<paragraph>',
+    '<p>': '<p>',
+    '<text>': '<text>',
+    '<par>': '<par>',
+    '<link>': '<link>',
+    '<url>': '<url>',
+    '<a>': '<a>',
+    '<href>': '<href>',
+    '<img>': '<img>',
+    '<picture>': '<picture>',
+    '<image>': '<image>',
+    '<src>': '<src>',
+    '<table>': '<table>',
+    '<tr>': '<tr>',
+    '<td>': '<td>',
+    '<th>': '<th>',
+    '<ul>': '<ul>',
+    '<ol>': '<ol>',
+    '<li>': '<li>',
+    '<p attribute="value">': '<p attribute="value">',
+    '<p (attribute)="value">': '<p (attribute)="value">',
+    '<p "attribute"="value">': '<p "attribute"="value">',
+    '<p attribute:value>': '<p attribute:value>',
+    'Computer Style Sheets': 'Computer Style Sheets',
+    'Cascading Style Sheets': 'Cascading Style Sheets',
+    'Creative Style Sheets': 'Creative Style Sheets',
+    'Colorful Style Sheets': 'Colorful Style Sheets',
+    'text-color': 'text-color',
+    'font-color': 'font-color',
+    'color': 'color',
+    'text-style': 'text-style',
+    'Сыртқы CSS файлын <link> тегі арқылы қосу': 'Добавление внешнего CSS файла через тег <link>',
+    '<style> тегін <head> ішінде қолдану': 'Использование тега <style> внутри <head>',
+    'HTML элементінде style атрибутын қолдану': 'Использование атрибута style в HTML элементе',
+    'CSS кодын <css> тегтерінің ішіне жазу': 'Написание CSS кода внутри тегов <css>',
+    'highlight ID-і бар элементке': 'К элементу с ID highlight',
+    'highlight класы бар барлық элементтерге': 'Ко всем элементам с классом highlight',
+    'highlight тегі бар элементтерге': 'К элементам с тегом highlight',
+    'highlight атрибуты бар элементтерге': 'К элементам с атрибутом highlight',
+    'Иә': 'Да',
+    'Жоқ': 'Нет',
+    'Әрқашан': 'Всегда',
+    'Тышқанды үстіне әкелгенде': 'При наведении мыши',
+    'Скролл кезінде белгіленген шекке жеткенде': 'При достижении заданного порога во время прокрутки',
+    'Парақты жүктеген кезде': 'При загрузке страницы',
+    'Құжат ағынындағы өз орнына': 'На своем месте в потоке документа',
+    'Браузер терезесіне': 'Относительно окна браузера',
+    'Ең жақын орналасқан (static емес) ата-элементке': 'Относительно ближайшего родительского элемента (не static)',
+    'Парақтың жоғарғы жағына': 'Относительно верхней части страницы',
+    'position: relative': 'position: relative',
+    'position: static': 'position: static',
+    'position: absolute': 'position: absolute',
+    'position: fixed': 'position: fixed'
+  };
+  
+  // Ищем все заголовки
+  const headers = document.querySelectorAll('h2, h3, h4');
+  headers.forEach(header => {
+    const originalText = header.textContent;
+    if (quizTranslations[originalText]) {
+      header.textContent = quizTranslations[originalText];
+    }
+  });
+  
+  // Ищем все вопросы тестов и задания
+  const quizQuestions = document.querySelectorAll('.quiz p strong, .task p strong');
+  quizQuestions.forEach(questionElement => {
+    const originalText = questionElement.textContent;
+    if (quizTranslations[originalText]) {
+      questionElement.textContent = quizTranslations[originalText];
+    }
+  });
+  
+  // Ищем все варианты ответов
+  const quizOptions = document.querySelectorAll('.quiz label');
+  quizOptions.forEach(optionElement => {
+    const originalText = optionElement.textContent.trim();
+    // Получаем текст без input (вырезаем начало с пробелом)
+    const textWithoutInput = originalText.replace(/^\s*/, '');
+    
+    if (optionsTranslations[textWithoutInput]) {
+      // Сохраняем input элемент
+      const inputElement = optionElement.querySelector('input');
+      // Заменяем текст на перевод
+      optionElement.innerHTML = '';
+      optionElement.appendChild(inputElement);
+      optionElement.appendChild(document.createTextNode(' ' + optionsTranslations[textWithoutInput]));
+    }
+  });
+  
+  // Переводим кнопки
+  const buttons = document.querySelectorAll('button');
+  buttons.forEach(button => {
+    const originalText = button.textContent.trim();
+    if (quizTranslations[originalText]) {
+      button.textContent = quizTranslations[originalText];
+    }
+  });
+  
+  // Переводим элементы списков заданий
+  const listItems = document.querySelectorAll('.task ol li, .task ul li');
+  listItems.forEach(item => {
+    const originalText = item.textContent.trim();
+    if (quizTranslations[originalText]) {
+      item.textContent = quizTranslations[originalText];
+    }
+  });
+}
+
+// Модифицируем функцию loadLesson для вызова комплексного перевода
+function loadLesson(num, courseType = 'html') {
+  const emptyMessage = document.getElementById('empty-message');
+  const loadedLesson = document.getElementById('loaded-lesson');
+  const lessonData = document.getElementById('lesson-data');
+  const homeworkSection = document.getElementById('homework-section');
+  
+  if (emptyMessage && loadedLesson && lessonData) {
+    emptyMessage.style.display = 'none';
+    loadedLesson.style.display = 'block';
+    
+    // Получаем данные урока в зависимости от типа курса
+    let lessonContent;
+    let homeworkContent;
+    
+    // Получаем текущий язык пользователя
+    const userData = JSON.parse(localStorage.getItem('currentUser') || '{}');
+    const lang = userData.language || 'kk';
+    
+    // Выбираем контент в зависимости от языка
+    if (lang === 'ru' && courseType === 'html') {
+      // Русский контент для HTML курса
+      if (lessonsRu[num]) {
+        lessonContent = lessonsRu[num].content || '';
+        homeworkContent = lessonsRu[num].practiceTask || '';
+      } else {
+        // Если нет русского перевода для этого урока, используем казахский
+        lessonContent = lessons[num]?.content || '';
+        homeworkContent = lessons[num]?.practiceTask || '';
+      }
+    } else if (courseType === 'python') {
+      lessonContent = lessons[num]?.content || '';
+      homeworkContent = lessons[num]?.practiceTask || '';
+    } else if (courseType === 'database') {
+      lessonContent = dbLessons[num]?.content || '';
+      homeworkContent = dbLessons[num]?.practiceTask || '';
+    } else {
+      // Казахский контент для HTML курса
+      lessonContent = lessons[num]?.content || '';
+      homeworkContent = lessons[num]?.practiceTask || '';
+    }
+    
+    lessonData.innerHTML = lessonContent;
+    
+    // Активируем подсветку синтаксиса для кода
+    document.querySelectorAll('pre code').forEach((el) => {
+      if (typeof hljs !== 'undefined') {
+        hljs.highlightElement(el);
+      }
+    });
+    
+    // Проверяем, есть ли домашнее задание
+    if (homeworkContent && homeworkSection) {
+      homeworkSection.style.display = 'block';
+      const homeworkTask = document.getElementById('homework-task');
+      if (homeworkTask) {
+        homeworkTask.innerHTML = homeworkContent;
+      }
+    } else if (homeworkSection) {
+      homeworkSection.style.display = 'none';
+    }
+    
+    // Обновляем видимость видео на основе языка
+    setTimeout(updateVideos, 100);
+    
+    // Применяем комплексный перевод, если язык русский
+    if (lang === 'ru') {
+      setTimeout(function() {
+        if (typeof applyFullTranslation === 'function') {
+          applyFullTranslation(lang);
+        } else {
+          console.error('Функция applyFullTranslation не найдена!');
+        }
+      }, 200);
+    }
+    
+    // Вызываем пользовательское событие о загрузке урока
+    if (typeof window.triggerLessonLoaded === 'function') {
+      window.triggerLessonLoaded();
+    }
+    
+    // Сохраняем номер открытого урока
+    localStorage.setItem('lastOpenedLesson', num);
+    localStorage.setItem('lastOpenedCourse', courseType);
+  }
+}
+
+// Модифицируем обработчик события изменения языка
+document.addEventListener('DOMContentLoaded', function() {
+  // При изменении языка обновляем все переводы
+  const langSelect = document.getElementById('select');
+  if (langSelect) {
+    langSelect.addEventListener('change', function() {
+      const newLanguage = this.value === 'Қазақша' ? 'kk' : 'ru';
+      
+      // Обновляем язык в localStorage
+      const userData = JSON.parse(localStorage.getItem('currentUser') || '{}');
+      userData.language = newLanguage;
+      localStorage.setItem('currentUser', JSON.stringify(userData));
+      
+      // Обновляем уроки в сайдбаре
+      initLessons();
+      
+      // Если открыт урок, перезагружаем его с новым языком
+      const currentLessonNum = localStorage.getItem('lastOpenedLesson');
+      if (currentLessonNum && typeof loadLesson === 'function') {
+        loadLesson(parseInt(currentLessonNum));
+      } else {
+        // Если урок не открыт, переводим интерфейс без перезагрузки урока
+        if (newLanguage === 'ru') {
+          setTimeout(function() {
+            translateSidebar(newLanguage);
+            // Переводим сообщение "Выберите урок"
+            const emptyMessage = document.getElementById('empty-message');
+            if (emptyMessage) {
+              const header = emptyMessage.querySelector('h2');
+              if (header && header.textContent === 'Сабақ таңдаңыз') {
+                header.textContent = 'Выберите урок';
+              }
+              
+              const paragraph = emptyMessage.querySelector('p');
+              if (paragraph && paragraph.textContent === 'Сол жақтан сабақ таңдап, оқуды бастай аласыз.') {
+                paragraph.textContent = 'Выберите урок слева, чтобы начать обучение.';
+              }
+            }
+          }, 100);
+        }
+      }
+    });
+  }
+});
+
+// Обновление видеоэлементов в соответствии с языком
+function updateVideos() {
+  const userData = JSON.parse(localStorage.getItem('currentUser') || '{}');
+  const lang = userData.language || 'kk';
+  
+  const videoContainers = document.querySelectorAll('.video-wrapper');
+  if (videoContainers && videoContainers.length > 0) {
+    videoContainers.forEach(container => {
+      const kazkakhVideo = container.querySelector('[data-lang="kk"]');
+      const russianVideo = container.querySelector('[data-lang="ru"]');
+      
+      if (kazkakhVideo && russianVideo) {
+        if (lang === 'kk') {
+          kazkakhVideo.style.display = 'block';
+          russianVideo.style.display = 'none';
+        } else {
+          kazkakhVideo.style.display = 'none';
+          russianVideo.style.display = 'block';
+        }
+      }
+    });
+  }
+}
