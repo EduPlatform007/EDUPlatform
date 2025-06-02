@@ -1,63 +1,210 @@
 /**
  * Скрипт для исправления переводов в сайдбаре и домашних заданиях
- * Этот скрипт полностью блокирует перевод элементов сайдбара и заголовков,
- * сохраняя их оригинальные значения независимо от выбранного языка
+ * Этот скрипт управляет переводом элементов сайдбара и заголовков,
+ * обеспечивая корректные переводы для казахского и русского языков
  */
 
 document.addEventListener('DOMContentLoaded', function() {
-  // Сохраняем оригинальные тексты при первой загрузке
+  console.log('⚙️ Инициализация исправлений для переводов сайдбара');
+  
+  // Словарь переводов для элементов сайдбара
+  const sidebarTranslations = {
+    // Для элементов сайдбара
+    'сабак': {
+      'kk': 'сабак',
+      'ru': 'уроки'
+    },
+    'апта': {
+      'kk': 'апта',
+      'ru': 'неделя'
+    },
+    'практикалык тапсырма': {
+      'kk': 'практикалык тапсырма',
+      'ru': 'практическое задание'
+    },
+    
+    // Для заголовков и других элементов
+    'Тесттер': {
+      'kk': 'Тесттер',
+      'ru': 'Тесты'
+    },
+    
+    // Для домашних заданий
+    'Қосымша: Үй жұмысы': {
+      'kk': 'Қосымша: Үй жұмысы',
+      'ru': 'Дополнительно: Домашнее задание'
+    }
+  };
+  
+  // Хранилище оригинальных текстов
   const originalTexts = new Map();
   
-  // Функция для исправления переводов
-  function fixTranslations() {
-    // Получаем текущий язык
+  // Получаем текущий язык
+  function getCurrentLang() {
     const userData = JSON.parse(localStorage.getItem('currentUser') || '{}');
-    const currentLang = userData.language || 'kk';
+    return userData.language || 'kk';
+  }
+  
+  // Функция для перевода элемента
+  function translateElement(element) {
+    const text = element.textContent.trim();
+    const lang = getCurrentLang();
     
-    // Исправляем сайдбар
-    const sidebarItems = document.querySelectorAll('.sidebar-item');
-    sidebarItems.forEach(item => {
-      const itemId = item.id || item.textContent.trim();
-      
-      // Сохраняем оригинальный текст при первом запуске
-      if (!originalTexts.has(itemId)) {
-        originalTexts.set(itemId, item.textContent.trim());
+    // Сохраняем оригинальный текст, если еще не сохранен
+    const elementId = element.id || text;
+    if (!originalTexts.has(elementId)) {
+      originalTexts.set(elementId, text);
+    }
+    
+    // Удаляем data-lang-key, чтобы управлять переводом вручную
+    element.removeAttribute('data-lang-key');
+    
+    // Проверяем, содержит ли текст ключевые слова для перевода
+    const lowerText = text.toLowerCase();
+    
+    // Специальный случай для "практикалык тапсырма" в русской версии
+    if (lang === 'ru' && lowerText.includes('практикалык тапсырма')) {
+      element.textContent = text.replace(
+        /практикалык тапсырма/i, 
+        'практическое задание'
+      );
+      return;
+    }
+    
+    // Проходим по словарю переводов
+    for (const [key, translations] of Object.entries(sidebarTranslations)) {
+      if (lowerText.includes(key.toLowerCase())) {
+        element.textContent = text.replace(
+          new RegExp(key, 'i'), 
+          translations[lang]
+        );
+        break;
       }
-      
-      // Удаляем атрибут data-lang-key и восстанавливаем оригинальный текст
-      item.removeAttribute('data-lang-key');
-      item.textContent = originalTexts.get(itemId);
+    }
+  }
+  
+  // Основная функция исправления переводов
+  function fixTranslations() {
+    // Для статичных элементов сайдбара
+    document.querySelectorAll('.sidebar-item, .homework-sidebar').forEach(item => {
+      translateElement(item);
     });
     
-    // Исправляем заголовки секций (домашние задания, тесты и т.д.)
-    const sectionTitles = document.querySelectorAll('.homework-title, .practice h3, .test h3, .theory h2, .theory h3');
-    sectionTitles.forEach(title => {
-      const titleId = title.id || title.textContent.trim();
-      
-      // Сохраняем оригинальный текст при первом запуске
-      if (!originalTexts.has(titleId)) {
-        originalTexts.set(titleId, title.textContent.trim());
-      }
-      
-      // Удаляем атрибут data-lang-key и восстанавливаем оригинальный текст
-      title.removeAttribute('data-lang-key');
-      title.textContent = originalTexts.get(titleId);
+    // Для заголовков секций
+    document.querySelectorAll('.homework-title, .practice-title, .practice-section h3, .test h3').forEach(item => {
+      translateElement(item);
     });
     
-    // Блокируем перевод всех элементов с атрибутом data-lang-key
-    document.querySelectorAll('[data-lang-key]').forEach(element => {
-      // Исключаем элементы контента уроков, которые должны переводиться
-      if (!element.closest('.lesson-content') && !element.closest('header')) {
-        const elementId = element.id || element.textContent.trim();
+    // Специальная обработка для основного содержимого в русской версии
+    if (window.location.pathname.toLowerCase().includes('_rus') || 
+        window.location.pathname.toLowerCase().includes('_ru')) {
+      // Ищем все заголовки в контенте
+      document.querySelectorAll('h1, h2, h3, h4, h5, h6, .lesson-content *').forEach(item => {
+        if (item.textContent && item.textContent.toLowerCase().includes('практикалык')) {
+          translateElement(item);
+        }
+      });
+      
+      // Ищем все элементы с классами, содержащими 'practice'
+      document.querySelectorAll('[class*="practice"]').forEach(item => {
+        if (item.textContent.toLowerCase().includes('практикалык')) {
+          translateElement(item);
+        }
+      });
+    }
+  }
+  
+  // Запускаем исправление переводов
+  fixTranslations();
+  
+  // Запускаем повторно каждую секунду для динамически добавляемых элементов
+  setInterval(fixTranslations, 1000);
+  
+  // Наблюдаем за изменениями в DOM
+  const observer = new MutationObserver(mutations => {
+    let needsFixing = false;
+    
+    mutations.forEach(mutation => {
+      if (mutation.type === 'childList' || mutation.type === 'characterData') {
+        needsFixing = true;
+      }
+    });
+    
+    if (needsFixing) {
+      fixTranslations();
+    }
+  });
+  
+  // Наблюдаем за изменениями в сайдбаре
+  const sidebar = document.querySelector('.sidebar');
+  if (sidebar) {
+    observer.observe(sidebar, { childList: true, subtree: true, characterData: true });
+  }
+  
+  // Наблюдаем за изменениями в основном контенте
+  const content = document.querySelector('.lesson-content');
+  if (content) {
+    observer.observe(content, { childList: true, subtree: true, characterData: true });
+  }
+  
+  console.log('✅ Исправления для переводов сайдбара инициализированы');
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('⚙️ Инициализация исправлений для переводов сайдбара');
+  
+  // Словарь переводов для элементов сайдбара
+  const sidebarTranslations = {
+    // Для элементов сайдбара
+    'сабак': {
+      'kk': 'сабак',
+      'ru': 'уроки'
+    },
+    'апта': {
+      'kk': 'апта',
+      'ru': 'неделя'
+    },
+    'практикалык тапсырма': {
+      'kk': 'практикалык тапсырма',
+      'ru': 'практическое задание'
+    },
+    
+    // Для заголовков и других элементов
+    'Тесттер': {
+      'kk': 'Тесттер',
+      'ru': 'Тесты'
+    },
+    
+    // Для динамически создаваемых элементов в HTML/CSS курсе
+    'Қосымша: Үй жұмысы': {
+      'kk': 'Қосымша: Үй жұмысы',
+      'ru': 'Дополнительно: Домашнее задание'
+    }
+  };
+  
+  // Хранилище оригинальных текстов
+  const originalTexts = new Map();
+  
+  // Получаем текущий язык
+  function getCurrentLang() {
+    const userData = JSON.parse(localStorage.getItem('currentUser') || '{}');
+    return userData.language || 'kk';
+  }
+  
+        // Проверяем, есть ли текст в словаре переводов
+        let translatedText = elementText;
         
-        // Сохраняем оригинальный текст при первом запуске
-        if (!originalTexts.has(elementId)) {
-          originalTexts.set(elementId, element.textContent.trim());
+        // Проверяем на точное соответствие ключу или содержание ключа в тексте
+        for (const [key, translations] of Object.entries(sidebarTranslations)) {
+          if (elementText.toLowerCase().includes(key.toLowerCase())) {
+            // Заменяем только часть текста, которая соответствует ключу
+            translatedText = elementText.replace(new RegExp(key, 'i'), translations[currentLang]);
+            break;
+          }
         }
         
-        // Удаляем атрибут data-lang-key и восстанавливаем оригинальный текст
-        element.removeAttribute('data-lang-key');
-        element.textContent = originalTexts.get(elementId);
+        // Применяем перевод или оригинальный текст
+        element.textContent = translatedText;
       }
     });
   }

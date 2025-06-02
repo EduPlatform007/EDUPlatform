@@ -1,13 +1,22 @@
-// Конфигурация Firebase
+
 const firebaseConfig = {
-  apiKey: "AIzaSyD1pXuc81ah7pUN4ftBhlAwLBfjl0nE6Pw",
-  authDomain: "eduplatform-73b3b.firebaseapp.com",
-  projectId: "eduplatform-73b3b",
-  storageBucket: "eduplatform-73b3b.firebasestorage.app",
-  messagingSenderId: "1054270820126",
-  appId: "1:1054270820126:web:9979a09746e9d92819830f",
-  measurementId: "G-XNGPYSQ780"
+
+  apiKey: "AIzaSyA0iPYSOy0BQMAQ1H9xgxRuz40rypaAWwI",
+
+  authDomain: "eduplatform-95a1a.firebaseapp.com",
+
+  projectId: "eduplatform-95a1a",
+
+  storageBucket: "eduplatform-95a1a.firebasestorage.app",
+
+  messagingSenderId: "80033467958",
+
+  appId: "1:80033467958:web:e9bfd613607556ad755297",
+
+  measurementId: "G-KXB854FPWE"
+
 };
+
 
 // Инициализация Firebase
 if (typeof firebase !== 'undefined') {

@@ -414,9 +414,13 @@ if (courseType === 'html_css_ru') {
         const practiceSection = document.createElement('section');
         practiceSection.className = 'practice-section';
         
-        // Добавляем заголовок практического задания
+        // Добавляем заголовок практического задания с учетом языка
         const practiceTitle = document.createElement('h3');
-        practiceTitle.textContent = 'Практикалық тапсырма';
+        // Получаем текущий язык
+        const userData = JSON.parse(localStorage.getItem('currentUser') || '{}');
+        const lang = userData.language || 'kk';
+        // Устанавливаем текст заголовка в зависимости от языка
+        practiceTitle.textContent = lang === 'ru' ? 'Практическое задание' : 'Практикалық тапсырма';
         practiceSection.appendChild(practiceTitle);
         
         // Добавляем описание задания
