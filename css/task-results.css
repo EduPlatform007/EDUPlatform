@@ -1,0 +1,173 @@
+/* Стили для результатов выполнения заданий */
+
+/* Контейнеры для тестов и практики */
+.test-section, .practice-section {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background-color: rgba(245, 245, 245, 0.7);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.test-section:hover, .practice-section:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Заголовки секций */
+.test-section h2, .practice-section h2 {
+  color: #2646FA;
+  margin-bottom: 1.2rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.test-section h2:after, .practice-section h2:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(90deg, #2646FA 0%, #E30BBF 100%);
+  border-radius: 3px;
+}
+
+/* Вопросы тестов */
+.test-question {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 6px;
+  border-left: 3px solid #2646FA;
+  transition: transform 0.2s;
+}
+
+.test-question:hover {
+  transform: translateX(4px);
+}
+
+/* Поля ввода */
+.test-question input, .test-question select, .practice-input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 1rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  transition: border-color 0.3s;
+}
+
+.test-question input:focus, .test-question select:focus, .practice-input:focus {
+  border-color: #2646FA;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(38, 70, 250, 0.2);
+}
+
+/* Поле для практического задания */
+.practice-input {
+  min-height: 150px;
+  font-family: 'Consolas', 'Monaco', monospace;
+  resize: vertical;
+}
+
+/* Кнопки проверки */
+.test-check-button, .practice-check-button {
+  background: linear-gradient(90deg, #2646FA 0%, #E30BBF 100%);
+  color: white;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+
+.test-check-button:hover, .practice-check-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.test-check-button:active, .practice-check-button:active {
+  transform: translateY(1px);
+}
+
+/* Результаты проверки */
+.test-result, .practice-result, .hint-message {
+  margin-top: 1rem;
+  padding: 0.8rem 1rem;
+  border-radius: 5px;
+  font-weight: 500;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Успешный результат */
+.success {
+  background-color: rgba(76, 175, 80, 0.2);
+  color: #2e7d32;
+  border-left: 3px solid #2e7d32;
+}
+
+/* Ошибка */
+.error {
+  background-color: rgba(244, 67, 54, 0.2);
+  color: #d32f2f;
+  border-left: 3px solid #d32f2f;
+}
+
+/* Информационное сообщение */
+.info {
+  background-color: rgba(33, 150, 243, 0.2);
+  color: #0277bd;
+  border-left: 3px solid #0277bd;
+}
+
+/* Подсказка */
+.hint-message {
+  background-color: rgba(255, 193, 7, 0.2);
+  color: #ff8f00;
+  border-left: 3px solid #ff8f00;
+}
+
+/* Кнопка завершения урока */
+.complete-btn {
+  background: linear-gradient(90deg, #2646FA 0%, #E30BBF 100%);
+  color: white;
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 2rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.complete-btn:hover:not(:disabled) {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.complete-btn:disabled {
+  background: linear-gradient(90deg, #9e9e9e 0%, #757575 100%);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Контейнер для сообщения о результате завершения урока */
+#result-message {
+  min-height: 60px;
+  margin-top: 1rem;
+  text-align: center;
+}

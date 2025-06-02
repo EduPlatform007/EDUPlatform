@@ -1,0 +1,49 @@
+/* Исправление выравнивания уроков в сайдбаре */
+.lesson-item, 
+.sidebar-item, 
+.nav-item, 
+.lesson-link,
+.lesson-title,
+[class*="lesson"],
+[class*="sabak"],
+[id*="lesson"],
+[id*="sabak"] {
+    margin-left: 0 !important;
+    padding-left: 10px !important;
+    text-align: left !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    display: block !important;
+    position: relative !important;
+    left: 0 !important;
+}
+
+/* Стиль для завершенных уроков */
+.completed-lesson::after {
+    content: "✓";
+    color: green;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+/* Фиксация контейнера сайдбара */
+.sidebar, 
+.sidebar-container,
+.nav-sidebar,
+[class*="sidebar"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* Исправление отступов для элементов внутри уроков */
+.lesson-item *,
+.sidebar-item *,
+.nav-item *,
+.lesson-link *,
+.lesson-title * {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+}

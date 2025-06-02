@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="icon" type="image/svg+xml" href="img/edu_logo_favicon.svg">
+  <meta name="course-type" content="python" />
+  <meta name="course-language" content="ru" />
+  <title>Курс: Программирование на Python</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+  <link rel="stylesheet" href="css/course.css">
+  <!-- Font Awesome для иконок -->
+   <link rel="stylesheet" href="css/quiz-practice.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Theme Switch */
+    .theme-switch {
+        position: relative;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        margin-left: 15px;
+        border-radius: 50%;
+        transition: background-color 0.3s ease;
+    }
+    .footer{
+      display: flex;
+      align-items: center;
+    }
+    .theme-switch:hover {
+        background-color: rgba(0,0,0,0.05);
+    }
+    
+    .theme-switch-icon {
+        width: 24px;
+        height: 24px;
+    }
+    
+    /* Social Links */
+    .social-links {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+    }
+    
+    .social-link {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: #f8f9fa;
+        color: #333;
+        font-size: 22px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+    
+    .social-link:hover {
+        background: linear-gradient(90deg, #2646FA 0%, #E30BBF 100%);
+        color: white;
+        transform: translateY(-5px);
+    }
+
+    /* Скрываем лишние надписи */
+    .lesson-content > *:not(#empty-message, #loaded-lesson, #homework-section, .lesson-content-title),
+    main > *:not(aside, .lesson-content, section),
+    main > span,
+    .course-label,
+    .course-title-header {
+        display: none !important;
+    }
+  </style>
+  <script src="JavaScript/unified_theme_switcher.js"></script>
+</head>
+<body>
+  <header class="header-line">
+    <div class="header-logo">
+        EduPlatform
+    </div>
+    <div class="header-text">
+        <a class="header-link" href="index.html">Главная</a>
+        <a class="header-link" href="courses.html">Курсы</a>
+        <a class="header-link" href="#footer">Контакты</a>
+    <div class="header-select" style="gap: 10px;">
+        <!-- Селектор языка удален для согласованности интерфейса -->
+        <div class="theme-switch" id="theme-switch" style="margin-left: 0;">
+            <i class="fas fa-moon theme-switch-icon" id="theme-icon"></i>
+        </div>
+        <div class="header-button" style="margin-left: 10px;">
+            <a class="btn-log" id="btn-log" href="login.html">Вход</a>
+        </div>
+        <div class="header-button user-profile-btn" style="display: none; margin-left: 5px;">
+            <a class="btn-profile" id="btn-profile" href="profile.html">Профиль</a>
+        </div>
+    </div>
+</div>
+</header>
+
+<main>
+  <aside class="sidebar">
+    <h2>Уроки</h2>
+    <div class="weeks-container">
+      <button class="week-btn active">1 <span>неделя</span></button>
+      <button class="week-btn" onclick="showLockedWeek()">2 <span>неделя</span>🔒</button>
+      <button class="week-btn" onclick="showLockedWeek()">3 <span>неделя</span>🔒</button>
+      <button class="week-btn" onclick="showLockedWeek()">4 <span>неделя</span>🔒</button>
+    </div>
+    <ul class="lesson-list" id="week-1-lessons">
+      <!-- Уроки будут добавлены через JavaScript -->
+    </ul>
+  </aside>
+
+  <section class="lesson-content" id="lesson-content">
+    <div class="empty-lesson" id="empty-message">
+      <h2>Выберите урок</h2>
+      <p>Выберите урок из списка слева, чтобы начать обучение.</p>
+    </div>
+    
+    <div id="loaded-lesson" style="display: none;">
+      <div id="lesson-data">
+        <!-- Содержимое урока будет загружено динамически -->
+      </div>
+      
+      <div class="lesson-actions">
+        <button class="complete-btn" onclick="completeLesson()">Урок завершен</button>
+        <div id="result-message"></div>
+      </div>
+    </div>
+    
+    <div id="homework-section" style="display: none;">
+      <h2 id="homework-title">Домашнее задание</h2>
+      <div id="homework-task">
+        <!-- Содержимое домашнего задания будет загружено динамически -->
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer" id="footer" style="align-items: center;">
+    <div class="text-footer" data-lang-key="copyright">
+        © 2025 EduPlatform
+    </div>
+    <div class="social-links">
+        <a href="https://www.instagram.com/s.t1ko?igsh=a3N1a2RkNGcxYnUx&utm_source=qr" target="_blank" class="social-link" data-social="instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://t.me/+5yoacKyZU6k3OGIy" target="_blank" class="social-link" data-social="telegram"><i class="fab fa-telegram"></i></a>
+        <a href="https://wa.me/77052421356" target="_blank" class="social-link" data-social="whatsapp"><i class="fab fa-whatsapp"></i></a>
+    </div>
+</footer>
+
+<!-- Подключаем файл с переводами -->
+<script src="JavaScript/translations.js"></script>
+<script src="JavaScript/enhanced_translations.js"></script>
+
+<!-- Улучшенная тёмная тема -->
+<script src="JavaScript/enhance_dark_theme.js"></script>
+
+<!-- Основные скрипты страницы -->
+<script src="JavaScript/main.js"></script>
+<script src="JavaScript/firebase.js"></script>
+
+<!-- Основные скрипты страницы -->
+<script src="JavaScript/couses_data/python_rus_all_data.js"></script>
+<script src="JavaScript/couses_data/python_ru_quiz_practice.js"></script>
+<script src="JavaScript/data.js"></script>
+
+<!-- Основной скрипт функциональности -->
+<script src="JavaScript/main.js"></script>
+
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+<!-- Highlight.js для подсветки кода -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+<!-- Тема -->
+<script src="JavaScript/themes.js"></script>
+
+<!-- Аутентификация -->
+<script src="JavaScript/auth.js"></script>
+
+<!-- Система тестов и практических заданий -->
+<script src="JavaScript/quiz_practice_system.js"></script>
+<script src="JavaScript/quiz_practice_loader.js"></script>
+<!-- Фиксация языка интерфейса -->
+<script src="JavaScript/static_language_fix.js"></script>
+<!-- URL утилиты для работы с параметрами -->
+<script src="JavaScript/url_utils.js"></script>
+
+<!-- Полное исправление системы тестов и практики -->
+<script src="JavaScript/complete_test_practice_fix.js"></script>
+<!-- Исправление для функциональности тестов и практик -->
+<script src="JavaScript/quiz_practice_fix.js"></script>
+<!-- Прямое исправление системы тестов и практики -->
+<script src="JavaScript/direct_quiz_practice_override.js"></script>
+<!-- Прямое исправление системы тестов и практики -->
+<script src="JavaScript/direct_quiz_practice_override.js"></script>
+<!-- ПРЯМОЙ ФИКС ДЛЯ ОТОБРАЖЕНИЯ РЕЗУЛЬТАТОВ ПРАКТИКИ -->
+<script src="JavaScript/direct-feedback.js"></script>
+<script src="JavaScript/practice-answers.js"></script>
+    <!-- JavaScript для работы с тестами и практическими заданиями -->
+<script src="JavaScript/quiz_practice_system.js"></script>
+<script src="JavaScript/quiz_practice_loader.js"></script>
+<script src="JavaScript/course_type_handler.js"></script>
+
+<!-- Основные скрипты страницы -->
+<script src="JavaScript/main.js"></script>
+
+<!-- Highlight.js для подсветки кода -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+<!-- Автозагрузчик курса -->
+<script src="JavaScript/course_autoloader.js"></script>
+
+<!-- Простой фикс для отображения результатов практики -->
+<script src="JavaScript/simple-feedback.js"></script>
+
+<!-- Исправление для функциональности тестов и практик -->
+<script src="JavaScript/quiz_practice_fixer.js"></script>
+
+<!-- jQuery для работы селекторов -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Дополнительные скрипты -->
+<script src="JavaScript/themes.js"></script>
+<script src="JavaScript/fix_translations.js"></script>
+<script src="JavaScript/auth.js"></script>
+<!-- Система тестов и практических заданий -->
+<script src="JavaScript/quiz_practice_system.js"></script>
+<script src="JavaScript/quiz_practice_loader.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Инициализация подсветки синтаксиса
+        document.querySelectorAll('pre code').forEach((el) => {
+            hljs.highlightElement(el);
+        });
+        
+        // Для инициализации переводов при загрузке страницы
+        setTimeout(() => {
+            const userData = JSON.parse(localStorage.getItem('currentUser') || '{}');
+            const lang = userData.language || 'kk';
+            
+            // Устанавливаем значение селектора языка
+            const langSelect = document.getElementById('select');
+            if (langSelect) {
+                langSelect.value = lang === 'kk' ? 'Қазақша' : 'Русский';
+            }
+            
+            // Применяем переводы сразу после загрузки
+            if (typeof window.applyFullTranslationHtml === 'function') {
+                window.applyFullTranslationHtml(lang);
+            }
+            
+            // Проверяем, нужно ли открыть какой-то урок
+            const lessonToOpen = localStorage.getItem("openLessonAfterReload");
+            if (lessonToOpen) {
+                localStorage.removeItem("openLessonAfterReload");
+                if (typeof window.loadLesson === 'function') {
+                    window.loadLesson(parseInt(lessonToOpen));
+                }
+            }
+        }, 300);
+        
+        // Обработчик изменения языка
+        const langSelect = document.getElementById('select');
+        if (langSelect) {
+            langSelect.addEventListener('change', function() {
+                const lang = this.value === 'Қазақша' ? 'kk' : 'ru';
+                
+                // Для сохранения текущего урока при смене языка
+                const currentLessonNum = localStorage.getItem('lastOpenedLesson');
+                if (currentLessonNum) {
+                    localStorage.setItem("openLessonAfterReload", currentLessonNum);
+                }
+                
+                // Сохраняем выбранный язык в localStorage
+                const userData = JSON.parse(localStorage.getItem('currentUser') || '{}');
+                userData.language = lang;
+                localStorage.setItem('currentUser', JSON.stringify(userData));
+                
+                // Получаем тип курса
+                const courseType = 'html';
+                localStorage.setItem('lastOpenedCourse', courseType);
+                
+                // Применяем полный перевод через универсальную функцию
+                if (typeof window.applyUniversalTranslations === 'function') {
+                    window.applyUniversalTranslations(lang, courseType);
+                } else {
+                    // Резервный вариант, если универсальная функция недоступна
+                    // Применяем переводы напрямую
+                    if (typeof window.applyFullTranslationHtml === 'function') {
+                        window.applyFullTranslationHtml(lang);
+                    } else {
+                        // Базовые переводы через data-lang-key
+                        document.documentElement.setAttribute('lang', lang);
+                        const elements = document.querySelectorAll('[data-lang-key]');
+                        elements.forEach(element => {
+                            const key = element.getAttribute('data-lang-key');
+                            if (translations[lang] && translations[lang][key]) {
+                                element.innerHTML = translations[lang][key];
+                            }
+                        });
+                    }
+                }
+                
+                // Показываем уведомление об изменении языка
+                const message = lang === 'kk' ? 'Тіл қазақшаға ауыстырылды' : 'Язык изменен на русский';
+                const notificationDiv = document.createElement('div');
+                notificationDiv.className = 'language-notification';
+                notificationDiv.textContent = message;
+                notificationDiv.style.position = 'fixed';
+                notificationDiv.style.top = '10px';
+                notificationDiv.style.right = '10px';
+                notificationDiv.style.backgroundColor = 'rgba(0,0,0,0.7)';
+                notificationDiv.style.color = 'white';
+                notificationDiv.style.padding = '10px 15px';
+                notificationDiv.style.borderRadius = '4px';
+                notificationDiv.style.zIndex = '9999';
+                document.body.appendChild(notificationDiv);
+                
+                setTimeout(() => {
+                    notificationDiv.style.opacity = '0';
+                    notificationDiv.style.transition = 'opacity 0.5s ease';
+                    setTimeout(() => {
+                        if (document.body.contains(notificationDiv)) {
+                            document.body.removeChild(notificationDiv);
+                        }
+                    }, 500);
+                }, 2000);
+            });
+        }
+        
+        // Проверяем состояние аутентификации при загрузке страницы
+        firebase.auth().onAuthStateChanged(user => {
+            const btnLog = document.getElementById('btn-log');
+            const btnProfile = document.querySelector('.user-profile-btn');
+            
+            if (user) {
+                // Если пользователь авторизован
+                console.log('Пользователь авторизован:', user.email);
+                
+                // Получаем данные пользователя
+                const userData = JSON.parse(localStorage.getItem('currentUser') || '{}');
+                
+                // Синхронизируем с Firebase, если функция доступна
+                if (window.firebaseAuth && typeof window.firebaseAuth.syncData === 'function') {
+                    window.firebaseAuth.syncData()
+                        .then(() => {
+                            // После синхронизации данных, инициализируем уроки
+                            // для корректного отображения прогресса
+                            if (typeof window.initLessons === 'function') {
+                                console.log('Инициализация уроков через window.initLessons');
+                                window.initLessons();
+                            } else if (typeof initLessons === 'function') {
+                                console.log('Инициализация уроков через initLessons');
+                                initLessons();
+                            } else {
+                                console.error('Функция initLessons не найдена');
+                            }
+                            
+                            // Проверяем, нужно ли открыть конкретный урок
+                            const lessonToOpen = localStorage.getItem("openLessonAfterReload");
+                            if (lessonToOpen) {
+                                // Удаляем флаг
+                                localStorage.removeItem("openLessonAfterReload");
+                                
+                                // Открываем урок
+                                console.log('Открываем урок:', lessonToOpen);
+                                
+                                // Определяем тип курса по URL
+                                let currentCourseType = 'html';
+                                if (window.location.pathname.includes('python_course')) {
+                                    currentCourseType = 'python';
+                                } else if (window.location.pathname.includes('database_course')) {
+                                    currentCourseType = 'database';
+                                }
+                                console.log('Тип курса при загрузке урока:', currentCourseType);
+                                
+                                // Сохраняем тип курса
+                                localStorage.setItem('lastOpenedCourse', currentCourseType);
+                                
+                                if (typeof window.loadLesson === 'function') {
+                                    window.loadLesson(parseInt(lessonToOpen), currentCourseType);
+                                    // Вызываем событие загрузки урока
+                                    if (typeof window.triggerLessonLoaded === 'function') {
+                                        window.triggerLessonLoaded();
+                                    }
+                                } else if (typeof loadLesson === 'function') {
+                                    loadLesson(parseInt(lessonToOpen), currentCourseType);
+                                    // Вызываем событие загрузки урока
+                                    if (typeof window.triggerLessonLoaded === 'function') {
+                                        window.triggerLessonLoaded();
+                                    }
+                                } else {
+                                    console.error('Функция loadLesson не найдена');
+                                }
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Ошибка при синхронизации данных:', error);
+                        });
+                } else {
+                    // Если Firebase недоступен, просто инициализируем уроки
+                    console.warn('Firebase недоступен, инициализируем уроки локально');
+                    if (typeof window.initLessons === 'function') {
+                        window.initLessons();
+                    } else if (typeof initLessons === 'function') {
+                        initLessons();
+                    } else {
+                        console.error('Функция initLessons не найдена');
+                    }
+                    
+                    // Проверяем, нужно ли открыть конкретный урок
+                    const lessonToOpen = localStorage.getItem("openLessonAfterReload");
+                    if (lessonToOpen) {
+                        // Удаляем флаг
+                        localStorage.removeItem("openLessonAfterReload");
+                        
+                        // Открываем урок
+                        if (typeof window.loadLesson === 'function') {
+                            window.loadLesson(parseInt(lessonToOpen));
+                            // Вызываем событие загрузки урока
+                            if (typeof window.triggerLessonLoaded === 'function') {
+                                window.triggerLessonLoaded();
+                            }
+                        } else if (typeof loadLesson === 'function') {
+                            loadLesson(parseInt(lessonToOpen));
+                            // Вызываем событие загрузки урока
+                            if (typeof window.triggerLessonLoaded === 'function') {
+                                window.triggerLessonLoaded();
+                            }
+                        } else {
+                            console.error('Функция loadLesson не найдена');
+                        }
+                    }
+                }
+                
+                // Обновляем UI
+                btnLog.style.display = 'none';
+                btnProfile.style.display = 'inline-block';
+                
+                // Устанавливаем язык из настроек пользователя
+                if (userData.language) {
+                    document.getElementById('select').value = userData.language === 'kk' ? 'Қазақша' : 'Русский';
+                    updateLanguage(userData.language);
+                }
+            } else {
+                // Если пользователь не авторизован, перенаправляем на страницу входа
+                window.location.href = 'login.html';
+            }
+        });
+        
+        // Функция для предупреждения о заблокированных уроках
+        window.showLockedWeek = function() {
+            const userData = JSON.parse(localStorage.getItem('currentUser') || '{}');
+            const lang = userData.language || 'kk';
+            const message = translations[lang]['locked_week'] || 'Бұл аптаның сабақтары әлі қолжетімді емес. Алдыңғы сабақтарды аяқтағаннан кейін ашылады.';
+            
+            alert(message);
+        };
+
+        // Theme switcher
+        const themeSwitch = document.getElementById('theme-switch');
+        const themeIcon = document.getElementById('theme-icon');
+        
+        // Check for saved theme preference or use default
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        
+        // Update icon based on current theme
+        if (currentTheme === 'dark') {
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+        }
+        
+        // Theme switch event
+        themeSwitch.addEventListener('click', function() {
+            let theme = 'light';
+            
+            // If current theme is light, switch to dark
+            if (document.documentElement.getAttribute('data-theme') === 'light') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                theme = 'dark';
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            }
+            
+            // Save preference to localStorage
+            localStorage.setItem('theme', theme);
+        });
+    });
+</script>
+<!-- Скрипт для индивидуального сохранения прогресса по курсам -->
+<script src="JavaScript/course_progress_fix.js"></script>
+    <footer class="footer" id="footer" style="align-items: center;">
+        <div class="text-footer" data-lang-key="copyright">
+            © 2025 EduPlatform
+        </div>
+        <div class="social-links">
+            <a href="https://www.instagram.com/s.t1ko?igsh=a3N1a2RkNGcxYnUx&utm_source=qr" target="_blank" class="social-link" data-social="instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://t.me/+5yoacKyZU6k3OGIy" target="_blank" class="social-link" data-social="telegram"><i class="fab fa-telegram"></i></a>
+            <a href="https://wa.me/77052421356" target="_blank" class="social-link" data-social="whatsapp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+    </footer>
+</body>
+</html>

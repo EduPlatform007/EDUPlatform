@@ -1,0 +1,100 @@
+/* Стили для сайдбара курсов - прозрачный современный вид */
+.sidebar {
+  background-color: rgba(255, 255, 255, 0.1); /* Полупрозрачный фон */
+  backdrop-filter: blur(5px); /* Эффект размытия для современного вида */
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+  margin-right: 1rem;
+  transition: all 0.3s ease;
+}
+
+.lesson-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.lesson-item {
+  padding: 12px 15px;
+  margin-bottom: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-left: 4px solid transparent;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.lesson-item:hover {
+  background-color: rgba(230, 242, 255, 0.8);
+  transform: translateX(4px);
+}
+
+.lesson-item.active {
+  background-color: rgba(208, 235, 255, 0.8);
+  border-left: 4px solid #007bff;
+  font-weight: bold;
+}
+
+/* Стиль для выполненных уроков - зеленый фон */
+.lesson-item.completed {
+  background-color: rgba(232, 245, 233, 0.8) !important;
+  border-left: 4px solid #4CAF50;
+}
+
+/* Стили для недель */
+.weeks-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.week-btn {
+  padding: 8px 15px;
+  background-color: rgba(240, 244, 255, 0.7);
+  border: 1px solid #2646FA;
+  border-radius: 20px;
+  color: #2646FA;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-align: center;
+}
+
+.week-btn:hover {
+  background-color: rgba(38, 70, 250, 0.9);
+  color: white;
+}
+
+.week-btn.active {
+  background-color: rgba(38, 70, 250, 0.8);
+  color: white;
+  font-weight: bold;
+}
+
+.week-btn.locked {
+  background-color: rgba(240, 240, 240, 0.7);
+  border-color: #ccc;
+  color: #999;
+  cursor: not-allowed;
+}
+
+/* Заголовки сайдбара */
+.sidebar h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.2rem;
+  color: #333;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.sidebar h2:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(90deg, #2646FA 0%, #E30BBF 100%);
+  border-radius: 3px;
+}

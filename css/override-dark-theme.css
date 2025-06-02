@@ -1,0 +1,70 @@
+/**
+ * Файл для полного переопределения стилей темной темы
+ * Этот файл имеет наивысший приоритет
+ */
+
+/* Глобальное переопределение темного фона */
+[data-theme="dark"] body,
+[data-theme="dark"] html,
+body.dark-theme,
+html.dark-theme {
+    background-color: transparent !important;
+    background-image: none !important;
+    background: none !important;
+}
+
+/* Переопределение для main-frame */
+[data-theme="dark"] .main-frame,
+html[data-theme="dark"] .main-frame,
+body[data-theme="dark"] .main-frame {
+    background-color: transparent !important;
+    background-image: none !important;
+    background: none !important;
+}
+
+/* Переопределение для video-background */
+[data-theme="dark"] .video-background,
+html[data-theme="dark"] .video-background,
+body[data-theme="dark"] .video-background {
+    background-color: transparent !important;
+    background-image: none !important;
+    background: none !important;
+    opacity: 1 !important;
+}
+
+/* Переопределение для всех возможных контейнеров */
+[data-theme="dark"] .container,
+[data-theme="dark"] .content,
+[data-theme="dark"] .wrapper,
+[data-theme="dark"] .page,
+[data-theme="dark"] section,
+[data-theme="dark"] main,
+[data-theme="dark"] div {
+    background-color: transparent !important;
+    background-image: none !important;
+    background: none !important;
+}
+
+/* Специальное правило для удаления черного фона в главной секции */
+[data-theme="dark"] .main-frame,
+[data-theme="dark"] .main-frame *,
+[data-theme="dark"] .content-container,
+[data-theme="dark"] .content-container * {
+    background-color: transparent !important;
+    background-image: none !important;
+    background: none !important;
+    box-shadow: none !important;
+}
+
+/* Переопределение для header и footer */
+[data-theme="dark"] header,
+[data-theme="dark"] footer {
+    background-color: rgba(23, 23, 23, 0.8) !important;
+}
+
+/* Специальное переопределение для секций, которые должны иметь фон */
+[data-theme="dark"] .header-line,
+[data-theme="dark"] .course-card,
+[data-theme="dark"] .sidebar {
+    background-color: var(--header-bg) !important;
+}

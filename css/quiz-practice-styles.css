@@ -1,0 +1,238 @@
+/* Стили для тестов и практических заданий */
+
+/* Общие стили для разделов */
+.quiz-section, .practice-section {
+  margin: 30px 0;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Заголовки разделов */
+.quiz-section h3, .practice-section h3 {
+  margin-top: 0;
+  color: #2646FA;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #2646FA;
+  padding-bottom: 10px;
+}
+
+/* Стили для вопросов теста */
+.quiz-question {
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.quiz-question:last-child {
+  border-bottom: none;
+}
+
+.question-text {
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+/* Стили для вариантов ответов */
+.quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.quiz-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.quiz-option input[type="radio"] {
+  margin: 0;
+}
+
+.quiz-option label {
+  cursor: pointer;
+  padding: 5px;
+  flex: 1;
+}
+
+.quiz-option:hover label {
+  color: #2646FA;
+}
+
+/* Кнопки проверки */
+.quiz-submit-btn, .practice-submit-btn {
+  background: linear-gradient(90deg, #2646FA 0%, #E30BBF 100%);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  margin-top: 15px;
+  transition: all 0.3s ease;
+}
+
+.quiz-submit-btn:hover, .practice-submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Результаты */
+.quiz-result, .practice-result {
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 5px;
+  display: none;
+}
+
+.result-summary {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.result-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.result-item {
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+.result-item.correct {
+  background-color: rgba(76, 175, 80, 0.1);
+  color: #4CAF50;
+}
+
+.result-item.incorrect {
+  background-color: rgba(244, 67, 54, 0.1);
+  color: #F44336;
+}
+
+/* Сообщения об успехе/ошибке */
+.success-message {
+  background-color: rgba(76, 175, 80, 0.1);
+  color: #4CAF50;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 15px;
+  font-weight: 600;
+}
+
+.partial-success-message {
+  background-color: rgba(255, 152, 0, 0.1);
+  color: #FF9800;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 15px;
+  font-weight: 600;
+}
+
+.error-message {
+  background-color: rgba(244, 67, 54, 0.1);
+  color: #F44336;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 15px;
+  font-weight: 600;
+}
+
+/* Практические задания */
+.practice-description {
+  margin-bottom: 20px;
+}
+
+.practice-description p {
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.practice-description ol, .practice-description ul {
+  margin-left: 20px;
+  margin-bottom: 15px;
+}
+
+.practice-description li {
+  margin-bottom: 8px;
+}
+
+.practice-answer-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.practice-textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  resize: vertical;
+  font-family: inherit;
+  line-height: 1.5;
+}
+
+.practice-textarea:focus {
+  outline: none;
+  border-color: #2646FA;
+  box-shadow: 0 0 0 2px rgba(38, 70, 250, 0.2);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .quiz-section, .practice-section {
+    padding: 15px;
+  }
+  
+  .quiz-submit-btn, .practice-submit-btn {
+    width: 100%;
+  }
+}
+
+/* Темная тема */
+[data-theme="dark"] .quiz-section,
+[data-theme="dark"] .practice-section {
+  background-color: #2a2a2a;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .quiz-section h3,
+[data-theme="dark"] .practice-section h3 {
+  color: #64B5F6;
+  border-bottom-color: #64B5F6;
+}
+
+[data-theme="dark"] .question-text {
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] .quiz-question {
+  border-bottom-color: #444;
+}
+
+[data-theme="dark"] .quiz-option:hover label {
+  color: #64B5F6;
+}
+
+[data-theme="dark"] .practice-textarea {
+  background-color: #333;
+  border-color: #444;
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] .practice-textarea:focus {
+  border-color: #64B5F6;
+  box-shadow: 0 0 0 2px rgba(100, 181, 246, 0.2);
+}
+
+[data-theme="dark"] .result-summary {
+  color: #e0e0e0;
+}

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Градиентный фон -->
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4A0082" />
+      <stop offset="100%" stop-color="#E30BBF" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Фон -->
+  <rect width="32" height="32" rx="4" fill="url(#grad)"/>
+  
+  <!-- Книга -->
+  <path d="M8 8.5V23.5C8 23.5 9 22.5 12 22.5C15 22.5 17 23.5 17 23.5V8.5C17 8.5 15 7.5 12 7.5C9 7.5 8 8.5 8 8.5Z" fill="none" stroke="white" stroke-width="1.2"/>
+  <path d="M17 8.5V23.5C17 23.5 19 22.5 22 22.5C25 22.5 26 23.5 26 23.5V8.5C26 8.5 25 7.5 22 7.5C19 7.5 17 8.5 17 8.5Z" fill="none" stroke="white" stroke-width="1.2"/>
+  
+  <!-- Выпускная шапка -->
+  <path d="M17 5L10 8L17 11L24 8L17 5Z" fill="white"/>
+  <path d="M24 8V11.5M24 11.5L24 13.5M24 11.5C22 12.5 19 13 17 13C15 13 12 12.5 10 11.5" stroke="white" stroke-width="0.8"/>
+  
+  <!-- Код -->
+  <path d="M14 15L12 17L14 19" stroke="white" stroke-width="1.2"/>
+  <path d="M20 15L22 17L20 19" stroke="white" stroke-width="1.2"/>
+  <path d="M16 14.5L18 19.5" stroke="white" stroke-width="1.2"/>
+  
+  <!-- EP -->
+  <path d="M14 20.5H16V22.5H14V20.5Z" fill="white"/>
+  <path d="M18 20.5H20C20.5 20.5 21 21 21 21.5C21 22 20.5 22.5 20 22.5H18V20.5Z" fill="white"/>
+</svg>

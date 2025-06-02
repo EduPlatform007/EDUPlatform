@@ -1,0 +1,2389 @@
+:root {
+    /* Light theme (default) */
+    --background-color: #ffffff;
+    --text-color: #333333;
+    --light-bg: #f9f9f9;
+    --card-background: #EBF1FF;
+    --header-bg: #ffffff;
+    --footer-bg: #fff;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --question-gradient: linear-gradient(90deg, #2E3078 0%, #5C6BC0 100%);
+    --link-color: #333;
+    --link-hover-color: linear-gradient(90deg, #2646FA 0%, #E30BBF 100%);
+    --border-color: #eaeaea;
+    --second-card-bg: linear-gradient(120deg, #A066F7 0%,#8F2FC1 25%,#E16AE6 50%, #75007A 100%);
+    --third-card-bg: #E9EBFF;
+    --button-gradient: linear-gradient(90deg, #2646FA 0%, #E30BBF 100%);
+    --teacher-card-bg: linear-gradient(90deg, #2B325A 0%, #5C6BC0 100%);
+    --first-card-text: #333333;
+    --third-card-text: #333333;
+}
+.lesson-title {
+    margin-left: 0 !important;
+}
+.lesson-btn::before {
+    content: none !important;
+    display: none !important;
+}
+[data-theme="dark"] * {
+    transition: background-color 0.3s, color 0.3s;
+}
+[data-theme="dark"] .lesson-content, 
+[data-theme="dark"] main, 
+[data-theme="dark"] .content-area {
+    background-color: #121212 !important;
+    color: #f5f5f5 !important;
+}
+html[data-theme="dark"], [data-theme="dark"], body.dark-theme {
+    /* Base colors */
+    --background-color: #121212;
+    --text-color: #f5f5f5;
+    --light-bg: #1e1e1e; /* Более тёмный фон */
+    --card-background: #1e1e2a; /* Более тёмный фон карточек */
+    --header-bg: #171717;
+    --footer-bg: #161616;
+    --shadow-color: rgba(0, 0, 0, 0.5); /* Более сильные тени для лучшей глубины */
+    
+    /* Градиенты и акценты */
+    --question-gradient: linear-gradient(90deg, #1f2252 0%, #3a4380 100%); /* Более тёмный градиент */
+    --link-color: #e0e0e0;
+    --link-hover-color: linear-gradient(90deg, #2646FA 0%, #E30BBF 100%);
+    --border-color: #2a2a2a; /* Более заметные границы */
+    
+    /* Фоны карточек - значительно темнее для лучшего контраста */
+    --second-card-bg: linear-gradient(120deg, #462e61 0%, #3d1a54 25%, #7a3978 50%, #3d1040 100%);
+    --third-card-bg: #1a1c30; /* Более тёмная третья карточка */
+    --button-gradient: linear-gradient(90deg, #2646FA 0%, #E30BBF 100%);
+    --teacher-card-bg: linear-gradient(90deg, #18192e 0%, #303b7a 100%); /* Более тёмные карточки учителей */
+    
+    /* Цвета текста для лучшей читаемости */
+    --first-card-text: #ffffff; /* Более яркий текст для лучшего контраста */
+    --third-card-text: #ffffff;
+}
+
+/* Дополнительные стили для тёмной темы */
+[data-theme="dark"] .header-line, 
+body.dark-theme .header-line {
+    background-color: var(--header-bg);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .course-card, 
+body.dark-theme .course-card {
+    background-color: var(--card-background);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .sidebar, 
+body.dark-theme .sidebar {
+    background-color: var(--light-bg);
+    border-right: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] .sidebar-header, 
+body.dark-theme .sidebar-header {
+    background-color: var(--header-bg);
+    border-bottom: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] .lesson-item, 
+body.dark-theme .lesson-item {
+    background-color: var(--light-bg);
+    color: var(--text-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] .lesson-item:hover, 
+body.dark-theme .lesson-item:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] .lesson-item.active, 
+body.dark-theme .lesson-item.active {
+    background-color: rgba(38, 70, 250, 0.1);
+    border-left: 3px solid #2646FA;
+}
+
+[data-theme="dark"] .auth-container, 
+[data-theme="dark"] .profile-container,
+body.dark-theme .auth-container, 
+body.dark-theme .profile-container {
+    background-color: var(--card-background);
+    color: var(--text-color);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] input, 
+[data-theme="dark"] select, 
+[data-theme="dark"] textarea,
+body.dark-theme input, 
+body.dark-theme select, 
+body.dark-theme textarea {
+    background-color: var(--light-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] .footer, 
+body.dark-theme .footer {
+    background-color: var(--footer-bg);
+    border-top: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] .profile-tab, 
+body.dark-theme .profile-tab {
+    background-color: var(--light-bg);
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .profile-tab.active, 
+body.dark-theme .profile-tab.active {
+    background-color: rgba(38, 70, 250, 0.1);
+    border-bottom: 2px solid #2646FA;
+}
+
+[data-theme="dark"] .form-card, 
+body.dark-theme .form-card {
+    background-color: var(--light-bg);
+    border: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] code, 
+body.dark-theme code {
+    background-color: #2d2d2d;
+    color: #f8f8f2;
+}
+
+[data-theme="dark"] .benefit-card, 
+body.dark-theme .benefit-card {
+    background-color: var(--light-bg);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: "Poppins", sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    overflow-x: visible !important;
+    overflow-y: visible !important;
+}
+.header-line{
+    background-color: var(--header-bg);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    padding: 20px 0; /* Одинаковые отступы сверху и снизу */
+    margin: 0;
+    height: 60px; /* Фиксированная высота для всего хедера */
+}
+.header-logo {
+    display: flex;
+    font-size: 36px;
+    font-weight: 700;
+    background: linear-gradient(90deg, #2646FA 0%, #E30BBF 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    align-items: center;
+    text-align: center;
+    height: 40px; /* Фиксированная высота */
+    line-height: 40px; /* Выравниваем по вертикали */
+}
+.header-text{
+    display: flex;
+    flex-direction: row;
+    gap: 80px;
+    font-size: 20px;
+    align-items: center; /* Выравниваем все элементы по центру */
+    text-align: center;
+    height: 40px; /* Фиксированная высота */
+    line-height: 40px; /* Выравниваем по вертикали */
+}
+.header-link{
+    color: var(--text-color);
+    text-decoration: none;
+    transition: background 0.5s ease;
+    align-items: center;
+    text-align: center;
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+}
+.header-link:hover{
+    background: linear-gradient(90deg, #2646FA 0%, #E30BBF 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+.header-select{
+    display:flex;
+    gap:20px;
+    align-items: center;
+    align-items: center;
+    text-align: center;
+}
+/* Стили для кнопок входа и профиля */
+.btn-log, .btn-profile {
+    display: inline-block;
+    padding: 8px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+    align-items: center;
+    text-align: center;
+    height: 24px; /* Фиксированная высота */
+    line-height: 24px; /* Выравниваем по вертикали */
+    vertical-align: middle; /* Дополнительное выравнивание */
+}
+
+.btn-log {
+    background: linear-gradient(90deg, #2646FA 0%, #E30BBF 100%);
+    color: white;
+}
+
+.btn-profile {
+    background: linear-gradient(90deg, #2646FA 0%, #E30BBF 100%);
+    color: white;
+}
+
+/* Общие стили для кнопок */
+.btn-log, .btn-first, .main-btn, .btn-profile, .btn-logout, .continue-btn, .social-link, .btn, .course-btn, .btn-auth {
+    transition: transform 0.3s ease, background 0.3s ease;
+    animation: none;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.btn-log:hover, .btn-first:hover, .main-btn:hover, .btn-profile:hover, .btn-logout:hover, .continue-btn:hover, .social-link:hover, .btn:hover, .course-btn:hover, .btn-auth:hover {
+    transform: scale(1.05);
+    background: linear-gradient(90deg, #1f37bf 0%, #9d1c88 100%);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Clean uniform styling for all cards */
+.first-carts, .second-carts, .third-carts {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px var(--shadow-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.first-carts:hover, .second-carts:hover, .third-carts:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* Teacher card styling - обновленный стиль с правильной анимацией 0.5s */
+.teacher {    
+    display: flex !important;    
+    flex-direction: column;    
+    align-items: center;    
+    text-align: center;    
+    padding: 20px;    
+    border-radius: 15px;    
+    background: linear-gradient(90deg, #2B325A 0%, #5C6BC0 100%);    
+    box-shadow: 0 5px 15px var(--shadow-color);    
+    color: #ffffff;    
+    width: 350px;    
+    height: 420px;    
+    gap: 15px;    
+    z-index: 100;    
+    position: relative;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: scale(1) !important;
+    transition: transform 0.5s ease, box-shadow 0.5s ease !important;
+}
+
+.teacher:hover {    
+    transform: scale(1.05) !important;    
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15) !important;
+}
+
+/* Student card styling */
+.student {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: auto;
+    overflow: visible;
+}
+
+.student:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+}
+
+.text-student {
+    overflow: visible;
+    max-height: none;
+}
+
+/* Remove all pseudo-element effects */
+.btn::after, .btn::before, 
+.btn-log::after, .btn-log::before, 
+.btn-first::after, .btn-first::before, 
+.main-btn::after, .main-btn::before {
+    content: none;
+    display: none;
+}
+
+/* Убираем только начальные анимации, но сохраняем hover-эффекты */
+.carts .first-carts, .carts .second-carts, .carts .third-carts {
+    opacity: 1;
+    transform: scale(1);
+    animation: none;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+/* Исправляем ховер для карточек */
+.first-carts:hover, .second-carts:hover, .third-carts:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Удаляем трансформации с изображений */
+.img-teach:hover, .image:hover, .icon:hover, .icon-3d-1:hover, .icon-3d-2:hover, .icon-3d-3:hover, .icon-3d-4:hover {
+    transform: none;
+}
+
+/* Исправляем расположение карточек в горизонтальный ряд */
+.teachers-carts {
+    display: flex;
+    margin-top: 50px;
+    gap: 40px;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 20px;
+}
+
+.carts {
+    display: flex;
+    margin-top: 40px;
+    gap: 30px;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 20px;
+}
+
+.select{
+    padding:10px 10px 10px 10px;
+    border-radius: 15px;
+    border:1px solid black;
+}
+
+
+/*main-frame*/
+.main-frame{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0; /* Убираем отступ сверху полностью */
+    position: relative;
+    overflow: hidden;
+    min-height: 600px; /* Увеличиваем минимальную высоту для секции */
+    padding: 0;
+    background: none; /* Убираем фон, чтобы фоновое изображение было видно */
+}
+
+/* Стили для темной темы */
+[data-theme="dark"] .main-frame {
+    background: none; /* Убираем фон в темной теме */
+}
+
+/* Стили для фонового изображения */
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+    background-color: #EBF1FF; /* Светло-голубой фон для светлой темы */
+}
+
+/* Стили для темной темы */
+[data-theme="dark"] .video-background {
+    background-color: #1a1c30; /* Темно-синий фон для темной темы */
+}
+
+.video-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Заполняет весь контейнер */
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 1; /* Полная непрозрачность */
+}
+
+/* Стили для контейнера контента */
+.content-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 2; /* Выше видео */
+}
+
+/* Ensure text is visible on video */
+.main-text {
+    position: relative;
+    z-index: 5;
+    width: 40%; /* Уменьшаем ширину */
+    padding: 20px;
+    background: none !important;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: left;
+    margin-right: 600px; /* Уменьшаем отступ слева */
+}
+
+.main-img {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* Выравниваем по нижнему краю */
+    z-index: 5;
+    position: absolute; /* Абсолютное позиционирование */
+    bottom: -75px; /* Увеличиваем смещение вниз, чтобы изображение было полностью впритык к нижней части */
+    right: 50px; /* Позиционируем справа */
+}
+
+.image {
+    width: 450px !important; /* Увеличиваем размер в 1.5 раза (400px * 1.5 = 600px) */
+    height:450px !important; /* Увеличиваем размер в 1.5 раза */
+    object-fit: contain !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    transform: scale(1.5) !important; /* Дополнительно увеличиваем изображение */
+    transform-origin: bottom right !important; /* Точка отсчета для трансформации */
+}
+
+/* Улучшаем видимость текста на видео */
+.big-text {
+    color: rgb(255, 255, 255) !important; /* Темный цвет для светлой темы */
+    font-weight: 700 !important;
+    font-size: 96px !important;
+    background: none !important; /* Убираем любой фоновый цвет */
+    line-height: 1.1 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block !important; /* Добавляем блочный дисплей */
+    font-family: "Poppins", sans-serif !important;
+}
+
+/* Стили для темной темы */
+[data-theme="dark"] .big-text {
+    color: white !important; /* Белый цвет для темной темы */
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8) !important; /* Тень для лучшей читаемости */
+}
+
+/* Стили для каждой строки текста */
+.text-line {
+    display: block !important; /* Каждая строка на новой строке */
+    margin-bottom: 10px !important; /* Увеличиваем отступ между строками */
+    line-height: 1 !important; /* Уменьшаем межстрочный интервал */
+    width: 100% !important; /* Занимаем всю ширину */
+    clear: both !important; /* Очищаем обтекание */
+}
+
+.default-text {
+    color: rgb(255, 255, 255) !important; /* Темный цвет для светлой темы */
+    font-weight: 500 !important;
+    font-size: 24px !important;
+    background: none !important; /* Убираем любой фоновый цвет */
+    margin-top: 20px !important;
+    padding: 0 !important;
+}
+
+/* Стили для подзаголовка в темной теме */
+[data-theme="dark"] .default-text {
+    color: white !important; /* Белый цвет для темной темы */
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7) !important; /* Тень для лучшей читаемости */
+}
+
+/* Стиль для кнопки */
+.main-btn {
+    margin-top: 20px !important;
+    z-index: 5 !important;
+    position: relative !important;
+    background: linear-gradient(90deg, #2646FA 0%, #E30BBF 100%);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Стиль для кнопки в темной теме */
+[data-theme="dark"] .main-btn {
+    background: linear-gradient(90deg, #2646FA 0%, #E30BBF 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Стиль при наведении на кнопку */
+.main-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Стили для first-frame */
+.first-frame {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 80px;
+    padding: 0 50px;
+}
+
+.first-frame-text {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.first-text-bold {
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+.first-text-med {
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--text-color);
+    line-height: 1.5;
+}
+
+.first-text-link {
+    margin-top: 20px;
+}
+
+.btn-first {
+    display: inline-block;
+    background: linear-gradient(90deg, #2646FA 0%, #E30BBF 100%);
+    padding: 15px 30px;
+    border-radius: 30px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 600;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.btn-first:hover {
+    background: linear-gradient(90deg, #1f37bf 0%, #9d1c88 100%);
+    transform: scale(1.05);
+}
+
+.first-frame-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-present {
+    max-width: 500px;
+    height: auto;
+}
+
+.main-text{
+    display:flex;
+    flex-direction: column;
+    gap:40px;
+}
+.big-text{
+    font-size:90px;
+    font-weight: 700;
+    gap:-100px;
+}
+.default-text{
+    font-weight:500;
+    font-size:30px;
+}
+.main-btn {
+    display: inline-block;
+    background: linear-gradient(90deg, #2646FA 0%, #E30BBF 100%);
+    padding: 15px 20px;
+    border-radius: 20px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 700;
+    transition: background 0.3s ease, transform 0.3s ease;
+    border: none;
+}
+.main-btn:hover {
+    background: linear-gradient(90deg, #1f37bf 0%, #9d1c88 100%);
+    color: #fff;
+    transform: scale(1.05);
+}
+.image{
+    width:500px;
+    height:500px;
+    margin-left:-90px;
+}
+
+/*second-frame*/
+
+.second-frame{
+    background-color:none;
+    padding-bottom:50px;
+    display: flex;
+    flex-direction: column;
+    gap:30px;
+    margin-top: 20px;
+    justify-content: space-around;
+    border-radius:120px;
+}
+.sec-text{
+    display: flex;
+    justify-content: left;
+    margin-left: 165px;
+    margin-top: 30px;
+    font-weight: 700;
+    font-size: 40px;
+}
+.carts{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+.first-carts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 350px;
+    height: 350px;
+    text-align: center;
+    background-color: transparent !important;
+    box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 40px;
+    padding: 25px;
+    transition: all 0.3s ease;
+    color: var(--text-color);
+    position: relative;
+    z-index: 1;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.second-carts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 350px;
+    height: 350px;
+    text-align: center;
+    background: transparent !important;
+    color: var(--text-color);
+    box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 40px;
+    padding: 25px;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.third-carts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 350px;
+    height: 350px;
+    text-align: center;
+    background-color: transparent !important;
+    box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 40px;
+    padding: 25px;
+    transition: all 0.3s ease;
+    color: var(--text-color);
+    position: relative;
+    z-index: 1;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.first-carts:hover, .second-carts:hover, .third-carts:hover {
+    transform: scale(1.05);
+}
+
+.lin-cart{
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 400;
+    color: #FFFFFF;
+    transition: all 0.3s ease;
+    background-color: rgba(255,255,255,0.2);
+    padding: 8px 16px;
+    border-radius: 20px;
+    display: inline-block;
+}
+.carts-pic{
+    text-align: center;
+}
+.icon{
+    width:100px;
+    height:100px;
+    margin-bottom: 20px;
+}
+.bold-carts{
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    color: inherit;
+    margin-bottom: 20px;
+}
+.med-carts{
+    text-align: center;
+    font-size: 18px;
+    font-weight: 400;
+    color: inherit;
+    margin-bottom: 25px;
+}
+.link-carts{
+    text-align: center;
+    margin-top: 20px;
+}
+.link-cart{
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 400;
+    color: #242792;
+    transition: all 0.3s ease;
+    background-color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+/* Обновленный стиль для ховера ссылок с равномерным увеличением */
+.link-cart:hover{
+    transform: scale(1.05) !important;
+    color: #E30BBF;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+.lin-cart:hover{
+    transform: scale(1.05) !important;
+    color: #000000;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+/*third-frame*/
+.third-frame {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+    max-width: 1310px; /* или 1400px, если нужно */
+    margin: 100px auto 0;
+    padding: 0 20px 0px 50px; /* уменьшите боковые отступы, если контейнер смещается */
+}
+
+.grid-carts {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 3fr 7fr;  /* 4/6 */
+    gap: 40px;
+    width: 100%;
+}
+
+.grid-carts-sec {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 3fr 7fr;  /* 3/7 */
+    gap: 40px;
+    width: 100%;
+    margin-top: 50px;
+}
+
+.charac-first,
+.charac-second {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background: linear-gradient(90deg, #5C6BC0 0%, #2B325A 100%);
+    border-radius: 20px;
+    color: #fff;
+    box-sizing: border-box;
+    transition: all 0.5s ease;
+}
+
+.charac-first {
+    padding: 10px 40px;
+    height: 300px;
+    width:700px;
+    transition: all 0.5s ease;
+}
+.charac-first:hover{
+    transform: scale(1.05);
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+.charac-second:hover{
+    transform: scale(1.05);
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+.charac-second {
+    padding: 10px 40px;
+    width:550px;
+    height: 300px;
+}
+
+.charac-text{
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+}
+
+.bold-big-text {
+    font-size: 33px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.medium-text {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+.icon-3d-1 {
+    width: 330px;
+    height: 240px;
+}
+.icon-3d-2 {
+    width: 220px;
+    height: 220px;
+}
+.icon-3d-3 {
+    width: 210px;
+    height: 210px;
+}
+.icon-3d-4 {
+    width: 230px;
+    height: 230px;
+}
+
+.icon:hover {
+    transform: none;
+}
+
+.icon-3d-1:hover, .icon-3d-2:hover, .icon-3d-3:hover, .icon-3d-4:hover {
+    animation: none;
+}
+
+/*four-frame*/
+.four-frame{
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color:#ffff;
+    border-radius:120px;
+    margin-top:100px;
+    padding-bottom:100px;
+}
+.teachers-text{
+    display: flex;
+    justify-content: left;
+    margin-left: 165px;
+    margin-top: 30px;
+    font-weight: 700;
+    font-size: 40px;
+}
+.teachers-carts{
+    display: flex;
+    gap: 40px;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 20px;
+}
+.img-teach{
+    width: 340px;
+    height: 255px;
+    border-radius: 10px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+/* Удаляем анимацию для картинок преподавателей */
+.img-teach:hover {
+    transform: none;
+}
+.bold-teach{
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+.medium-teach{
+    font-size: 18px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+/*five-frame*/
+.five-frame{
+    background-color: var(--card-background);
+    display: flex;
+    flex-direction: column;
+    margin-top:100px;
+    padding: 0 120px 100px;
+}
+.new-curs{
+    font-size:44px;
+    font-weight:700;
+    color: var(--text-color);
+    margin-top:75px;
+}
+.first-frame-in-five-frame{
+    margin-top:50px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #fff;
+    border-radius: 40px;
+    padding:0 60px 90px 20px;
+    background: linear-gradient(90deg, #2B325A 0%, #8692D8 100%);
+}
+.five-bold-text{
+    font-size:48px;
+    font-weight:700;
+    margin-top:30px;
+    margin-left:55px;
+}
+.five-sec-bold-text{
+margin-left:55px;
+font-size:35px;
+    font-weight:700;
+    margin-top:10px;
+}
+.ol-li{
+    display: flex;
+    flex-direction: row;
+    gap:140px;
+    margin-left:55px;
+    font-size:22px;
+    font-weight: 400;
+    margin-top:50px;
+}
+.second-frame-in-frame{
+    background-color: var(--card-background);
+    border-radius:40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left:50px;
+    color: var(--text-color);
+    margin-top: 50px;
+    padding-bottom:80px;
+}
+.bold-black-text{
+    font-size:35px;
+    font-weight:700;
+    margin-top:40px;
+    margin-left:165px;
+}
+.numb-ol{
+    font-size:28px;
+    font-weight:400;
+    margin-top:50px;
+    margin-left:165px;  
+}
+/*six-frame*/
+.six-frame{
+    margin-top:100px;
+display: flex;
+padding-bottom:100px;
+flex-direction: column;
+background: linear-gradient(90deg, #2B325A 0%, #8692D8 100%);
+
+}
+.bold-student-text{
+font-size:56px;
+font-weight: 700;
+margin-left:165px;
+margin-top:70px;
+color:#fff;
+}
+.student-carts {
+    display: flex;
+    margin-top: 50px;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+    overflow: visible;
+}
+.student {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 350px;
+    height: auto;
+    background-color: var(--card-background);
+    border-radius: 40px;
+    box-shadow: 0px 0px 40px 0px var(--shadow-color);
+    padding: 25px 30px;
+    transition: all 0.3s ease;
+    color: var(--text-color);
+}
+.student:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 10px 40px 0px var(--shadow-color);
+}
+.img-student{
+    margin-top:30px;
+    width:320px;
+    height:250px;
+}
+.name-student{
+font-size:28px;
+    font-weight:700;
+    margin-top:20px;
+}
+.text-student {
+    font-size: 15px;
+    line-height: 1.6;
+    text-align: center;
+    margin-top: 15px;
+    overflow: visible;
+    max-height: none;
+    padding: 0 5px;
+}
+/*seven-frame*/
+.seven-frame {
+    background-color: var(--card-background);
+    margin-top: 100px;
+    padding-bottom: 100px;
+}
+
+.bold-question-text {
+    color: var(--text-color);
+    font-size: 56px;
+    font-weight: 700;
+    margin-left: 165px;
+    margin-top: 70px;
+    margin-bottom: 50px;
+}
+
+.questions-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px; /* Расстояние между вопросами */
+    max-width: 1200px; /* Фиксированная ширина */
+    margin: 0 auto; /* Центрирование */
+    padding: 0 20px; /* Отступы по бокам */
+}
+
+.question {
+    background: linear-gradient(90deg, #2E3078 0%, #5C6BC0 100%);
+    border-radius: 30px;
+    color: #fff;
+    width: 100%; /* Занимает всю ширину родителя */
+    padding: 40px 40px; /* Внутренние отступы */
+    box-sizing: border-box; /* Чтобы padding не увеличивал ширину */
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.question.active {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.quest-only-up {
+    display: flex;
+    justify-content: space-between; /* Равномерное распределение */
+    align-items: center;
+    cursor: pointer;
+}
+
+.quest-text {
+    font-size: 35px;
+    font-weight: 700;
+    margin-right: 20px; /* Отступ от стрелки */
+}
+
+.quest-link {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.img-down {
+    width: 50px;
+    height: 40px;
+    transition: transform 0.3s ease; /* Анимация для стрелки */
+}
+
+.img-down:hover {
+    transform: scale(1.1);
+}
+
+.question.active .img-down {
+    transform: rotate(180deg);
+}
+
+.answer {
+    background-color: transparent; /* Transparent background to let question background show through */
+    display: none;
+    margin-top: 20px;
+    font-size: 18px;
+    line-height: 1.5;
+    padding: 10px;
+    color: #fff; /* White text */
+    border-top: 1px solid rgba(255, 255, 255, 0.2); /* Optional: subtle separator */
+}
+
+.question.active .answer {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+/* Profile and logout button styles */
+.btn-profile, .btn-logout {
+    color: white;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    background: linear-gradient(90deg, #2646FA 0%, #E30BBF 100%);
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.btn-profile:hover, .btn-logout:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/*footer*/
+.footer{
+    background-color: var(--footer-bg);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 200px;
+    padding-bottom: 20px;
+    font-size: 18px;
+    font-weight: 400;
+    margin-top: 100px;
+    color: var(--text-color);
+}
+
+.social-links {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.social-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--light-bg);
+    color: var(--text-color);
+    font-size: 22px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    background: linear-gradient(90deg, #2646FA 0%, #E30BBF 100%);
+    color: white;
+}
+
+.contact-footer{
+    display: flex;
+    flex-direction: row;
+    gap:150px;
+}
+.num{
+    text-decoration: none;
+    color: black;
+    transition:all 0.3 ease;
+}
+.num:hover{
+    background: linear-gradient(90deg, #2646FA 0%, #E30BBF 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+.email{
+    text-decoration: none;
+    color: black;
+    transition:all 0.3 ease;
+}
+.email:hover{
+    background: linear-gradient(90deg, #2646FA 0%, #E30BBF 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Theme Switcher */
+.theme-switch {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-left: 5px;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.theme-switch:hover {
+    background-color: var(--light-bg);
+}
+
+.theme-switch-icon {
+    width: 24px;
+    height: 24px;
+}
+
+/* Отключаем выделение текста и курсор вставки для всех элементов кроме input, textarea и select */
+body, div, p, h1, h2, h3, h4, h5, h6, span, a, button {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    caret-color: transparent;
+}
+
+input, textarea, select {
+    -webkit-user-select: auto;
+    -moz-user-select: auto;
+    -ms-user-select: auto;
+    user-select: auto;
+    caret-color: auto;
+}
+
+/* Добавляем анимацию появления секций при скролле */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.animated {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.8s ease;
+}
+
+.main-frame.animated.fadeInUp, 
+.second-frame.animated.fadeInUp,
+.four-frame.animated.fadeInUp,
+.five-frame.animated.fadeInUp,
+.six-frame.animated.fadeInUp,
+.seven-frame.animated.fadeInUp {
+    animation: fadeInUp 1s forwards;
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Staggered animations for cards */
+.carts .first-carts {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.5s ease;
+    transition-delay: 0.1s;
+}
+
+.carts .second-carts {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.5s ease;
+    transition-delay: 0.3s;
+}
+
+.carts .third-carts {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.5s ease;
+    transition-delay: 0.5s;
+}
+
+.carts.visible .first-carts,
+.carts.visible .second-carts,
+.carts.visible .third-carts {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered animations for teacher cards */
+.teachers-carts .teacher:nth-child(1) {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.5s ease;
+    transition-delay: 0.1s;
+}
+
+.teachers-carts .teacher:nth-child(2) {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.5s ease;
+    transition-delay: 0.3s;
+}
+
+.teachers-carts .teacher:nth-child(3) {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.5s ease;
+    transition-delay: 0.5s;
+}
+
+.teachers-carts.visible .teacher:nth-child(1),
+.teachers-carts.visible .teacher:nth-child(2),
+.teachers-carts.visible .teacher:nth-child(3) {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+[data-theme="dark"] .first-carts {
+    background-color: transparent !important;
+    color: var(--text-color) !important;
+}
+
+[data-theme="dark"] .third-carts {
+    background-color: transparent !important;
+    color: var(--text-color) !important;
+}
+
+/* Force visibility for cards */
+.carts, .teachers-carts, 
+.first-carts, .second-carts, .third-carts, 
+.teacher {
+    display: flex !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.first-carts {
+    background-color: #EBF1FF !important;
+    color: #333333 !important;
+}
+
+.second-carts {
+    background: linear-gradient(120deg, #A066F7 0%, #8F2FC1 25%, #E16AE6 50%, #75007A 100%) !important;
+    color: #FFFFFF !important;
+}
+
+.third-carts {
+    background-color: #E9EBFF !important;
+    color: #333333 !important;
+}
+
+/* Background color for teacher cards - moved to main definition */
+
+[data-theme="dark"] .first-carts {
+    background-color: transparent !important;
+    color: var(--text-color) !important;
+}
+
+[data-theme="dark"] .third-carts {
+    background-color: transparent !important;
+    color: var(--text-color) !important;
+}
+
+/* Enhanced button animations */
+.main-btn:hover, .btn-log:hover, .btn-profile:hover {
+    transform: scale(1.05);
+}
+
+.header-link:hover {
+    background: linear-gradient(90deg, #2646FA 0%, #E30BBF 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+/* New animations */
+@keyframes wave {
+    0% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(10deg);
+    }
+    50% {
+        transform: rotate(0deg);
+    }
+    75% {
+        transform: rotate(-10deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-15px);
+    }
+    60% {
+        transform: translateY(-7px);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+.animated {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.8s ease;
+}
+
+.main-frame.animated.fadeInUp, 
+.second-frame.animated.fadeInUp,
+.four-frame.animated.fadeInUp,
+.five-frame.animated.fadeInUp,
+.six-frame.animated.fadeInUp,
+.seven-frame.animated.fadeInUp {
+    animation: fadeInUp 1s forwards;
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Enhanced hover effects for course cards */
+.first-carts:hover, .second-carts:hover, .third-carts:hover {
+    transform: scale(1.05);
+}
+
+/* Apply floating animation to icons */
+.icon-3d-1, .icon-3d-2, .icon-3d-3, .icon-3d-4 {
+    transition: none;
+    animation: none;
+    transform: none;
+}
+
+/* Improved button animations */
+.main-btn:hover, .btn-log:hover, .btn-profile:hover {
+    transform: scale(1.05);
+}
+
+/* Image hover animations */
+.img-teach:hover, .image:hover, .icon:hover {
+    transform: none;
+    transition: none;
+}
+
+/* Link hover effects */
+.header-link:hover {
+    background: linear-gradient(90deg, #2646FA 0%, #E30BBF 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+.link-cart:hover, .lin-cart:hover {
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+}
+
+/* Logo animation */
+.header-logo {
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.header-logo:hover {
+    transform: scale(1.05);
+}
+
+/* Social link enhanced animations */
+.social-link:hover {
+    transform: scale(1.05);
+}
+
+/* Shimmer effect for gradient elements */
+.second-carts:hover, .btn-log:hover, .main-btn:hover {
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite linear;
+}
+
+/* Theme switcher animation */
+.theme-switch:hover .theme-switch-icon {
+    animation: spin 0.6s ease;
+}
+
+/* FAQ animation improvements */
+.quest-link:hover .img-down {
+    transform: translateY(2px);
+    transition: transform 0.2s ease;
+}
+
+/* Staggered animations for course cards */
+.carts .first-carts {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.5s ease;
+    transition-delay: 0.1s;
+}
+
+.carts .second-carts {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.5s ease;
+    transition-delay: 0.3s;
+}
+
+.carts .third-carts {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.5s ease;
+    transition-delay: 0.5s;
+}
+
+.carts.visible .first-carts,
+.carts.visible .second-carts,
+.carts.visible .third-carts {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered animations for teacher cards */
+.teachers-carts .teacher:nth-child(1) {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.5s ease;
+    transition-delay: 0.1s;
+}
+
+.teachers-carts .teacher:nth-child(2) {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.5s ease;
+    transition-delay: 0.3s;
+}
+
+.teachers-carts .teacher:nth-child(3) {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.5s ease;
+    transition-delay: 0.5s;
+}
+
+.teachers-carts.visible .teacher:nth-child(1),
+.teachers-carts.visible .teacher:nth-child(2),
+.teachers-carts.visible .teacher:nth-child(3) {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Enhanced Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+/* Apply animations to elements */
+.hero-title {
+    animation: fadeInUp 1s ease-out;
+}
+
+.hero-text {
+    animation: fadeInUp 1s ease-out 0.2s backwards;
+}
+
+.hero-btn {
+    animation: fadeInUp 1s ease-out 0.4s backwards;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.hero-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Enhanced Card Animations */
+.course-card {
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    animation: fadeInUp 0.8s ease backwards;
+}
+
+.course-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.course-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.course-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.course-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.course-card:hover .course-image {
+    transform: none;
+}
+
+.course-image {
+    transition: transform 0.5s ease;
+}
+
+/* Teacher Card Animations */
+.teacher-card {
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    animation: fadeInUp 0.8s ease backwards;
+}
+
+.teacher-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.teacher-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.teacher-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.teacher-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+}
+
+.teacher-image {
+transition: transform 0.5s ease;
+}
+
+.teacher-card:hover .teacher-image {
+transform: scale(1.02);
+transition: transform 0.3s ease;
+}
+
+/* Icon Animations */
+.feature-icon {
+transition: transform 0.3s ease;
+}
+
+.feature-item .feature-icon {
+transform: translateY(0);
+transition: transform 0.3s ease;
+}
+
+.feature-item:hover .feature-icon {
+transform: translateY(-5px);
+}
+
+/* Button and Interactive Element Enhancements */
+.btn {
+transition: all 0.3s ease;
+position: relative;
+overflow: hidden;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
+
+.btn:active {
+    transform: translateY(1px);
+}
+
+.btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+                rgba(255, 255, 255, 0) 0%, 
+                rgba(255, 255, 255, 0.2) 50%, 
+                rgba(255, 255, 255, 0) 100%);
+    transform: translateX(-100%);
+    transition: transform 0.5s ease;
+}
+
+.btn:hover::after {
+    transform: none;
+}
+
+/* Header animation */
+.header-link {
+    position: relative;
+    overflow: hidden;
+}
+
+.header-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #2646FA 0%, #E30BBF 100%);
+    transition: width 0.3s ease;
+}
+
+.header-link:hover::after {
+    width: 100%;
+}
+
+/* Dark mode specific animations and improvements */
+[data-theme="dark"] .btn:hover, html[data-theme="dark"] .btn:hover {
+    box-shadow: 0 7px 14px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .course-card:hover,
+[data-theme="dark"] .teacher-card:hover,
+html[data-theme="dark"] .course-card:hover,
+html[data-theme="dark"] .teacher-card:hover {
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Дополнительные стили для тёмной темы */
+[data-theme="dark"] .course-card, html[data-theme="dark"] .course-card {
+    background-color: #1e1e2a;
+    border: 1px solid #2a2a2a;
+}
+
+[data-theme="dark"] .course-info h3, html[data-theme="dark"] .course-info h3,
+[data-theme="dark"] .course-description, html[data-theme="dark"] .course-description,
+[data-theme="dark"] .course-meta, html[data-theme="dark"] .course-meta {
+    color: #f5f5f5;
+}
+
+[data-theme="dark"] .course-tag, html[data-theme="dark"] .course-tag {
+    background-color: #2a2a3c;
+    color: #a0a0ff;
+}
+
+[data-theme="dark"] .progress-bar-container, html[data-theme="dark"] .progress-bar-container {
+    background-color: #2a2a3c;
+}
+
+[data-theme="dark"] .auth-container, html[data-theme="dark"] .auth-container {
+    background-color: #1e1e2a;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .auth-tab, html[data-theme="dark"] .auth-tab {
+    color: #e0e0e0;
+}
+
+[data-theme="dark"] .auth-tab.active, html[data-theme="dark"] .auth-tab.active {
+    background: linear-gradient(90deg, #2646FA 0%, #E30BBF 100%);
+    color: white;
+}
+
+[data-theme="dark"] .auth-form input, html[data-theme="dark"] .auth-form input {
+    background-color: #2a2a3c;
+    color: #e0e0e0;
+    border: 1px solid #3a3a4c;
+}
+
+[data-theme="dark"] .auth-form input::placeholder, html[data-theme="dark"] .auth-form input::placeholder {
+    color: #a0a0a0;
+}
+
+[data-theme="dark"] .forgot-password, html[data-theme="dark"] .forgot-password {
+    color: #a0a0ff;
+}
+
+[data-theme="dark"] .profile-container, html[data-theme="dark"] .profile-container {
+    background-color: #1e1e2a;
+}
+
+[data-theme="dark"] .profile-tab, html[data-theme="dark"] .profile-tab {
+    background-color: #2a2a3c;
+    color: #e0e0e0;
+}
+
+[data-theme="dark"] .profile-tab.active, html[data-theme="dark"] .profile-tab.active {
+    background: linear-gradient(90deg, #2646FA 0%, #E30BBF 100%);
+    color: white;
+}
+
+[data-theme="dark"] .profile-content, html[data-theme="dark"] .profile-content {
+    background-color: #2a2a3c;
+    color: #e0e0e0;
+}
+
+/* Кнопка профиля ближе к кнопке темы */
+.header-button.user-profile-btn {
+    margin-left: 0;
+}
+
+/* Force visibility for cards - moved from inline style */
+.carts, .teachers-carts {
+    display: flex !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    position: relative !important;
+    z-index: 100 !important;
+    overflow: visible !important;
+}
+
+.first-carts, .second-carts, .third-carts, .teacher {
+    display: flex !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    position: relative !important;
+    z-index: 100 !important;
+    overflow: visible !important;
+}
+
+.animated {
+    opacity: 1 !important;
+    visibility: visible !important;
+    animation: none !important;
+}
+
+.second-frame, .four-frame {
+    overflow: visible !important;
+    z-index: 50 !important;
+}
+
+/* Remove animations for teacher images */
+.img-teach:hover {
+    transform: none !important;
+}
+
+/* Fix profile button spacing */
+.header-button.user-profile-btn {
+    margin-left: 5px !important;
+}
+
+/* Style for header button display */
+.header-select {
+    gap: 5px;
+}
+
+/* Remove animations from buttons */
+.btn-log, .btn-first, .main-btn, .btn-profile, .btn-logout, .continue-btn, .social-link, .btn, .course-btn, .btn-auth {
+    transition: transform 0.3s ease, background 0.3s ease !important;
+    animation: none !important;
+}
+
+.btn-log:hover, .btn-first:hover, .main-btn:hover, .btn-profile:hover, .btn-logout:hover, .continue-btn:hover, .social-link:hover, .btn:hover, .course-btn:hover, .btn-auth:hover {
+    transform: scale(1.05) !important;
+    background: linear-gradient(90deg, #1f37bf 0%, #9d1c88 100%) !important;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2) !important;
+}
+
+/* Fix student cards - make them full height without scrolling */
+.student {
+    height: auto !important;
+    overflow: visible !important;
+}
+
+.text-student {
+    overflow: visible !important;
+    max-height: none !important;
+}
+
+/* Ensure cards visibility styles */
+.carts {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    gap: 30px !important;
+}
+
+.teachers-carts {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    gap: 40px !important;
+}
+
+/* Card background colors */
+.first-carts {
+    background-color: var(--card-background) !important;
+}
+
+.second-carts {
+    background: var(--second-card-bg) !important;
+}
+
+.third-carts {
+    background-color: var(--third-card-bg) !important;
+}
+
+/* Add placeholder for animation keyframes */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+/* Remove unnecessary pseudo-elements */
+.btn::after, .btn::before, 
+.btn-log::after, .btn-log::before, 
+.btn-first::after, .btn-first::before, 
+.main-btn::after, .main-btn::before {
+    content: none !important;
+    display: none !important;
+}
+
+/* Override any animations */
+@keyframes shimmer {
+    0%, 100% {
+        background-position: 0 0;
+    }
+}
+
+/* Ensure FAQ styles work properly */
+.question.active .answer {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+/* Style for text color on cards */
+.first-carts .bold-carts, .first-carts .med-carts {
+    color: var(--first-card-text);
+}
+
+.third-carts .bold-carts, .third-carts .med-carts {
+    color: var(--third-card-text);
+}
+
+.second-carts .bold-carts, .second-carts .med-carts {
+    color: #ffffff;
+}
+
+/* Properly center content in carts */
+.first-carts, .second-carts, .third-carts {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px var(--shadow-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Ensure teacher cards are properly styled - removed duplication */
+
+/* Override any inline styles added by JavaScript */
+.carts, .teachers-carts,
+.first-carts, .second-carts, .third-carts, .teacher {
+    display: flex !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Make sure animation classes actually work */
+.animated {
+    opacity: 1 !important;
+    visibility: visible !important;
+    animation: none !important;
+}
+
+/* Fix student cards */
+.student {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.student:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+}
+
+/* Fix spacing in the header */
+.header-button {
+    margin-left: 5px;
+}
+
+/* Hide user profile button by default - it will be shown via JavaScript when user is logged in */
+.header-button.user-profile-btn {
+    display: none;
+}
+
+/* Глобальные переопределения для всех карточек, обеспечивающие правильную анимацию */
+.teacher, .first-carts, .second-carts, .third-carts {
+    display: flex !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: scale(1) !important;
+    transition: transform 0.5s ease, box-shadow 0.5s ease !important;
+}
+
+.teacher:hover, .first-carts:hover, .second-carts:hover, .third-carts:hover {
+    transform: scale(1.05) !important;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15) !important;
+}
+
+/* Отключаем все анимации перемещения для карточек */
+.teachers-carts .teacher, .carts .first-carts, .carts .second-carts, .carts .third-carts {
+    animation: none !important;
+    transform: none !important;
+}
+
+/* Переопределяем любые другие правила, блокирующие анимацию */
+.teachers-carts .teacher:nth-child(n), 
+.carts .first-carts, 
+.carts .second-carts, 
+.carts .third-carts {
+    opacity: 1 !important;
+    transform: scale(1) !important;
+    transition: transform 0.5s ease, box-shadow 0.5s ease !important;
+}
+
+.teachers-carts.visible .teacher:nth-child(n),
+.carts.visible .first-carts,
+.carts.visible .second-carts,
+.carts.visible .third-carts {
+    opacity: 1 !important;
+    transform: scale(1) !important;
+}
+
+/* ===== НОВЫЙ РАЗДЕЛ: ПЕРЕОПРЕДЕЛЕНИЕ СТИЛЕЙ ДЛЯ КАРТОЧЕК ===== */
+/* Сбрасываем все предыдущие стили, которые могли бы мешать */
+
+/* СБРОС СТИЛЕЙ: Отключаем все анимации */
+.carts .first-carts, 
+.carts .second-carts, 
+.carts .third-carts,
+.teachers-carts .teacher:nth-child(1), 
+.teachers-carts .teacher:nth-child(2), 
+.teachers-carts .teacher:nth-child(3),
+.animated {
+    animation: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* БАЗОВЫЕ СТИЛИ КАРТОЧЕК БЕЗ HOVER */
+.teacher {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    padding: 20px !important;
+    border-radius: 15px !important;
+    background: linear-gradient(90deg, #2B325A 0%, #5C6BC0 100%) !important;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1) !important;
+    color: #ffffff !important;
+    width: 350px !important;
+    height: 420px !important;
+    gap: 15px !important;
+    z-index: 100 !important;
+    position: relative !important;
+    transform: scale(1) !important;
+    transition: transform 0.5s ease, box-shadow 0.5s ease !important;
+}
+
+.first-carts,
+.second-carts, 
+.third-carts {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 350px !important;
+    height: 350px !important;
+    text-align: center !important;
+    border-radius: 40px !important;
+    padding: 25px !important;
+    transform: scale(1) !important;
+    box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.1) !important;
+    transition: transform 0.5s ease, box-shadow 0.5s ease !important;
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+.first-carts {
+    background-color: #EBF1FF !important;
+    color: #333333 !important;
+}
+
+.second-carts {
+    background: linear-gradient(120deg, #A066F7 0%, #8F2FC1 25%, #E16AE6 50%, #75007A 100%) !important;
+    color: #FFFFFF !important;
+}
+
+.third-carts {
+    background-color: #E9EBFF !important;
+    color: #333333 !important;
+}
+
+/* HOVER ЭФФЕКТЫ ДЛЯ КАРТОЧЕК */
+.teacher:hover {
+    transform: scale(1.05) !important; 
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15) !important;
+}
+
+.first-carts:hover,
+.second-carts:hover,
+.third-carts:hover {
+    transform: scale(1.05) !important;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15) !important;
+}
+
+/* СТИЛИ ДЛЯ ССЫЛОК В КАРТОЧКАХ */
+.link-cart, 
+.lin-cart {
+    display: inline-block !important;
+    text-decoration: none !important;
+    font-size: 18px !important;
+    font-weight: 400 !important;
+    padding: 8px 16px !important;
+    border-radius: 20px !important;
+    transform: scale(1) !important;
+    transition: transform 0.5s ease, box-shadow 0.5s ease, color 0.3s ease !important;
+}
+
+.link-cart {
+    background-color: white !important;
+    color: #242792 !important;
+}
+
+.lin-cart {
+    background-color: rgba(255,255,255,0.2) !important;
+    color: #FFFFFF !important;
+}
+
+.link-cart:hover,
+.lin-cart:hover {
+    transform: scale(1.05) !important;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1) !important;
+}
+
+.link-cart:hover {
+    color: #E30BBF !important;
+}
+
+.lin-cart:hover {
+    color: #000000 !important;
+}
+
+/* КОНТЕЙНЕРЫ ДЛЯ КАРТОЧЕК */
+.teachers-carts,
+.carts {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    flex-wrap: nowrap !important;
+    gap: 40px !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.teachers-carts {
+    margin-top: 50px !important;
+}
+
+.carts {
+    margin-top: 40px !important;
+    gap: 30px !important;
+}
+
+/* СТИЛИ ДЛЯ СЕКЦИЙ */
+.second-frame, 
+.four-frame {
+    overflow: visible !important;
+    z-index: 50 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Удаляем стили для кнопки переключения языка */
+.switch-lang, .switch-lang:hover {
+    display: none;
+}

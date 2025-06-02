@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="kk" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-lang-key="courses_title">EduPlatform - Курстар</title>
+  <link rel="icon" type="image/svg+xml" href="img/edu_logo_favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/course.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Скрипты для темы и локализации -->
+  <script src="JavaScript/translations.js"></script>
+  <script src="JavaScript/unified_theme_switcher.js"></script>
+  <script src="JavaScript/enhance_dark_theme.js"></script>
+  <script src="JavaScript/page_translations.js"></script>
+  <!-- Специальный скрипт переводов для страницы курсов -->
+  <script src="JavaScript/courses_lang.js"></script>
+  <style>
+    .courses-container {
+      max-width: 1200px;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+    
+    /* Скрываем любые дополнительные ненужные надписи над карточками курсов */
+    .courses-row .course-extra-label,
+    .courses-row > div:not(.course-card),
+    .courses-row > span,
+    .courses-row > label,
+    .courses-container > span:not(.course-badge),
+    .courses-container > div:not(.courses-title, .courses-intro, .courses-filter, #auth-message, .courses-row, .courses-benefits) {
+      display: none !important;
+    }
+    
+    .courses-title {
+      font-size: 32px;
+      margin-bottom: 40px;
+      background: linear-gradient(90deg, #2646FA 0%, #E30BBF 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      text-align: center;
+    }
+    
+    .courses-intro {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 40px;
+      color: #555;
+      line-height: 1.6;
+    }
+    
+    .courses-filter {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    
+    .filter-btn {
+      background: #f0f4ff;
+      border: 2px solid transparent;
+      border-radius: 25px;
+      padding: 8px 20px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+    
+    .filter-btn:hover {
+      background: #e0e6ff;
+    }
+    
+    .filter-btn.active {
+      background: linear-gradient(90deg, #2646FA 0%, #E30BBF 100%);
+      color: white;
+    }
+    
+    .courses-row {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      gap: 30px;
+      justify-content: center;
+      overflow-x: auto;
+      padding-bottom: 20px;
+    }
+    
+    .course-card {
+      flex: 0 0 350px;
+      width: 350px;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      height: 470px; /* Увеличиваем высоту карточки для лучшего размещения контента */
+      margin-bottom: 20px;
+    }
+    
+    .course-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    }
+    
+    .course-image-container {
+      position: relative;
+      height: 200px;
+      overflow: hidden;
+    }
+    
+    .course-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+      transition: all 0.3s ease;
+    }
+    
+    .course-badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: linear-gradient(90deg, #2646FA 0%, #E30BBF 100%);
+      color: white;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    
+    .course-info {
+      padding: 25px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .course-info h3 {
+      font-size: 22px;
+      margin: 0 0 20px 0; /* Увеличиваем отступ снизу для заголовка */
+      height: 30px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .course-meta {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 20px; /* Увеличиваем отступ снизу */
+      color: #666;
+      font-size: 14px;
+    }
+    
+    .course-meta div {
+      margin-right: 20px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .course-meta div:before {
+      content: "•";
+      margin-right: 8px;
+      color: #2646FA;
+    }
+    
+    .course-description {
+      margin-bottom: 20px; /* Увеличиваем отступ снизу */
+      color: #555;
+      line-height: 1.5;
+      flex-grow: 1;
+      min-height: 60px;
+    }
+    
+    .course-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px; /* Увеличиваем отступ снизу */
+    }
+    
+    .course-tag {
+      background: #f0f4ff;
+      padding: 5px 12px;
+      border-radius: 15px;
+      font-size: 12px;
+      color: #2646FA;
+    }
+    
+    /* Выравниваем все кнопки в карточках курсов */
+    .course-actions {
+      display: flex;
+      justify-content: space-between;
+      height: 45px; /* Фиксируем высоту контейнера для кнопок */
+      margin-top: auto; /* Прижимаем кнопки к низу карточки */
+    }
+    
+    .course-btn {
+      display: inline-block;
+      background: linear-gradient(90deg, #2646FA 0%, #E30BBF 100%);
+      color: rgb(255, 255, 255);
+      padding: 12px 25px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s ease;
+      border: none;
+      cursor: pointer;
+      height: 100%;
+      min-width: 110px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .course-btn1{
+      display: inline-block;
+      background-color: #ffffff;
+      color: rgb(144, 144, 144);
+      padding: 12px 25px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s ease;
+      cursor: pointer;
+      height: 100%;
+      min-width: 110px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border:1px solid grey;
+    }
+    .course-btn:hover {
+      background: linear-gradient(90deg, #1f37bf 0%, #9d1c88 100%);
+      transform: scale(1.05);
+    }
+    .course-btn1:hover {
+      transform: scale(1.05);
+    }
+    .courses-benefits {
+      margin: 60px auto;
+      max-width: 1000px;
+    }
+    
+    .benefits-title {
+      text-align: center;
+      font-size: 28px;
+      margin-bottom: 40px;
+      color: #333;
+    }
+    
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+    
+    .benefit-card {
+      text-align: center;
+      padding: 30px 20px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      transition: transform 0.3s;
+    }
+    
+    .benefit-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .benefit-icon {
+      font-size: 40px;
+      margin-bottom: 15px;
+      background: linear-gradient(90deg, #2646FA 0%, #E30BBF 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    
+    .benefit-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: #333;
+    }
+    
+    .benefit-text {
+      color: #666;
+      line-height: 1.5;
+    }
+    
+    #auth-message {
+      text-align: center;
+      background-color: #f8f9fa;
+      padding: 40px;
+      border-radius: 15px;
+      margin: 50px auto;
+      max-width: 600px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    }
+    
+    #auth-message p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      color: #555;
+    }
+    
+    .btn-auth {
+      display: inline-block;
+      background: linear-gradient(90deg, #2646FA 0%, #E30BBF 100%);
+      color: white;
+      padding: 12px 30px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 0.2s;
+    }
+    
+    .btn-auth:hover {
+      background: linear-gradient(90deg, #1f37bf 0%, #9d1c88 100%);
+      transform: scale(1.05);
+    }
+    
+    /* Theme Switch */
+    .theme-switch {
+      position: relative;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      margin-left: 15px;
+      border-radius: 50%;
+      transition: background-color 0.3s ease;
+    }
+    
+    .theme-switch:hover {
+      background-color: rgba(0,0,0,0.05);
+    }
+    
+    .theme-switch-icon {
+      width: 24px;
+      height: 24px;
+    }
+    
+    /* Social Links */
+    .social-links {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+    
+    .social-link {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: #f8f9fa;
+      color: #333;
+      font-size: 22px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .social-link:hover {
+      background: linear-gradient(90deg, #2646FA 0%, #E30BBF 100%);
+      color: white;
+      transform: translateY(-5px);
+    }
+    
+    /* Уменьшаем минимальную ширину для небольших экранов */
+    @media (max-width: 768px) {
+      .course-btn {
+        min-width: 80px;
+        padding: 10px 15px;
+        font-size: 14px;
+      }
+    }
+    .footer{
+      display: flex;
+      align-items: center;
+    }
+    /* Фиксируем расположение кнопок в хедере */
+    .header-button.user-profile-btn {
+      margin-left: 0;
+    }
+  </style>
+</head>
+<body>
+  <header class="header-line">
+    <div class="header-logo">
+        EduPlatform
+    </div>
+    <div class="header-text">
+        <a class="header-link" href="index.html" data-lang-key="main">Басты</a>
+        <a class="header-link" href="courses.html" data-lang-key="courses">Курстар</a>
+        <a class="header-link" href="#footer" data-lang-key="contacts">Байланыс</a>
+        <div class="header-select" style="gap: 5px;">
+            <div class="selector">
+                <select name="language" id="select" class="select">
+                    <option value="Қазақша" selected>Қазақша</option>
+                    <option value="Русский">Русский</option>
+                </select>
+            </div>
+            <div class="theme-switch" id="theme-switch">
+                <i class="fas fa-moon theme-switch-icon" id="theme-icon"></i>
+            </div>
+            <div class="header-button" style="margin-left: 5px;">
+                <a class="btn-log" id="btn-log" href="login.html" data-lang-key="login">Кіру</a>
+            </div>
+            <div class="header-button user-profile-btn" style="display: none; margin-left: 5px;">
+                <a class="btn-profile" id="btn-profile" href="profile.html" data-lang-key="profile">Профиль</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main>
+  <div class="courses-container">
+    <h1 class="courses-title" id="courses-title" data-lang-key="courses">Біздің курстар</h1>
+    
+    <p class="courses-intro" data-lang-key="courses_intro">
+      EduPlatform – білім берудің болашағы. Біз өзіңіздің қарқыныңызбен оқуға мүмкіндік береміз. Кез келген уақытта, кез келген жерде оқыңыз.
+    </p>
+    
+    <div class="courses-filter">
+      <button class="filter-btn active" data-filter="all" data-lang-key="filter_all">Барлығы</button>
+      <button class="filter-btn" data-filter="beginner" data-lang-key="filter_beginner">Бастаушыларға</button>
+      <button class="filter-btn" data-filter="advanced" data-lang-key="filter_advanced">Жалғастыру</button>
+      <button class="filter-btn" data-filter="expert" data-lang-key="filter_expert">Мамандар</button>
+    </div>
+    
+    <div id="auth-message" style="display: none;">
+      <p data-lang-key="auth_required">Курстарға қол жеткізу үшін жүйеге кіру қажет</p>
+      <a href="login.html" class="btn-auth" data-lang-key="auth_login">Кіру немесе тіркелу</a>
+    </div>
+    
+    <div class="courses-row" id="courses-grid">
+      <div class="course-card" data-category="beginner">
+        <div class="course-image-container">
+          <span class="course-badge" data-lang-key="filter_beginner">Бастаушыларға</span>
+        </div>
+        <div class="course-info">
+          <h3 data-lang-key="html_title">HTML/CSS</h3>
+          <div class="course-meta">
+            <div>9 <span data-lang-key="lessons">сабақ</span></div>
+            <div>4 <span data-lang-key="weeks">апта</span></div>
+          </div>
+          <p class="course-description" data-lang-key="html_desc_full">Веб-әзірлеудің негіздері, сайттарды нөлден бастап құру</p>
+          <div class="course-tags">
+            <span class="course-tag">HTML5</span>
+            <span class="course-tag">CSS3</span>
+            <span class="course-tag">Responsive</span>
+          </div>
+          <div class="course-actions">
+            <button class="course-btn" onclick="startCourse('html', 'kk')" style="margin-right: 5px;">Қазақша</button>
+            <button class="course-btn1" onclick="startCourse('html', 'ru')">Русский</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="course-card" data-category="advanced">
+        <div class="course-image-container">
+          <span class="course-badge" data-lang-key="filter_advanced">Орташа</span>
+        </div>
+        <div class="course-info">
+          <h3 data-lang-key="db_title">Деректер қоры және SQL</h3>
+          <div class="course-meta">
+            <div>9 <span data-lang-key="lessons">сабақ</span></div>
+            <div>4 <span data-lang-key="weeks">апта</span></div>
+          </div>
+          <p class="course-description" data-lang-key="db_desc_full">Деректерді сақтау және өңдеу негіздері, SQL сұраныс тілі</p>
+          <div class="course-tags">
+            <span class="course-tag">SQL</span>
+            <span class="course-tag">MySQL</span>
+            <span class="course-tag">Database</span>
+          </div>
+          <div class="course-actions">
+            <button class="course-btn" onclick="startCourse('database', 'kk')" style="margin-right: 5px;">Қазақша</button>
+            <button class="course-btn1" onclick="startCourse('database', 'ru')">Русский</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="course-card" data-category="beginner">
+        <div class="course-image-container">
+          <span class="course-badge" data-lang-key="filter_beginner">Бастаушыларға</span>
+        </div>
+        <div class="course-info">
+          <h3 data-lang-key="python_title">Python</h3>
+          <div class="course-meta">
+            <div>9 <span data-lang-key="lessons">сабақ</span></div>
+            <div>4 <span data-lang-key="weeks">апта</span></div>
+          </div>
+          <p class="course-description" data-lang-key="python_desc_full">Python бағдарламалау негіздері, алгоритмдер және деректер құрылымы</p>
+          <div class="course-tags">
+            <span class="course-tag">Python 3</span>
+            <span class="course-tag">Algorithms</span>
+            <span class="course-tag">OOP</span>
+          </div>
+          <div class="course-actions">
+            <button class="course-btn" onclick="startCourse('python', 'kk')" style="margin-right: 5px;">Қазақша</button>
+            <button class="course-btn1" onclick="startCourse('python', 'ru')">Русский</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="courses-benefits">
+      <h2 class="benefits-title" data-lang-key="benefits_title">Біздің курстардың артықшылықтары</h2>
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon">🔄</div>
+          <h3 class="benefit-title" data-lang-key="benefit1_title">Жаңартылып отыратын контент</h3>
+          <p class="benefit-text" data-lang-key="benefit1_text">Біздің курстар үнемі жаңартылып, соңғы технологиялармен толықтырылады</p>
+        </div>
+        
+        <div class="benefit-card">
+          <div class="benefit-icon">🎓</div>
+          <h3 class="benefit-title" data-lang-key="benefit2_title">Тәжірибелік тапсырмалар</h3>
+          <p class="benefit-text" data-lang-key="benefit2_text">Әр сабақ бойынша алған білімді бекітуге арналған тәжірибелік жұмыстар</p>
+        </div>
+        
+        <div class="benefit-card">
+          <div class="benefit-icon">🚀</div>
+          <h3 class="benefit-title" data-lang-key="benefit3_title">Кәсіби деңгейге жылдам өсу</h3>
+          <p class="benefit-text" data-lang-key="benefit3_text">Жылдам нәтижеге қол жеткізуге арналған құрылымдалған бағдарлама</p>
+        </div>
+        
+        <div class="benefit-card">
+          <div class="benefit-icon">🔍</div>
+          <h3 class="benefit-title" data-lang-key="benefit4_title">Жеке қолдау</h3>
+          <p class="benefit-text" data-lang-key="benefit4_text">Үй тапсырмалары бойынша жеке кері байланыс және көмек</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="footer" id="footer" style="align-items: center;">
+  <div class="text-footer" data-lang-key="copyright">
+      © 2025 EduPlatform
+  </div>
+  <div class="social-links">
+      <a href="https://www.instagram.com/s.t1ko?igsh=a3N1a2RkNGcxYnUx&utm_source=qr" target="_blank" class="social-link" data-social="instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://t.me/+5yoacKyZU6k3OGIy" target="_blank" class="social-link" data-social="telegram"><i class="fab fa-telegram"></i></a>
+      <a href="https://wa.me/77052421356" target="_blank" class="social-link" data-social="whatsapp"><i class="fab fa-whatsapp"></i></a>
+  </div>
+</footer>
+
+<script src="JavaScript/data.js"></script>
+<script src="JavaScript/main.js"></script>
+
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+<!-- Файл настроек Firebase -->
+<script src="JavaScript/firebase.js"></script>
+
+<!-- Подключаем файл с переводами -->
+<script src="JavaScript/translations.js"></script>
+<script src="JavaScript/enhanced_translations.js"></script>
+<script src="JavaScript/fix_all.js"></script>
+<!-- Скрипт для исправления перенаправления курсов -->
+<script src="JavaScript/fix_course_redirect.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Функция для обновления языка на странице
+    function updateLanguage(lang) {
+      // Используем улучшенную систему переводов, если она доступна
+      if (typeof window.switchLanguage === 'function') {
+        window.switchLanguage(lang);
+      } else {
+        // Резервный вариант, если новая система не загрузилась
+        // Устанавливаем атрибут lang для HTML
+        document.documentElement.setAttribute('lang', lang);
+        
+        // Заменяем текст во всех элементах с атрибутом data-lang-key
+        const elements = document.querySelectorAll('[data-lang-key]');
+        elements.forEach(element => {
+          const key = element.getAttribute('data-lang-key');
+          if (translations[lang] && translations[lang][key]) {
+            element.innerHTML = translations[lang][key];
+          }
+        });
+        
+        // Сохраняем выбранный язык в localStorage
+        const userData = JSON.parse(localStorage.getItem('currentUser') || '{}');
+        userData.language = lang;
+        localStorage.setItem('currentUser', JSON.stringify(userData));
+      }
+    }
+    
+    // Theme switcher
+    const themeSwitch = document.getElementById('theme-switch');
+    const themeIcon = document.getElementById('theme-icon');
+    
+    // Check for saved theme preference or use default
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    
+    // Update icon based on current theme
+    if (currentTheme === 'dark') {
+      themeIcon.classList.replace('fa-moon', 'fa-sun');
+    }
+    
+    themeSwitch.addEventListener('click', function() {
+      let theme = 'light';
+      
+      // If it's light, switch to dark
+      if (document.documentElement.getAttribute('data-theme') === 'light') {
+        theme = 'dark';
+        themeIcon.classList.replace('fa-moon', 'fa-sun');
+      } else {
+        themeIcon.classList.replace('fa-sun', 'fa-moon');
+      }
+      
+      // Set theme preference
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+    });
+    
+    // Обработка выбора языка
+    const langSelect = document.getElementById('select');
+    langSelect.addEventListener('change', function() {
+      const lang = this.value === 'Қазақша' ? 'kk' : 'ru';
+      
+      // Применяем новый язык
+      updateLanguage(lang);
+      
+      // Если пользователь авторизован, обновляем язык в Firebase
+      const user = firebase.auth().currentUser;
+      if (user && window.firebaseAuth && typeof window.firebaseAuth.updateUserData === 'function') {
+        window.firebaseAuth.updateUserData({ language: lang });
+      }
+    });
+    
+    // Проверяем состояние аутентификации при загрузке страницы
+    firebase.auth().onAuthStateChanged(user => {
+      const btnLog = document.getElementById('btn-log');
+      const btnProfile = document.querySelector('.user-profile-btn');
+      const coursesGrid = document.getElementById('courses-grid');
+      const authMessage = document.getElementById('auth-message');
+      
+      if (user) {
+        // Если пользователь авторизован
+        console.log('Пользователь авторизован:', user.email);
+        
+        // Получаем данные пользователя
+        const userData = JSON.parse(localStorage.getItem('currentUser') || '{}');
+        
+        // Синхронизируем с Firebase, если функция доступна
+        if (window.firebaseAuth && typeof window.firebaseAuth.syncData === 'function') {
+          window.firebaseAuth.syncData()
+            .then(() => {
+              // После синхронизации данных загружаем курсы
+              // Здесь ничего делать не нужно, просто показываем курсы
+              coursesGrid.style.display = 'flex';
+              authMessage.style.display = 'none';
+            });
+        } else {
+          // Если Firebase недоступен, просто показываем курсы
+          coursesGrid.style.display = 'flex';
+          authMessage.style.display = 'none';
+        }
+        
+        // Обновляем UI
+        btnLog.style.display = 'none';
+        btnProfile.style.display = 'inline-block';
+        
+        // Устанавливаем язык из настроек пользователя
+        if (userData.language) {
+          // Обновляем текст кнопки переключения языка
+          const switchLangBtn = document.querySelector('.switch-lang');
+          if (switchLangBtn) {
+            switchLangBtn.textContent = userData.language === 'kk' ? 'Русский' : 'Қазақша';
+          }
+          
+          updateLanguage(userData.language);
+        }
+      } else {
+        // Если пользователь не авторизован
+        console.log('Пользователь не авторизован');
+        
+        // Показываем сообщение о необходимости авторизации
+        coursesGrid.style.display = 'none';
+        authMessage.style.display = 'block';
+        
+        // Обновляем UI
+        btnLog.style.display = 'inline-block';
+        btnProfile.style.display = 'none';
+      }
+    });
+    
+    // Функция для запуска курса
+    window.startCourse = function(courseType, lang) {
+      let url = '';
+      
+      // Определяем URL в зависимости от типа курса и языка
+      if (lang === 'ru') {
+        switch(courseType) {
+          case 'html':
+            url = 'course_rus.html';
+            break;
+          case 'database':
+            url = 'database_course_rus.html';
+            break;
+          case 'python':
+            url = 'python_course_rus.html';
+            break;
+          default:
+            url = 'course_rus.html';
+            courseType = 'html';
+        }
+      } else {
+        switch(courseType) {
+          case 'html':
+            url = 'course.html';
+            break;
+          case 'database':
+            url = 'database_course.html';
+            break;
+          case 'python':
+            url = 'python_course.html';
+            break;
+          default:
+            url = 'course.html';
+            courseType = 'html';
+        }
+      }
+      
+      console.log('Запуск курса:', courseType, 'URL:', url);
+      
+      // Сохраняем тип курса для правильной загрузки уроков
+      localStorage.setItem("lastOpenedCourse", courseType);
+      
+      // Set the flag to open the first lesson after reload
+      localStorage.setItem("openLessonAfterReload", "1");
+      
+      // Переходим на страницу курса
+      window.location.href = url;
+    };
+    
+    // Фильтрация курсов
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    
+    filterButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        // Удаляем класс active у всех кнопок
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        
+        // Добавляем класс active к нажатой кнопке
+        this.classList.add('active');
+        
+        // Получаем значение фильтра
+        const filter = this.getAttribute('data-filter');
+        
+        // Получаем все карточки курсов
+        const courseCards = document.querySelectorAll('.course-card');
+        
+        // Фильтруем карточки
+        courseCards.forEach(card => {
+          if (filter === 'all' || card.getAttribute('data-category') === filter) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+    
+    // Функция для показа сообщения о покупке полной версии курса
+    window.showPurchaseAlert = function() {
+      const userData = JSON.parse(localStorage.getItem('currentUser') || '{}');
+      const lang = userData.language || 'kk';
+      
+      let message;
+      if (lang === 'kk') {
+        message = 'Қазіргі уақытта төлем өтпейді. 15 минуттан кейін қайталап көріңіз.';
+      } else {
+        message = 'В данный момент оплата не может быть выполнена. Пожалуйста, повторите через 15 минут.';
+      }
+      
+      alert(message);
+    }
+    
+    // Загружаем язык при инициализации
+    const userData = JSON.parse(localStorage.getItem('currentUser') || '{}');
+    if (userData.language) {
+      // Обновляем текст кнопки переключения языка
+      const switchLangBtn = document.querySelector('.switch-lang');
+      if (switchLangBtn) {
+        switchLangBtn.textContent = userData.language === 'kk' ? 'Русский' : 'Қазақша';
+      }
+      
+      updateLanguage(userData.language);
+    }
+  });
+</script>
+
+    <footer class="footer" id="footer">
+        <div class="text-footer" data-lang-key="copyright">
+            © 2025 EduPlatform
+        </div>
+        <div class="social-links">
+            <a href="https://www.instagram.com/s.t1ko?igsh=a3N1a2RkNGcxYnUx&utm_source=qr" target="_blank" class="social-link" data-social="instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://t.me/+5yoacKyZU6k3OGIy" target="_blank" class="social-link" data-social="telegram"><i class="fab fa-telegram"></i></a>
+            <a href="https://wa.me/77052421356" target="_blank" class="social-link" data-social="whatsapp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+    </footer>
+</body>
+</html>
